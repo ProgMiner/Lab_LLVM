@@ -1,33 +1,51 @@
 #include "sim.h"
 
 
-static void draw_gen(const uint8_t * gen) {
+#define GEN_IDX(__idx) ((__idx) / 32)
+#define GEN_SIZE(__s) GEN_IDX((__s) + 31)
+
+
+static inline uint32_t get_gen_value(const uint32_t * gen, int32_t x, int32_t y) {
+    x = (x % SIM_X_SIZE + SIM_X_SIZE) % SIM_X_SIZE;
+    y = (y % SIM_Y_SIZE + SIM_Y_SIZE) % SIM_Y_SIZE;
+
+    const uint32_t idx = y * SIM_X_SIZE + x;
+    return (gen[GEN_IDX(idx)] >> (idx % 32)) & 1;
+}
+
+static inline void set_gen_value(uint32_t * gen, int32_t x, int32_t y, uint32_t v) {
+    x = (x % SIM_X_SIZE + SIM_X_SIZE) % SIM_X_SIZE;
+    y = (y % SIM_Y_SIZE + SIM_Y_SIZE) % SIM_Y_SIZE;
+
+    const uint32_t idx = y * SIM_X_SIZE + x;
+
+    if (v) {
+        gen[GEN_IDX(idx)] |= 1 << (idx % 32);
+    } else {
+        gen[GEN_IDX(idx)] &= ~(1 << (idx % 32));
+    }
+}
+
+static void draw_gen(const uint32_t * gen) {
     for (uint32_t y = 0; y < SIM_Y_SIZE; y++) {
         for (uint32_t x = 0; x < SIM_X_SIZE; x++) {
-            sim_set_pixel(x, y, 0xFF000000 + 0xFF00 * gen[y * SIM_X_SIZE + x]);
+            sim_set_pixel(x, y, 0xFF000000 + 0xFF00 * get_gen_value(gen, x, y));
         }
     }
 
     sim_flush();
 }
 
-static inline uint8_t get_gen_value(const uint8_t * gen, int32_t x, int32_t y) {
-    x = (x % SIM_X_SIZE + SIM_X_SIZE) % SIM_X_SIZE;
-    y = (y % SIM_Y_SIZE + SIM_Y_SIZE) % SIM_Y_SIZE;
-
-    return gen[y * SIM_X_SIZE + x];
-}
-
-static uint8_t calc_gen(uint8_t * next_gen, const uint8_t * prev_gen) {
-    uint8_t has_changes = 0;
-    uint8_t has_living = 0;
+static uint32_t calc_gen(uint32_t * next_gen, const uint32_t * prev_gen) {
+    uint32_t has_changes = 0;
+    uint32_t has_living = 0;
 
 	for (int32_t y = 0; y < SIM_Y_SIZE; ++y) {
 	    for (int32_t x = 0; x < SIM_X_SIZE; ++x) {
             uint32_t neighbours = 0;
 
-            for (int8_t dy = -1; dy <= 1; ++dy) {
-                for (int8_t dx = -1; dx <= 1; ++dx) {
+            for (int32_t dy = -1; dy <= 1; ++dy) {
+                for (int32_t dx = -1; dx <= 1; ++dx) {
                     if (dx == 0 && dy == 0) {
                         continue;
                     }
@@ -36,8 +54,8 @@ static uint8_t calc_gen(uint8_t * next_gen, const uint8_t * prev_gen) {
                 }
             }
 
-            const uint8_t old_value = prev_gen[y * SIM_X_SIZE + x];
-            const uint8_t next_value = old_value
+            const uint32_t old_value = get_gen_value(prev_gen, x, y);
+            const uint32_t next_value = old_value
                 ? neighbours == 2 || neighbours == 3
                 : neighbours == 3;
 
@@ -49,7 +67,7 @@ static uint8_t calc_gen(uint8_t * next_gen, const uint8_t * prev_gen) {
                 has_living = 1;
             }
 
-            next_gen[y * SIM_X_SIZE + x] = next_value;
+            set_gen_value(next_gen, x, y, next_value);
         }
     }
 
@@ -57,14 +75,14 @@ static uint8_t calc_gen(uint8_t * next_gen, const uint8_t * prev_gen) {
 }
 
 int main() {
-    uint8_t gen1[SIM_Y_SIZE * SIM_X_SIZE] = { 0 };
-    uint8_t gen2[SIM_Y_SIZE * SIM_X_SIZE] = { 0 };
-    uint8_t * next_gen = gen1;
-    uint8_t * prev_gen = gen2;
+    uint32_t gen1[GEN_SIZE(SIM_Y_SIZE * SIM_X_SIZE)] = { 0 };
+    uint32_t gen2[GEN_SIZE(SIM_Y_SIZE * SIM_X_SIZE)] = { 0 };
+    uint32_t * next_gen = gen1;
+    uint32_t * prev_gen = gen2;
 
     for (uint32_t y = 0; y < SIM_Y_SIZE; y++) {
         for (uint32_t x = 0; x < SIM_X_SIZE; x++) {
-            prev_gen[y * SIM_X_SIZE + x] = sim_rand() % 2;
+            set_gen_value(prev_gen, x, y, sim_rand() % 2);
         }
     }
 
@@ -73,7 +91,7 @@ int main() {
     while (calc_gen(next_gen, prev_gen)) {
         draw_gen(next_gen);
 
-        uint8_t * const tmp = prev_gen;
+        uint32_t * const tmp = prev_gen;
         prev_gen = next_gen;
         next_gen = tmp;
     }
