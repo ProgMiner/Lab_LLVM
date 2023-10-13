@@ -1,10 +1,14 @@
 #pragma once
 
 #include <iostream>
+#include <thread>
 #include <array>
 #include <mutex>
 
 #include <SFML/Graphics.hpp>
+
+
+#define STEP_DELAY (std::chrono::milliseconds { 100 })
 
 
 class SimContext {
@@ -29,9 +33,12 @@ public:
     }
     
     void flush() {
-        std::scoped_lock lock { buffer_mtx };
+        {
+            std::scoped_lock lock { buffer_mtx };
+            buffer = next_buffer;
+        }
 
-        buffer = next_buffer;
+        std::this_thread::sleep_for(STEP_DELAY);
     }
 
 private:

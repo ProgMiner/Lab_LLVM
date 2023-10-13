@@ -1,19 +1,9 @@
 #include "sim.h"
 
-#include <stdbool.h>
-#include <unistd.h>
 
-
-// ms
-#define STEP_DELAY 100
-
-
-static void draw_gen(const bool * gen) {
-    uint32_t x = 0;
-    uint32_t y = 0;
-
-    for (y = 0; y < SIM_Y_SIZE; y++) {
-        for (x = 0; x < SIM_X_SIZE; x++) {
+static void draw_gen(const uint8_t * gen) {
+    for (uint32_t y = 0; y < SIM_Y_SIZE; y++) {
+        for (uint32_t x = 0; x < SIM_X_SIZE; x++) {
             sim_set_pixel(x, y, 0xFF000000 + 0xFF00 * gen[y * SIM_X_SIZE + x]);
         }
     }
@@ -21,16 +11,16 @@ static void draw_gen(const bool * gen) {
     sim_flush();
 }
 
-static inline bool get_gen_value(const bool * gen, int32_t x, int32_t y) {
+static inline uint8_t get_gen_value(const uint8_t * gen, int32_t x, int32_t y) {
     x = (x % SIM_X_SIZE + SIM_X_SIZE) % SIM_X_SIZE;
     y = (y % SIM_Y_SIZE + SIM_Y_SIZE) % SIM_Y_SIZE;
 
     return gen[y * SIM_X_SIZE + x];
 }
 
-static bool calc_gen(bool * next_gen, const bool * prev_gen) {
-    bool has_changes = false;
-    bool has_living = false;
+static uint8_t calc_gen(uint8_t * next_gen, const uint8_t * prev_gen) {
+    uint8_t has_changes = 0;
+    uint8_t has_living = 0;
 
 	for (int32_t y = 0; y < SIM_Y_SIZE; ++y) {
 	    for (int32_t x = 0; x < SIM_X_SIZE; ++x) {
@@ -46,17 +36,17 @@ static bool calc_gen(bool * next_gen, const bool * prev_gen) {
                 }
             }
 
-            const bool old_value = prev_gen[y * SIM_X_SIZE + x];
-            const bool next_value = old_value
+            const uint8_t old_value = prev_gen[y * SIM_X_SIZE + x];
+            const uint8_t next_value = old_value
                 ? neighbours == 2 || neighbours == 3
                 : neighbours == 3;
 
             if (old_value != next_value) {
-                has_changes = true;
+                has_changes = 1;
             }
 
             if (next_value) {
-                has_living = true;
+                has_living = 1;
             }
 
             next_gen[y * SIM_X_SIZE + x] = next_value;
@@ -67,10 +57,10 @@ static bool calc_gen(bool * next_gen, const bool * prev_gen) {
 }
 
 int main() {
-    bool gen1[SIM_Y_SIZE * SIM_X_SIZE] = { 0 };
-    bool gen2[SIM_Y_SIZE * SIM_X_SIZE] = { 0 };
-    bool * next_gen = gen1;
-    bool * prev_gen = gen2;
+    uint8_t gen1[SIM_Y_SIZE * SIM_X_SIZE] = { 0 };
+    uint8_t gen2[SIM_Y_SIZE * SIM_X_SIZE] = { 0 };
+    uint8_t * next_gen = gen1;
+    uint8_t * prev_gen = gen2;
 
     for (uint32_t y = 0; y < SIM_Y_SIZE; y++) {
         for (uint32_t x = 0; x < SIM_X_SIZE; x++) {
@@ -81,11 +71,9 @@ int main() {
     draw_gen(prev_gen);
 
     while (calc_gen(next_gen, prev_gen)) {
-        usleep(STEP_DELAY * 1000);
-
         draw_gen(next_gen);
 
-        bool * const tmp = prev_gen;
+        uint8_t * const tmp = prev_gen;
         prev_gen = next_gen;
         next_gen = tmp;
     }
