@@ -1,4 +1,10 @@
 #!/usr/bin/env sh
 
 
-clang-16 -O2 -fpass-plugin=cmake-debug-build/libSkeletonPass.so hw1/src/main.c -emit-llvm -S -o main.ll
+cmake -B cmake-debug-build && cmake --build cmake-debug-build || exit $?
+
+clang-16 -O2 \
+    -fpass-plugin=cmake-debug-build/libTracePass.so \
+    hw1/src/main.c \
+    -emit-llvm -S \
+    -o "$(mktemp)"

@@ -1,13 +1,15 @@
-#include <llvm/IR/Function.h>
-#include <llvm/Passes/PassPlugin.h>
-#include <llvm/Passes/PassBuilder.h>
 #include <llvm/Support/raw_ostream.h>
+#include <llvm/Passes/PassBuilder.h>
+#include <llvm/Passes/PassPlugin.h>
+#include <llvm/IR/Function.h>
+
 
 using namespace llvm;
 
+
 namespace {
 
-struct SkeletonPass : public PassInfoMixin<SkeletonPass> {
+struct TracePass : public PassInfoMixin<TracePass> {
 
     PreservedAnalyses run(Function &F, FunctionAnalysisManager &FAM) {
         outs() << "In a function called " << F.getName() << "!\n";
@@ -32,17 +34,17 @@ struct SkeletonPass : public PassInfoMixin<SkeletonPass> {
 
 } // anonymous namespace
 
-static void registerSkeletonPass(FunctionPassManager &FPM, OptimizationLevel O) {
-    FPM.addPass(SkeletonPass());
+static void registerTracePass(FunctionPassManager &FPM, OptimizationLevel O) {
+    FPM.addPass(TracePass());
 }
 
 extern "C" PassPluginLibraryInfo LLVM_ATTRIBUTE_WEAK llvmGetPassPluginInfo() {
     return {
         LLVM_PLUGIN_API_VERSION,
-        "Skeleton Pass",
+        "Trace Pass",
         "v0.1",
         [](PassBuilder &PB) {
-            PB.registerVectorizerStartEPCallback(registerSkeletonPass);
+            PB.registerVectorizerStartEPCallback(registerTracePass);
         }
     };
 }
