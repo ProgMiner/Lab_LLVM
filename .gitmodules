@@ -1,4 +1,0 @@
-[submodule "hw1"]
-	path = hw1
-	url = https://github.com/ProgMiner/Lab_LLVM.git
-	branch = hw1

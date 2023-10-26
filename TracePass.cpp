@@ -11,20 +11,30 @@ namespace {
 
 struct TracePass : public PassInfoMixin<TracePass> {
 
-    PreservedAnalyses run(Function &F, FunctionAnalysisManager &FAM) {
-        outs() << "In a function called " << F.getName() << "!\n";
+    static inline constexpr const char * const LOG_FUNCTION_NAME = "puts";
 
-        outs() << "Function body:\n";
-        F.print(llvm::outs());
+    PreservedAnalyses run(Function & function, FunctionAnalysisManager &) {
+        IRBuilder<> builder(function.getContext());
 
-        for (auto &B : F) {
-            outs() << "Basic block:\n";
-            B.print(llvm::outs());
+        Module * const module = function.getParent();
+        const FunctionCallee logFunction = module->getOrInsertFunction(
+                LOG_FUNCTION_NAME,
+                builder.getVoidTy(),
+                builder.getInt8PtrTy()
+        );
 
-            for (auto &I : B) {
-                outs() << "Instruction: \n";
-                I.print(llvm::outs(), true);
-                outs() << "\n";
+        for (BasicBlock & block : function) {
+            for (Instruction & instruction : block) {
+                if (dyn_cast<PHINode>(&instruction)) {
+                    continue;
+                }
+
+                std::string text;
+                raw_string_ostream os { text };
+                instruction.print(os, false);
+
+                builder.SetInsertPoint(&instruction);
+                builder.CreateCall(logFunction, { builder.CreateGlobalStringPtr(text) });
             }
         }
 
