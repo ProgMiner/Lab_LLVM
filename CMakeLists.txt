@@ -11,12 +11,31 @@ FetchContent_Declare(SFML
 
 FetchContent_MakeAvailable(SFML)
 
-add_executable(llvm-hw src/main.c src/sim.cpp src/sim.h src/sim.hpp)
+find_package(LLVM REQUIRED CONFIG)
+# add_definitions(${LLVM_DEFINITIONS})
 
-target_link_libraries(llvm-hw PRIVATE sfml-graphics)
+# pure implementation
 
-target_compile_features(llvm-hw PRIVATE c_std_11)
-target_compile_features(llvm-hw PRIVATE cxx_std_17)
+add_executable(orig src/main.c src/sim.cpp src/sim.h src/sim.hpp)
 
-target_compile_options(llvm-hw PRIVATE -fsanitize=address)
-target_link_options(llvm-hw PRIVATE -fsanitize=address)
+target_link_libraries(orig PRIVATE sfml-graphics)
+
+target_compile_features(orig PRIVATE c_std_11)
+target_compile_features(orig PRIVATE cxx_std_17)
+
+target_compile_options(orig PRIVATE -fsanitize=address)
+target_link_options(orig PRIVATE -fsanitize=address)
+
+# through LLVM
+
+add_executable(llvm src/main.cpp src/sim.cpp src/sim.h src/sim.hpp)
+
+target_include_directories(llvm PRIVATE ${LLVM_INCLUDE_DIRS})
+
+target_link_libraries(llvm PRIVATE sfml-graphics)
+target_link_libraries(llvm PRIVATE LLVM)
+
+target_compile_features(llvm PRIVATE cxx_std_17)
+
+target_compile_options(llvm PRIVATE -fsanitize=address)
+target_link_options(llvm PRIVATE -fsanitize=address)
