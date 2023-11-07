@@ -17,3 +17,6 @@ target_link_libraries(llvm-hw PRIVATE sfml-graphics)
 
 target_compile_features(llvm-hw PRIVATE c_std_11)
 target_compile_features(llvm-hw PRIVATE cxx_std_17)
+
+target_compile_options(llvm-hw PRIVATE -fsanitize=address)
+target_link_options(llvm-hw PRIVATE -fsanitize=address)
