@@ -11,12 +11,14 @@ FetchContent_Declare(SFML
 
 FetchContent_MakeAvailable(SFML)
 
-add_executable(llvm-hw src/main.c src/sim.cpp src/sim.h src/sim.hpp)
+add_executable(llvm-hw src/main.c src/sim.cpp src/sim.h src/sim.hpp src/log_llvm_ir.cpp)
 
 target_link_libraries(llvm-hw PRIVATE sfml-graphics)
 
 target_compile_features(llvm-hw PRIVATE c_std_11)
 target_compile_features(llvm-hw PRIVATE cxx_std_17)
 
+target_compile_options(llvm-hw PRIVATE -O2)
+
 set_source_files_properties(src/main.c PROPERTIES
-        COMPILE_FLAGS "-fpass-plugin='${PROJECT_BINARY_DIR}/../../cmake-debug-build/libTracePass.so' -O2")
+        COMPILE_FLAGS "-fpass-plugin='${PROJECT_BINARY_DIR}/../../cmake-debug-build/libTracePass.so'")

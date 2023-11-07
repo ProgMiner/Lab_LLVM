@@ -17,4 +17,4 @@ cd ./hw1 || exit $?
 cmake -B cmake-debug-build && cmake --build cmake-debug-build || exit $?
 
 cd ..
-./hw1/cmake-debug-build/llvm-hw > trace.log
+./hw1/cmake-debug-build/llvm-hw

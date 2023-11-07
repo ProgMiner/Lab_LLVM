@@ -1,0 +1,4426 @@
+===== 1 =====
+  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %2) #4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %2, i8 0, i64 4096, i1 false)
+  br label %3
+  %5 = shl i32 %4, 8
+  br label %30
+===== 1 =====
+  %1 = alloca [1024 x i32], align 16
+  %2 = alloca [1024 x i32], align 16
+  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %1) #4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %1, i8 0, i64 4096, i1 false)
+===== 1 =====
+  %1 = alloca [1024 x i32], align 16
+===== 1 =====
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %2, i8 0, i64 4096, i1 false)
+===== 1 =====
+  %1 = alloca [1024 x i32], align 16
+  %2 = alloca [1024 x i32], align 16
+  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %1) #4
+===== 1 =====
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %1, i8 0, i64 4096, i1 false)
+===== 1 =====
+  %2 = alloca [1024 x i32], align 16
+  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %1) #4
+===== 1 =====
+  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %2) #4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %2, i8 0, i64 4096, i1 false)
+===== 1 =====
+  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %1) #4
+===== 1 =====
+  %10 = add nuw nsw i32 %7, 1
+  %11 = icmp eq i32 %10, 128
+  br i1 %11, label %54, label %6, !llvm.loop !5
+  tail call void @sim_flush() #4
+  br label %57
+===== 1 =====
+  %1 = alloca [1024 x i32], align 16
+  %2 = alloca [1024 x i32], align 16
+===== 1 =====
+  %2 = alloca [1024 x i32], align 16
+===== 1 =====
+  br i1 %11, label %54, label %6, !llvm.loop !5
+  tail call void @sim_flush() #4
+  br label %57
+  %61 = shl i32 %60, 8
+===== 1 =====
+  %11 = icmp eq i32 %10, 128
+  br i1 %11, label %54, label %6, !llvm.loop !5
+  tail call void @sim_flush() #4
+  br label %57
+===== 1 =====
+  br i1 %11, label %54, label %6, !llvm.loop !5
+  tail call void @sim_flush() #4
+  br label %57
+===== 1 =====
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %2, i8 0, i64 4096, i1 false)
+  br label %3
+  %5 = shl i32 %4, 8
+  br label %30
+===== 1 =====
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %1, i8 0, i64 4096, i1 false)
+  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %2) #4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %2, i8 0, i64 4096, i1 false)
+  br label %3
+===== 1 =====
+  br i1 %26, label %9, label %12, !llvm.loop !11
+  %10 = add nuw nsw i32 %7, 1
+  %11 = icmp eq i32 %10, 128
+  br i1 %11, label %54, label %6, !llvm.loop !5
+  tail call void @sim_flush() #4
+===== 1 =====
+  %10 = add nuw nsw i32 %7, 1
+  %11 = icmp eq i32 %10, 128
+  br i1 %11, label %54, label %6, !llvm.loop !5
+  tail call void @sim_flush() #4
+===== 1 =====
+  %2 = alloca [1024 x i32], align 16
+  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %1) #4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %1, i8 0, i64 4096, i1 false)
+  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %2) #4
+===== 1 =====
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %2, i8 0, i64 4096, i1 false)
+  br label %3
+  %5 = shl i32 %4, 8
+===== 1 =====
+  %11 = icmp eq i32 %10, 128
+  br i1 %11, label %54, label %6, !llvm.loop !5
+  tail call void @sim_flush() #4
+===== 1 =====
+  br i1 %11, label %54, label %6, !llvm.loop !5
+  tail call void @sim_flush() #4
+===== 1 =====
+  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %1) #4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %1, i8 0, i64 4096, i1 false)
+  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %2) #4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %2, i8 0, i64 4096, i1 false)
+  br label %3
+===== 1 =====
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %1, i8 0, i64 4096, i1 false)
+  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %2) #4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %2, i8 0, i64 4096, i1 false)
+  br label %3
+  %5 = shl i32 %4, 8
+===== 1 =====
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %1, i8 0, i64 4096, i1 false)
+  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %2) #4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %2, i8 0, i64 4096, i1 false)
+===== 1 =====
+  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %1) #4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %1, i8 0, i64 4096, i1 false)
+  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %2) #4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %2, i8 0, i64 4096, i1 false)
+===== 1 =====
+  br label %3
+  %5 = shl i32 %4, 8
+  br label %30
+===== 1 =====
+  %1 = alloca [1024 x i32], align 16
+  %2 = alloca [1024 x i32], align 16
+  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %1) #4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %1, i8 0, i64 4096, i1 false)
+  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %2) #4
+===== 1 =====
+  %28 = add nuw nsw i32 %4, 1
+  %29 = icmp eq i32 %28, 128
+  br i1 %29, label %6, label %3, !llvm.loop !12
+  %8 = shl i32 %7, 8
+  br label %12
+===== 1 =====
+  br i1 %29, label %6, label %3, !llvm.loop !12
+  %8 = shl i32 %7, 8
+  br label %12
+===== 1 =====
+  br i1 %29, label %6, label %3, !llvm.loop !12
+  %8 = shl i32 %7, 8
+===== 1 =====
+  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %1) #4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %1, i8 0, i64 4096, i1 false)
+  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %2) #4
+===== 1 =====
+  br label %3
+  %5 = shl i32 %4, 8
+  br label %30
+  %32 = tail call i32 @sim_rand() #4
+  %33 = and i32 %32, 1
+===== 1 =====
+  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %2) #4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %2, i8 0, i64 4096, i1 false)
+  br label %3
+===== 1 =====
+  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %1) #4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %1, i8 0, i64 4096, i1 false)
+===== 1 =====
+  %29 = icmp eq i32 %28, 128
+  br i1 %29, label %6, label %3, !llvm.loop !12
+  %8 = shl i32 %7, 8
+  br label %12
+===== 1 =====
+  %2 = alloca [1024 x i32], align 16
+  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %1) #4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %1, i8 0, i64 4096, i1 false)
+  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %2) #4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %2, i8 0, i64 4096, i1 false)
+===== 1 =====
+  %29 = icmp eq i32 %28, 128
+  br i1 %29, label %6, label %3, !llvm.loop !12
+  %8 = shl i32 %7, 8
+  br label %12
+  %14 = and i32 %13, 224
+===== 1 =====
+  br i1 %53, label %27, label %30, !llvm.loop !13
+  %28 = add nuw nsw i32 %4, 1
+  %29 = icmp eq i32 %28, 128
+  br i1 %29, label %6, label %3, !llvm.loop !12
+  %8 = shl i32 %7, 8
+===== 1 =====
+  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %2) #4
+===== 1 =====
+  br i1 %11, label %54, label %6, !llvm.loop !5
+  tail call void @sim_flush() #4
+  br label %57
+  %61 = shl i32 %60, 8
+  %62 = add nuw nsw i32 %61, 32512
+===== 1 =====
+  %29 = icmp eq i32 %28, 128
+  br i1 %29, label %6, label %3, !llvm.loop !12
+  %8 = shl i32 %7, 8
+===== 1 =====
+  br label %3
+  %5 = shl i32 %4, 8
+  br label %30
+  %32 = tail call i32 @sim_rand() #4
+===== 1 =====
+  %11 = icmp eq i32 %10, 128
+  br i1 %11, label %54, label %6, !llvm.loop !5
+  tail call void @sim_flush() #4
+  br label %57
+  %61 = shl i32 %60, 8
+===== 1 =====
+  br label %3
+  %5 = shl i32 %4, 8
+===== 1 =====
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %2, i8 0, i64 4096, i1 false)
+  br label %3
+===== 1 =====
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %1, i8 0, i64 4096, i1 false)
+  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %2) #4
+===== 1 =====
+  br label %3
+===== 1 =====
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %2, i8 0, i64 4096, i1 false)
+  br label %3
+  %5 = shl i32 %4, 8
+  br label %30
+  %32 = tail call i32 @sim_rand() #4
+===== 1 =====
+  %28 = add nuw nsw i32 %4, 1
+  %29 = icmp eq i32 %28, 128
+  br i1 %29, label %6, label %3, !llvm.loop !12
+  %8 = shl i32 %7, 8
+===== 1 =====
+  br i1 %29, label %6, label %3, !llvm.loop !12
+  %8 = shl i32 %7, 8
+  br label %12
+  %14 = and i32 %13, 224
+  %15 = or i32 %14, %8
+===== 1 =====
+  %2 = alloca [1024 x i32], align 16
+  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %1) #4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %1, i8 0, i64 4096, i1 false)
+===== 1 =====
+  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %2) #4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %2, i8 0, i64 4096, i1 false)
+  br label %3
+  %5 = shl i32 %4, 8
+===== 1 =====
+  br i1 %29, label %6, label %3, !llvm.loop !12
+  %8 = shl i32 %7, 8
+  br label %12
+  %14 = and i32 %13, 224
+===== 7 =====
+  %183 = add nuw nsw i32 %180, 1
+  %184 = icmp eq i32 %183, 128
+  br i1 %184, label %200, label %179, !llvm.loop !5
+  br label %54, !llvm.loop !16
+  tail call void @sim_flush() #4
+===== 7 =====
+  br label %54, !llvm.loop !16
+  tail call void @sim_flush() #4
+  br label %57
+===== 7 =====
+  br label %54, !llvm.loop !16
+  tail call void @sim_flush() #4
+  br label %57
+  %61 = shl i32 %60, 8
+  %62 = add nuw nsw i32 %61, 32512
+===== 7 =====
+  %184 = icmp eq i32 %183, 128
+  br i1 %184, label %200, label %179, !llvm.loop !5
+  br label %54, !llvm.loop !16
+  tail call void @sim_flush() #4
+===== 7 =====
+  br i1 %184, label %200, label %179, !llvm.loop !5
+  br label %54, !llvm.loop !16
+  tail call void @sim_flush() #4
+  br label %57
+  %61 = shl i32 %60, 8
+===== 7 =====
+  %184 = icmp eq i32 %183, 128
+  br i1 %184, label %200, label %179, !llvm.loop !5
+  br label %54, !llvm.loop !16
+  tail call void @sim_flush() #4
+  br label %57
+===== 7 =====
+  br i1 %199, label %182, label %185, !llvm.loop !11
+  %183 = add nuw nsw i32 %180, 1
+  %184 = icmp eq i32 %183, 128
+  br i1 %184, label %200, label %179, !llvm.loop !5
+  br label %54, !llvm.loop !16
+===== 7 =====
+  br label %54, !llvm.loop !16
+===== 7 =====
+  br label %54, !llvm.loop !16
+  tail call void @sim_flush() #4
+===== 7 =====
+  %183 = add nuw nsw i32 %180, 1
+  %184 = icmp eq i32 %183, 128
+  br i1 %184, label %200, label %179, !llvm.loop !5
+  br label %54, !llvm.loop !16
+===== 7 =====
+  br i1 %184, label %200, label %179, !llvm.loop !5
+  br label %54, !llvm.loop !16
+  tail call void @sim_flush() #4
+===== 7 =====
+  br i1 %184, label %200, label %179, !llvm.loop !5
+  br label %54, !llvm.loop !16
+===== 7 =====
+  br i1 %184, label %200, label %179, !llvm.loop !5
+  br label %54, !llvm.loop !16
+  tail call void @sim_flush() #4
+  br label %57
+===== 7 =====
+  %184 = icmp eq i32 %183, 128
+  br i1 %184, label %200, label %179, !llvm.loop !5
+  br label %54, !llvm.loop !16
+===== 7 =====
+  br label %54, !llvm.loop !16
+  tail call void @sim_flush() #4
+  br label %57
+  %61 = shl i32 %60, 8
+===== 8 =====
+  br i1 %83, label %67, label %84, !llvm.loop !15
+  %68 = icmp eq i32 %64, 128
+  br i1 %68, label %175, label %57, !llvm.loop !14
+  %176 = icmp eq i32 %172, 0
+  %177 = icmp eq i32 %173, 0
+===== 8 =====
+  tail call void @sim_flush() #4
+  br label %57
+  %61 = shl i32 %60, 8
+===== 8 =====
+  br label %57
+===== 8 =====
+  br i1 %178, label %201, label %179
+  %181 = shl i32 %180, 8
+  br label %185
+  %187 = and i32 %186, 224
+===== 8 =====
+  %177 = icmp eq i32 %173, 0
+  %178 = select i1 %176, i1 %177, i1 false
+  br i1 %178, label %201, label %179
+  %181 = shl i32 %180, 8
+  br label %185
+===== 8 =====
+  %176 = icmp eq i32 %172, 0
+  %177 = icmp eq i32 %173, 0
+===== 8 =====
+  %68 = icmp eq i32 %64, 128
+  br i1 %68, label %175, label %57, !llvm.loop !14
+  %176 = icmp eq i32 %172, 0
+  %177 = icmp eq i32 %173, 0
+  %178 = select i1 %176, i1 %177, i1 false
+===== 8 =====
+  br i1 %68, label %175, label %57, !llvm.loop !14
+  %176 = icmp eq i32 %172, 0
+  %177 = icmp eq i32 %173, 0
+===== 8 =====
+  %177 = icmp eq i32 %173, 0
+  %178 = select i1 %176, i1 %177, i1 false
+  br i1 %178, label %201, label %179
+  %181 = shl i32 %180, 8
+===== 8 =====
+  br i1 %178, label %201, label %179
+  %181 = shl i32 %180, 8
+===== 8 =====
+  br i1 %68, label %175, label %57, !llvm.loop !14
+  %176 = icmp eq i32 %172, 0
+  %177 = icmp eq i32 %173, 0
+  %178 = select i1 %176, i1 %177, i1 false
+  br i1 %178, label %201, label %179
+===== 8 =====
+  %68 = icmp eq i32 %64, 128
+  br i1 %68, label %175, label %57, !llvm.loop !14
+  %176 = icmp eq i32 %172, 0
+  %177 = icmp eq i32 %173, 0
+===== 8 =====
+  %176 = icmp eq i32 %172, 0
+  %177 = icmp eq i32 %173, 0
+  %178 = select i1 %176, i1 %177, i1 false
+  br i1 %178, label %201, label %179
+===== 8 =====
+  %178 = select i1 %176, i1 %177, i1 false
+  br i1 %178, label %201, label %179
+  %181 = shl i32 %180, 8
+===== 8 =====
+  %177 = icmp eq i32 %173, 0
+  %178 = select i1 %176, i1 %177, i1 false
+===== 8 =====
+  %176 = icmp eq i32 %172, 0
+  %177 = icmp eq i32 %173, 0
+  %178 = select i1 %176, i1 %177, i1 false
+===== 8 =====
+  br label %57
+  %61 = shl i32 %60, 8
+  %62 = add nuw nsw i32 %61, 32512
+  %63 = and i32 %62, 32512
+===== 8 =====
+  %178 = select i1 %176, i1 %177, i1 false
+  br i1 %178, label %201, label %179
+===== 8 =====
+  br i1 %68, label %175, label %57, !llvm.loop !14
+  %176 = icmp eq i32 %172, 0
+  %177 = icmp eq i32 %173, 0
+  %178 = select i1 %176, i1 %177, i1 false
+===== 8 =====
+  tail call void @sim_flush() #4
+  br label %57
+  %61 = shl i32 %60, 8
+  %62 = add nuw nsw i32 %61, 32512
+  %63 = and i32 %62, 32512
+===== 8 =====
+  br i1 %178, label %201, label %179
+  %181 = shl i32 %180, 8
+  br label %185
+  %187 = and i32 %186, 224
+  %188 = or i32 %187, %181
+===== 8 =====
+  %178 = select i1 %176, i1 %177, i1 false
+  br i1 %178, label %201, label %179
+  %181 = shl i32 %180, 8
+  br label %185
+  %187 = and i32 %186, 224
+===== 8 =====
+  br label %57
+  %61 = shl i32 %60, 8
+  %62 = add nuw nsw i32 %61, 32512
+  %63 = and i32 %62, 32512
+  %64 = add nuw nsw i32 %60, 1
+===== 8 =====
+  %177 = icmp eq i32 %173, 0
+  %178 = select i1 %176, i1 %177, i1 false
+  br i1 %178, label %201, label %179
+===== 8 =====
+  tail call void @sim_flush() #4
+===== 8 =====
+  br i1 %178, label %201, label %179
+===== 8 =====
+  tail call void @sim_flush() #4
+  br label %57
+  %61 = shl i32 %60, 8
+  %62 = add nuw nsw i32 %61, 32512
+===== 8 =====
+  br i1 %83, label %67, label %84, !llvm.loop !15
+  %68 = icmp eq i32 %64, 128
+  br i1 %68, label %175, label %57, !llvm.loop !14
+  %176 = icmp eq i32 %172, 0
+===== 8 =====
+  tail call void @sim_flush() #4
+  br label %57
+===== 8 =====
+  %68 = icmp eq i32 %64, 128
+  br i1 %68, label %175, label %57, !llvm.loop !14
+  %176 = icmp eq i32 %172, 0
+===== 8 =====
+  %176 = icmp eq i32 %172, 0
+===== 8 =====
+  %178 = select i1 %176, i1 %177, i1 false
+===== 8 =====
+  br i1 %68, label %175, label %57, !llvm.loop !14
+  %176 = icmp eq i32 %172, 0
+===== 8 =====
+  %83 = icmp eq i32 %108, 256
+  br i1 %83, label %67, label %84, !llvm.loop !15
+  %68 = icmp eq i32 %64, 128
+  br i1 %68, label %175, label %57, !llvm.loop !14
+  %176 = icmp eq i32 %172, 0
+===== 8 =====
+  br label %57
+  %61 = shl i32 %60, 8
+  %62 = add nuw nsw i32 %61, 32512
+===== 8 =====
+  %178 = select i1 %176, i1 %177, i1 false
+  br i1 %178, label %201, label %179
+  %181 = shl i32 %180, 8
+  br label %185
+===== 8 =====
+  br i1 %178, label %201, label %179
+  %181 = shl i32 %180, 8
+  br label %185
+===== 8 =====
+  %177 = icmp eq i32 %173, 0
+===== 8 =====
+  br label %57
+  %61 = shl i32 %60, 8
+===== 8 =====
+  %176 = icmp eq i32 %172, 0
+  %177 = icmp eq i32 %173, 0
+  %178 = select i1 %176, i1 %177, i1 false
+  br i1 %178, label %201, label %179
+  %181 = shl i32 %180, 8
+===== 127 =====
+  br i1 %11, label %54, label %6, !llvm.loop !5
+  %8 = shl i32 %7, 8
+  br label %12
+===== 127 =====
+  br i1 %29, label %6, label %3, !llvm.loop !12
+  %5 = shl i32 %4, 8
+===== 127 =====
+  %28 = add nuw nsw i32 %4, 1
+  %29 = icmp eq i32 %28, 128
+  br i1 %29, label %6, label %3, !llvm.loop !12
+  %5 = shl i32 %4, 8
+===== 127 =====
+  %28 = add nuw nsw i32 %4, 1
+  %29 = icmp eq i32 %28, 128
+  br i1 %29, label %6, label %3, !llvm.loop !12
+  %5 = shl i32 %4, 8
+  br label %30
+===== 127 =====
+  %29 = icmp eq i32 %28, 128
+  br i1 %29, label %6, label %3, !llvm.loop !12
+  %5 = shl i32 %4, 8
+===== 127 =====
+  %10 = add nuw nsw i32 %7, 1
+  %11 = icmp eq i32 %10, 128
+  br i1 %11, label %54, label %6, !llvm.loop !5
+  %8 = shl i32 %7, 8
+  br label %12
+===== 127 =====
+  br i1 %29, label %6, label %3, !llvm.loop !12
+  %5 = shl i32 %4, 8
+  br label %30
+  %32 = tail call i32 @sim_rand() #4
+===== 127 =====
+  %29 = icmp eq i32 %28, 128
+  br i1 %29, label %6, label %3, !llvm.loop !12
+  %5 = shl i32 %4, 8
+  br label %30
+===== 127 =====
+  br i1 %29, label %6, label %3, !llvm.loop !12
+  %5 = shl i32 %4, 8
+  br label %30
+===== 127 =====
+  br i1 %11, label %54, label %6, !llvm.loop !5
+  %8 = shl i32 %7, 8
+  br label %12
+  %14 = and i32 %13, 224
+  %15 = or i32 %14, %8
+===== 127 =====
+  %11 = icmp eq i32 %10, 128
+  br i1 %11, label %54, label %6, !llvm.loop !5
+  %8 = shl i32 %7, 8
+  br label %12
+===== 127 =====
+  %11 = icmp eq i32 %10, 128
+  br i1 %11, label %54, label %6, !llvm.loop !5
+  %8 = shl i32 %7, 8
+===== 127 =====
+  br i1 %11, label %54, label %6, !llvm.loop !5
+  %8 = shl i32 %7, 8
+===== 127 =====
+  %11 = icmp eq i32 %10, 128
+  br i1 %11, label %54, label %6, !llvm.loop !5
+  %8 = shl i32 %7, 8
+  br label %12
+  %14 = and i32 %13, 224
+===== 127 =====
+  %29 = icmp eq i32 %28, 128
+  br i1 %29, label %6, label %3, !llvm.loop !12
+  %5 = shl i32 %4, 8
+  br label %30
+  %32 = tail call i32 @sim_rand() #4
+===== 127 =====
+  br i1 %29, label %6, label %3, !llvm.loop !12
+  %5 = shl i32 %4, 8
+  br label %30
+  %32 = tail call i32 @sim_rand() #4
+  %33 = and i32 %32, 1
+===== 127 =====
+  %10 = add nuw nsw i32 %7, 1
+  %11 = icmp eq i32 %10, 128
+  br i1 %11, label %54, label %6, !llvm.loop !5
+  %8 = shl i32 %7, 8
+===== 127 =====
+  br i1 %53, label %27, label %30, !llvm.loop !13
+  %28 = add nuw nsw i32 %4, 1
+  %29 = icmp eq i32 %28, 128
+  br i1 %29, label %6, label %3, !llvm.loop !12
+  %5 = shl i32 %4, 8
+===== 127 =====
+  br i1 %11, label %54, label %6, !llvm.loop !5
+  %8 = shl i32 %7, 8
+  br label %12
+  %14 = and i32 %13, 224
+===== 127 =====
+  br i1 %26, label %9, label %12, !llvm.loop !11
+  %10 = add nuw nsw i32 %7, 1
+  %11 = icmp eq i32 %10, 128
+  br i1 %11, label %54, label %6, !llvm.loop !5
+  %8 = shl i32 %7, 8
+===== 128 =====
+  %52 = add nuw nsw i32 %31, 1
+  %53 = icmp eq i32 %52, 256
+  br i1 %53, label %27, label %30, !llvm.loop !13
+  %28 = add nuw nsw i32 %4, 1
+  %29 = icmp eq i32 %28, 128
+===== 128 =====
+  br i1 %29, label %6, label %3, !llvm.loop !12
+===== 128 =====
+  %26 = icmp eq i32 %25, 256
+  br i1 %26, label %9, label %12, !llvm.loop !11
+  %10 = add nuw nsw i32 %7, 1
+===== 128 =====
+  %5 = shl i32 %4, 8
+===== 128 =====
+  br i1 %53, label %27, label %30, !llvm.loop !13
+  %28 = add nuw nsw i32 %4, 1
+  %29 = icmp eq i32 %28, 128
+===== 128 =====
+  br i1 %26, label %9, label %12, !llvm.loop !11
+  %10 = add nuw nsw i32 %7, 1
+===== 128 =====
+  %8 = shl i32 %7, 8
+  br label %12
+===== 128 =====
+  tail call void @sim_set_pixel(i32 noundef %13, i32 noundef %7, i32 noundef %24) #4
+  %25 = add nuw nsw i32 %13, 1
+  %26 = icmp eq i32 %25, 256
+  br i1 %26, label %9, label %12, !llvm.loop !11
+  %10 = add nuw nsw i32 %7, 1
+===== 128 =====
+  %10 = add nuw nsw i32 %7, 1
+===== 128 =====
+  br label %12
+  %14 = and i32 %13, 224
+===== 128 =====
+  %8 = shl i32 %7, 8
+  br label %12
+  %14 = and i32 %13, 224
+===== 128 =====
+  %5 = shl i32 %4, 8
+  br label %30
+  %32 = tail call i32 @sim_rand() #4
+===== 128 =====
+  br i1 %53, label %27, label %30, !llvm.loop !13
+  %28 = add nuw nsw i32 %4, 1
+===== 128 =====
+  %28 = add nuw nsw i32 %4, 1
+===== 128 =====
+  %10 = add nuw nsw i32 %7, 1
+  %11 = icmp eq i32 %10, 128
+===== 128 =====
+  br label %30
+  %32 = tail call i32 @sim_rand() #4
+  %33 = and i32 %32, 1
+===== 128 =====
+  br i1 %11, label %54, label %6, !llvm.loop !5
+===== 128 =====
+  %53 = icmp eq i32 %52, 256
+  br i1 %53, label %27, label %30, !llvm.loop !13
+  %28 = add nuw nsw i32 %4, 1
+  %29 = icmp eq i32 %28, 128
+  br i1 %29, label %6, label %3, !llvm.loop !12
+===== 128 =====
+  %11 = icmp eq i32 %10, 128
+  br i1 %11, label %54, label %6, !llvm.loop !5
+===== 128 =====
+  %10 = add nuw nsw i32 %7, 1
+  %11 = icmp eq i32 %10, 128
+  br i1 %11, label %54, label %6, !llvm.loop !5
+===== 128 =====
+  br i1 %26, label %9, label %12, !llvm.loop !11
+  %10 = add nuw nsw i32 %7, 1
+  %11 = icmp eq i32 %10, 128
+  br i1 %11, label %54, label %6, !llvm.loop !5
+===== 128 =====
+  %28 = add nuw nsw i32 %4, 1
+  %29 = icmp eq i32 %28, 128
+===== 128 =====
+  %26 = icmp eq i32 %25, 256
+  br i1 %26, label %9, label %12, !llvm.loop !11
+  %10 = add nuw nsw i32 %7, 1
+  %11 = icmp eq i32 %10, 128
+  br i1 %11, label %54, label %6, !llvm.loop !5
+===== 128 =====
+  %53 = icmp eq i32 %52, 256
+  br i1 %53, label %27, label %30, !llvm.loop !13
+  %28 = add nuw nsw i32 %4, 1
+  %29 = icmp eq i32 %28, 128
+===== 128 =====
+  br label %30
+  %32 = tail call i32 @sim_rand() #4
+  %33 = and i32 %32, 1
+  %34 = or i32 %31, %5
+===== 128 =====
+  %25 = add nuw nsw i32 %13, 1
+  %26 = icmp eq i32 %25, 256
+  br i1 %26, label %9, label %12, !llvm.loop !11
+  %10 = add nuw nsw i32 %7, 1
+  %11 = icmp eq i32 %10, 128
+===== 128 =====
+  br label %30
+===== 128 =====
+  br label %30
+  %32 = tail call i32 @sim_rand() #4
+  %33 = and i32 %32, 1
+  %34 = or i32 %31, %5
+  %35 = icmp eq i32 %33, 0
+===== 128 =====
+  br label %12
+  %14 = and i32 %13, 224
+  %15 = or i32 %14, %8
+===== 128 =====
+  %5 = shl i32 %4, 8
+  br label %30
+  %32 = tail call i32 @sim_rand() #4
+  %33 = and i32 %32, 1
+  %34 = or i32 %31, %5
+===== 128 =====
+  %5 = shl i32 %4, 8
+  br label %30
+===== 128 =====
+  %29 = icmp eq i32 %28, 128
+  br i1 %29, label %6, label %3, !llvm.loop !12
+===== 128 =====
+  %25 = add nuw nsw i32 %13, 1
+  %26 = icmp eq i32 %25, 256
+  br i1 %26, label %9, label %12, !llvm.loop !11
+  %10 = add nuw nsw i32 %7, 1
+===== 128 =====
+  %11 = icmp eq i32 %10, 128
+===== 128 =====
+  %52 = add nuw nsw i32 %31, 1
+  %53 = icmp eq i32 %52, 256
+  br i1 %53, label %27, label %30, !llvm.loop !13
+  %28 = add nuw nsw i32 %4, 1
+===== 128 =====
+  br label %12
+  %14 = and i32 %13, 224
+  %15 = or i32 %14, %8
+  %16 = lshr exact i32 %15, 5
+===== 128 =====
+  %28 = add nuw nsw i32 %4, 1
+  %29 = icmp eq i32 %28, 128
+  br i1 %29, label %6, label %3, !llvm.loop !12
+===== 128 =====
+  br i1 %53, label %27, label %30, !llvm.loop !13
+  %28 = add nuw nsw i32 %4, 1
+  %29 = icmp eq i32 %28, 128
+  br i1 %29, label %6, label %3, !llvm.loop !12
+===== 128 =====
+  br i1 %26, label %9, label %12, !llvm.loop !11
+  %10 = add nuw nsw i32 %7, 1
+  %11 = icmp eq i32 %10, 128
+===== 128 =====
+  %8 = shl i32 %7, 8
+  br label %12
+  %14 = and i32 %13, 224
+  %15 = or i32 %14, %8
+  %16 = lshr exact i32 %15, 5
+===== 128 =====
+  %29 = icmp eq i32 %28, 128
+===== 128 =====
+  br label %51
+  %52 = add nuw nsw i32 %31, 1
+  %53 = icmp eq i32 %52, 256
+  br i1 %53, label %27, label %30, !llvm.loop !13
+  %28 = add nuw nsw i32 %4, 1
+===== 128 =====
+  %8 = shl i32 %7, 8
+  br label %12
+  %14 = and i32 %13, 224
+  %15 = or i32 %14, %8
+===== 128 =====
+  br label %12
+===== 128 =====
+  %5 = shl i32 %4, 8
+  br label %30
+  %32 = tail call i32 @sim_rand() #4
+  %33 = and i32 %32, 1
+===== 128 =====
+  %26 = icmp eq i32 %25, 256
+  br i1 %26, label %9, label %12, !llvm.loop !11
+  %10 = add nuw nsw i32 %7, 1
+  %11 = icmp eq i32 %10, 128
+===== 128 =====
+  %53 = icmp eq i32 %52, 256
+  br i1 %53, label %27, label %30, !llvm.loop !13
+  %28 = add nuw nsw i32 %4, 1
+===== 128 =====
+  br label %30
+  %32 = tail call i32 @sim_rand() #4
+===== 128 =====
+  br label %12
+  %14 = and i32 %13, 224
+  %15 = or i32 %14, %8
+  %16 = lshr exact i32 %15, 5
+  %17 = zext i32 %16 to i64
+===== 128 =====
+  %8 = shl i32 %7, 8
+===== 283 =====
+  store i32 %74, ptr %72, align 4, !tbaa !7
+  br label %82
+  %83 = icmp eq i32 %108, 256
+  br i1 %83, label %67, label %84, !llvm.loop !15
+  %68 = icmp eq i32 %64, 128
+===== 741 =====
+  store i32 %81, ptr %79, align 4, !tbaa !7
+  br label %82
+  %83 = icmp eq i32 %108, 256
+  br i1 %83, label %67, label %84, !llvm.loop !15
+  %68 = icmp eq i32 %64, 128
+===== 969 =====
+  %183 = add nuw nsw i32 %180, 1
+  %184 = icmp eq i32 %183, 128
+  br i1 %184, label %200, label %179, !llvm.loop !5
+  %181 = shl i32 %180, 8
+===== 969 =====
+  br i1 %184, label %200, label %179, !llvm.loop !5
+  %181 = shl i32 %180, 8
+  br label %185
+  %187 = and i32 %186, 224
+===== 969 =====
+  %183 = add nuw nsw i32 %180, 1
+  %184 = icmp eq i32 %183, 128
+  br i1 %184, label %200, label %179, !llvm.loop !5
+  %181 = shl i32 %180, 8
+  br label %185
+===== 969 =====
+  br i1 %184, label %200, label %179, !llvm.loop !5
+  %181 = shl i32 %180, 8
+  br label %185
+===== 969 =====
+  br i1 %184, label %200, label %179, !llvm.loop !5
+  %181 = shl i32 %180, 8
+  br label %185
+  %187 = and i32 %186, 224
+  %188 = or i32 %187, %181
+===== 969 =====
+  %184 = icmp eq i32 %183, 128
+  br i1 %184, label %200, label %179, !llvm.loop !5
+  %181 = shl i32 %180, 8
+  br label %185
+  %187 = and i32 %186, 224
+===== 969 =====
+  %184 = icmp eq i32 %183, 128
+  br i1 %184, label %200, label %179, !llvm.loop !5
+  %181 = shl i32 %180, 8
+===== 969 =====
+  br i1 %184, label %200, label %179, !llvm.loop !5
+  %181 = shl i32 %180, 8
+===== 969 =====
+  br i1 %199, label %182, label %185, !llvm.loop !11
+  %183 = add nuw nsw i32 %180, 1
+  %184 = icmp eq i32 %183, 128
+  br i1 %184, label %200, label %179, !llvm.loop !5
+  %181 = shl i32 %180, 8
+===== 969 =====
+  %184 = icmp eq i32 %183, 128
+  br i1 %184, label %200, label %179, !llvm.loop !5
+  %181 = shl i32 %180, 8
+  br label %185
+===== 976 =====
+  %198 = add nuw nsw i32 %186, 1
+  %199 = icmp eq i32 %198, 256
+  br i1 %199, label %182, label %185, !llvm.loop !11
+  %183 = add nuw nsw i32 %180, 1
+===== 976 =====
+  %199 = icmp eq i32 %198, 256
+  br i1 %199, label %182, label %185, !llvm.loop !11
+  %183 = add nuw nsw i32 %180, 1
+===== 976 =====
+  br i1 %199, label %182, label %185, !llvm.loop !11
+  %183 = add nuw nsw i32 %180, 1
+===== 976 =====
+  br i1 %199, label %182, label %185, !llvm.loop !11
+  %183 = add nuw nsw i32 %180, 1
+  %184 = icmp eq i32 %183, 128
+  br i1 %184, label %200, label %179, !llvm.loop !5
+===== 976 =====
+  br i1 %199, label %182, label %185, !llvm.loop !11
+  %183 = add nuw nsw i32 %180, 1
+  %184 = icmp eq i32 %183, 128
+===== 976 =====
+  %183 = add nuw nsw i32 %180, 1
+  %184 = icmp eq i32 %183, 128
+===== 976 =====
+  %183 = add nuw nsw i32 %180, 1
+===== 976 =====
+  %199 = icmp eq i32 %198, 256
+  br i1 %199, label %182, label %185, !llvm.loop !11
+  %183 = add nuw nsw i32 %180, 1
+  %184 = icmp eq i32 %183, 128
+  br i1 %184, label %200, label %179, !llvm.loop !5
+===== 976 =====
+  %184 = icmp eq i32 %183, 128
+===== 976 =====
+  %199 = icmp eq i32 %198, 256
+  br i1 %199, label %182, label %185, !llvm.loop !11
+  %183 = add nuw nsw i32 %180, 1
+  %184 = icmp eq i32 %183, 128
+===== 976 =====
+  %198 = add nuw nsw i32 %186, 1
+  %199 = icmp eq i32 %198, 256
+  br i1 %199, label %182, label %185, !llvm.loop !11
+  %183 = add nuw nsw i32 %180, 1
+  %184 = icmp eq i32 %183, 128
+===== 976 =====
+  %184 = icmp eq i32 %183, 128
+  br i1 %184, label %200, label %179, !llvm.loop !5
+===== 976 =====
+  br i1 %184, label %200, label %179, !llvm.loop !5
+===== 976 =====
+  tail call void @sim_set_pixel(i32 noundef %186, i32 noundef %180, i32 noundef %197) #4
+  %198 = add nuw nsw i32 %186, 1
+  %199 = icmp eq i32 %198, 256
+  br i1 %199, label %182, label %185, !llvm.loop !11
+  %183 = add nuw nsw i32 %180, 1
+===== 976 =====
+  %183 = add nuw nsw i32 %180, 1
+  %184 = icmp eq i32 %183, 128
+  br i1 %184, label %200, label %179, !llvm.loop !5
+===== 977 =====
+  %181 = shl i32 %180, 8
+  br label %185
+===== 977 =====
+  br label %185
+===== 977 =====
+  %181 = shl i32 %180, 8
+===== 977 =====
+  br label %185
+  %187 = and i32 %186, 224
+  %188 = or i32 %187, %181
+===== 977 =====
+  br label %185
+  %187 = and i32 %186, 224
+===== 977 =====
+  %181 = shl i32 %180, 8
+  br label %185
+  %187 = and i32 %186, 224
+  %188 = or i32 %187, %181
+===== 977 =====
+  br label %185
+  %187 = and i32 %186, 224
+  %188 = or i32 %187, %181
+  %189 = lshr exact i32 %188, 5
+===== 977 =====
+  %181 = shl i32 %180, 8
+  br label %185
+  %187 = and i32 %186, 224
+  %188 = or i32 %187, %181
+  %189 = lshr exact i32 %188, 5
+===== 977 =====
+  br label %185
+  %187 = and i32 %186, 224
+  %188 = or i32 %187, %181
+  %189 = lshr exact i32 %188, 5
+  %190 = zext i32 %189 to i64
+===== 977 =====
+  %181 = shl i32 %180, 8
+  br label %185
+  %187 = and i32 %186, 224
+===== 1016 =====
+  br i1 %68, label %175, label %57, !llvm.loop !14
+  %61 = shl i32 %60, 8
+  %62 = add nuw nsw i32 %61, 32512
+  %63 = and i32 %62, 32512
+  %64 = add nuw nsw i32 %60, 1
+===== 1016 =====
+  %68 = icmp eq i32 %64, 128
+  br i1 %68, label %175, label %57, !llvm.loop !14
+  %61 = shl i32 %60, 8
+  %62 = add nuw nsw i32 %61, 32512
+  %63 = and i32 %62, 32512
+===== 1016 =====
+  br i1 %68, label %175, label %57, !llvm.loop !14
+  %61 = shl i32 %60, 8
+  %62 = add nuw nsw i32 %61, 32512
+  %63 = and i32 %62, 32512
+===== 1016 =====
+  %83 = icmp eq i32 %108, 256
+  br i1 %83, label %67, label %84, !llvm.loop !15
+  %68 = icmp eq i32 %64, 128
+  br i1 %68, label %175, label %57, !llvm.loop !14
+  %61 = shl i32 %60, 8
+===== 1016 =====
+  br i1 %83, label %67, label %84, !llvm.loop !15
+  %68 = icmp eq i32 %64, 128
+  br i1 %68, label %175, label %57, !llvm.loop !14
+  %61 = shl i32 %60, 8
+  %62 = add nuw nsw i32 %61, 32512
+===== 1016 =====
+  br i1 %83, label %67, label %84, !llvm.loop !15
+  %68 = icmp eq i32 %64, 128
+  br i1 %68, label %175, label %57, !llvm.loop !14
+  %61 = shl i32 %60, 8
+===== 1016 =====
+  %68 = icmp eq i32 %64, 128
+  br i1 %68, label %175, label %57, !llvm.loop !14
+  %61 = shl i32 %60, 8
+===== 1016 =====
+  %68 = icmp eq i32 %64, 128
+  br i1 %68, label %175, label %57, !llvm.loop !14
+  %61 = shl i32 %60, 8
+  %62 = add nuw nsw i32 %61, 32512
+===== 1016 =====
+  br i1 %68, label %175, label %57, !llvm.loop !14
+  %61 = shl i32 %60, 8
+  %62 = add nuw nsw i32 %61, 32512
+===== 1016 =====
+  br i1 %68, label %175, label %57, !llvm.loop !14
+  %61 = shl i32 %60, 8
+===== 1024 =====
+  %66 = and i32 %65, 32512
+  br label %84
+===== 1024 =====
+  br label %82
+  %83 = icmp eq i32 %108, 256
+  br i1 %83, label %67, label %84, !llvm.loop !15
+  %68 = icmp eq i32 %64, 128
+===== 1024 =====
+  br i1 %68, label %175, label %57, !llvm.loop !14
+===== 1024 =====
+  br i1 %83, label %67, label %84, !llvm.loop !15
+  %68 = icmp eq i32 %64, 128
+  br i1 %68, label %175, label %57, !llvm.loop !14
+===== 1024 =====
+  %63 = and i32 %62, 32512
+  %64 = add nuw nsw i32 %60, 1
+  %65 = shl i32 %64, 8
+  %66 = and i32 %65, 32512
+===== 1024 =====
+  %62 = add nuw nsw i32 %61, 32512
+  %63 = and i32 %62, 32512
+  %64 = add nuw nsw i32 %60, 1
+  %65 = shl i32 %64, 8
+  %66 = and i32 %65, 32512
+===== 1024 =====
+  %63 = and i32 %62, 32512
+  %64 = add nuw nsw i32 %60, 1
+  %65 = shl i32 %64, 8
+===== 1024 =====
+  %65 = shl i32 %64, 8
+  %66 = and i32 %65, 32512
+  br label %84
+===== 1024 =====
+  br label %84
+  %88 = add nsw i32 %87, -1
+  %89 = and i32 %88, 224
+  %90 = or i32 %89, %63
+===== 1024 =====
+  %66 = and i32 %65, 32512
+  br label %84
+  %88 = add nsw i32 %87, -1
+  %89 = and i32 %88, 224
+  %90 = or i32 %89, %63
+===== 1024 =====
+  br label %84
+  %88 = add nsw i32 %87, -1
+  %89 = and i32 %88, 224
+===== 1024 =====
+  %63 = and i32 %62, 32512
+  %64 = add nuw nsw i32 %60, 1
+  %65 = shl i32 %64, 8
+  %66 = and i32 %65, 32512
+  br label %84
+===== 1024 =====
+  %68 = icmp eq i32 %64, 128
+  br i1 %68, label %175, label %57, !llvm.loop !14
+===== 1024 =====
+  br label %84
+  %88 = add nsw i32 %87, -1
+===== 1024 =====
+  %64 = add nuw nsw i32 %60, 1
+  %65 = shl i32 %64, 8
+  %66 = and i32 %65, 32512
+  br label %84
+  %88 = add nsw i32 %87, -1
+===== 1024 =====
+  %64 = add nuw nsw i32 %60, 1
+===== 1024 =====
+  %61 = shl i32 %60, 8
+  %62 = add nuw nsw i32 %61, 32512
+  %63 = and i32 %62, 32512
+===== 1024 =====
+  %63 = and i32 %62, 32512
+  %64 = add nuw nsw i32 %60, 1
+===== 1024 =====
+  %83 = icmp eq i32 %108, 256
+  br i1 %83, label %67, label %84, !llvm.loop !15
+  %68 = icmp eq i32 %64, 128
+  br i1 %68, label %175, label %57, !llvm.loop !14
+===== 1024 =====
+  br label %82
+  %83 = icmp eq i32 %108, 256
+  br i1 %83, label %67, label %84, !llvm.loop !15
+  %68 = icmp eq i32 %64, 128
+  br i1 %68, label %175, label %57, !llvm.loop !14
+===== 1024 =====
+  br label %84
+  %88 = add nsw i32 %87, -1
+  %89 = and i32 %88, 224
+  %90 = or i32 %89, %63
+  %91 = lshr exact i32 %90, 5
+===== 1024 =====
+  %66 = and i32 %65, 32512
+  br label %84
+  %88 = add nsw i32 %87, -1
+  %89 = and i32 %88, 224
+===== 1024 =====
+  %62 = add nuw nsw i32 %61, 32512
+  %63 = and i32 %62, 32512
+===== 1024 =====
+  %68 = icmp eq i32 %64, 128
+===== 1024 =====
+  %61 = shl i32 %60, 8
+  %62 = add nuw nsw i32 %61, 32512
+  %63 = and i32 %62, 32512
+  %64 = add nuw nsw i32 %60, 1
+===== 1024 =====
+  %61 = shl i32 %60, 8
+  %62 = add nuw nsw i32 %61, 32512
+===== 1024 =====
+  %62 = add nuw nsw i32 %61, 32512
+===== 1024 =====
+  %64 = add nuw nsw i32 %60, 1
+  %65 = shl i32 %64, 8
+  %66 = and i32 %65, 32512
+===== 1024 =====
+  br i1 %83, label %67, label %84, !llvm.loop !15
+  %68 = icmp eq i32 %64, 128
+===== 1024 =====
+  %62 = add nuw nsw i32 %61, 32512
+  %63 = and i32 %62, 32512
+  %64 = add nuw nsw i32 %60, 1
+===== 1024 =====
+  %64 = add nuw nsw i32 %60, 1
+  %65 = shl i32 %64, 8
+===== 1024 =====
+  %65 = shl i32 %64, 8
+===== 1024 =====
+  %61 = shl i32 %60, 8
+===== 1024 =====
+  %64 = add nuw nsw i32 %60, 1
+  %65 = shl i32 %64, 8
+  %66 = and i32 %65, 32512
+  br label %84
+===== 1024 =====
+  %83 = icmp eq i32 %108, 256
+  br i1 %83, label %67, label %84, !llvm.loop !15
+  %68 = icmp eq i32 %64, 128
+===== 1024 =====
+  br label %84
+===== 1024 =====
+  %66 = and i32 %65, 32512
+===== 1024 =====
+  %66 = and i32 %65, 32512
+  br label %84
+  %88 = add nsw i32 %87, -1
+===== 1024 =====
+  %65 = shl i32 %64, 8
+  %66 = and i32 %65, 32512
+  br label %84
+  %88 = add nsw i32 %87, -1
+===== 1024 =====
+  %65 = shl i32 %64, 8
+  %66 = and i32 %65, 32512
+  br label %84
+  %88 = add nsw i32 %87, -1
+  %89 = and i32 %88, 224
+===== 1024 =====
+  %62 = add nuw nsw i32 %61, 32512
+  %63 = and i32 %62, 32512
+  %64 = add nuw nsw i32 %60, 1
+  %65 = shl i32 %64, 8
+===== 1024 =====
+  %63 = and i32 %62, 32512
+===== 1024 =====
+  %61 = shl i32 %60, 8
+  %62 = add nuw nsw i32 %61, 32512
+  %63 = and i32 %62, 32512
+  %64 = add nuw nsw i32 %60, 1
+  %65 = shl i32 %64, 8
+===== 1024 =====
+  %65 = shl i32 %64, 8
+  %66 = and i32 %65, 32512
+===== 13931 =====
+  %40 = zext i32 %39 to i64
+  %41 = getelementptr inbounds i32, ptr %2, i64 %40
+  %42 = load i32, ptr %41, align 4, !tbaa !7
+  %43 = or i32 %42, %37
+===== 13931 =====
+  %35 = icmp eq i32 %33, 0
+  %36 = and i32 %31, 31
+  %37 = shl nuw i32 1, %36
+  br i1 %35, label %44, label %38
+  %39 = lshr i32 %34, 5
+===== 13931 =====
+  %39 = lshr i32 %34, 5
+  %40 = zext i32 %39 to i64
+  %41 = getelementptr inbounds i32, ptr %2, i64 %40
+  %42 = load i32, ptr %41, align 4, !tbaa !7
+===== 13931 =====
+  %42 = load i32, ptr %41, align 4, !tbaa !7
+  %43 = or i32 %42, %37
+  store i32 %43, ptr %41, align 4, !tbaa !7
+===== 13931 =====
+  store i32 %43, ptr %41, align 4, !tbaa !7
+  br label %51
+  %52 = add nuw nsw i32 %31, 1
+===== 13931 =====
+  br i1 %35, label %44, label %38
+  %39 = lshr i32 %34, 5
+  %40 = zext i32 %39 to i64
+===== 13931 =====
+  %37 = shl nuw i32 1, %36
+  br i1 %35, label %44, label %38
+  %39 = lshr i32 %34, 5
+  %40 = zext i32 %39 to i64
+  %41 = getelementptr inbounds i32, ptr %2, i64 %40
+===== 13931 =====
+  %43 = or i32 %42, %37
+  store i32 %43, ptr %41, align 4, !tbaa !7
+===== 13931 =====
+  %43 = or i32 %42, %37
+  store i32 %43, ptr %41, align 4, !tbaa !7
+  br label %51
+===== 13931 =====
+  store i32 %43, ptr %41, align 4, !tbaa !7
+===== 13931 =====
+  %40 = zext i32 %39 to i64
+  %41 = getelementptr inbounds i32, ptr %2, i64 %40
+  %42 = load i32, ptr %41, align 4, !tbaa !7
+===== 13931 =====
+  br i1 %35, label %44, label %38
+  %39 = lshr i32 %34, 5
+===== 13931 =====
+  %42 = load i32, ptr %41, align 4, !tbaa !7
+  %43 = or i32 %42, %37
+===== 13931 =====
+  %41 = getelementptr inbounds i32, ptr %2, i64 %40
+===== 13931 =====
+  %41 = getelementptr inbounds i32, ptr %2, i64 %40
+  %42 = load i32, ptr %41, align 4, !tbaa !7
+  %43 = or i32 %42, %37
+  store i32 %43, ptr %41, align 4, !tbaa !7
+===== 13931 =====
+  %40 = zext i32 %39 to i64
+  %41 = getelementptr inbounds i32, ptr %2, i64 %40
+===== 13931 =====
+  %42 = load i32, ptr %41, align 4, !tbaa !7
+  %43 = or i32 %42, %37
+  store i32 %43, ptr %41, align 4, !tbaa !7
+  br label %51
+===== 13931 =====
+  br i1 %35, label %44, label %38
+  %39 = lshr i32 %34, 5
+  %40 = zext i32 %39 to i64
+  %41 = getelementptr inbounds i32, ptr %2, i64 %40
+  %42 = load i32, ptr %41, align 4, !tbaa !7
+===== 13931 =====
+  %43 = or i32 %42, %37
+  store i32 %43, ptr %41, align 4, !tbaa !7
+  br label %51
+  %52 = add nuw nsw i32 %31, 1
+===== 13931 =====
+  %42 = load i32, ptr %41, align 4, !tbaa !7
+===== 13931 =====
+  store i32 %43, ptr %41, align 4, !tbaa !7
+  br label %51
+  %52 = add nuw nsw i32 %31, 1
+  %53 = icmp eq i32 %52, 256
+  br i1 %53, label %27, label %30, !llvm.loop !13
+===== 13931 =====
+  %36 = and i32 %31, 31
+  %37 = shl nuw i32 1, %36
+  br i1 %35, label %44, label %38
+  %39 = lshr i32 %34, 5
+===== 13931 =====
+  %43 = or i32 %42, %37
+  store i32 %43, ptr %41, align 4, !tbaa !7
+  br label %51
+  %52 = add nuw nsw i32 %31, 1
+  %53 = icmp eq i32 %52, 256
+===== 13931 =====
+  %40 = zext i32 %39 to i64
+  %41 = getelementptr inbounds i32, ptr %2, i64 %40
+  %42 = load i32, ptr %41, align 4, !tbaa !7
+  %43 = or i32 %42, %37
+  store i32 %43, ptr %41, align 4, !tbaa !7
+===== 13931 =====
+  %42 = load i32, ptr %41, align 4, !tbaa !7
+  %43 = or i32 %42, %37
+  store i32 %43, ptr %41, align 4, !tbaa !7
+  br label %51
+  %52 = add nuw nsw i32 %31, 1
+===== 13931 =====
+  %37 = shl nuw i32 1, %36
+  br i1 %35, label %44, label %38
+  %39 = lshr i32 %34, 5
+===== 13931 =====
+  %39 = lshr i32 %34, 5
+  %40 = zext i32 %39 to i64
+===== 13931 =====
+  %39 = lshr i32 %34, 5
+  %40 = zext i32 %39 to i64
+  %41 = getelementptr inbounds i32, ptr %2, i64 %40
+  %42 = load i32, ptr %41, align 4, !tbaa !7
+  %43 = or i32 %42, %37
+===== 13931 =====
+  %36 = and i32 %31, 31
+  %37 = shl nuw i32 1, %36
+  br i1 %35, label %44, label %38
+  %39 = lshr i32 %34, 5
+  %40 = zext i32 %39 to i64
+===== 13931 =====
+  %40 = zext i32 %39 to i64
+===== 13931 =====
+  %37 = shl nuw i32 1, %36
+  br i1 %35, label %44, label %38
+  %39 = lshr i32 %34, 5
+  %40 = zext i32 %39 to i64
+===== 13931 =====
+  %43 = or i32 %42, %37
+===== 13931 =====
+  %39 = lshr i32 %34, 5
+===== 13931 =====
+  %41 = getelementptr inbounds i32, ptr %2, i64 %40
+  %42 = load i32, ptr %41, align 4, !tbaa !7
+  %43 = or i32 %42, %37
+  store i32 %43, ptr %41, align 4, !tbaa !7
+  br label %51
+===== 13931 =====
+  store i32 %43, ptr %41, align 4, !tbaa !7
+  br label %51
+  %52 = add nuw nsw i32 %31, 1
+  %53 = icmp eq i32 %52, 256
+===== 13931 =====
+  br i1 %35, label %44, label %38
+  %39 = lshr i32 %34, 5
+  %40 = zext i32 %39 to i64
+  %41 = getelementptr inbounds i32, ptr %2, i64 %40
+===== 13931 =====
+  %41 = getelementptr inbounds i32, ptr %2, i64 %40
+  %42 = load i32, ptr %41, align 4, !tbaa !7
+  %43 = or i32 %42, %37
+===== 13931 =====
+  %39 = lshr i32 %34, 5
+  %40 = zext i32 %39 to i64
+  %41 = getelementptr inbounds i32, ptr %2, i64 %40
+===== 13931 =====
+  %41 = getelementptr inbounds i32, ptr %2, i64 %40
+  %42 = load i32, ptr %41, align 4, !tbaa !7
+===== 13931 =====
+  store i32 %43, ptr %41, align 4, !tbaa !7
+  br label %51
+===== 18837 =====
+  %49 = load i32, ptr %48, align 4, !tbaa !7
+===== 18837 =====
+  %47 = zext i32 %46 to i64
+  %48 = getelementptr inbounds i32, ptr %2, i64 %47
+  %49 = load i32, ptr %48, align 4, !tbaa !7
+===== 18837 =====
+  br i1 %35, label %44, label %38
+  %45 = xor i32 %37, -1
+  %46 = lshr i32 %34, 5
+  %47 = zext i32 %46 to i64
+  %48 = getelementptr inbounds i32, ptr %2, i64 %47
+===== 18837 =====
+  %48 = getelementptr inbounds i32, ptr %2, i64 %47
+  %49 = load i32, ptr %48, align 4, !tbaa !7
+  %50 = and i32 %49, %45
+  store i32 %50, ptr %48, align 4, !tbaa !7
+===== 18837 =====
+  %50 = and i32 %49, %45
+  store i32 %50, ptr %48, align 4, !tbaa !7
+  br label %51
+  %52 = add nuw nsw i32 %31, 1
+===== 18837 =====
+  %49 = load i32, ptr %48, align 4, !tbaa !7
+  %50 = and i32 %49, %45
+  store i32 %50, ptr %48, align 4, !tbaa !7
+===== 18837 =====
+  %47 = zext i32 %46 to i64
+  %48 = getelementptr inbounds i32, ptr %2, i64 %47
+===== 18837 =====
+  %45 = xor i32 %37, -1
+  %46 = lshr i32 %34, 5
+  %47 = zext i32 %46 to i64
+  %48 = getelementptr inbounds i32, ptr %2, i64 %47
+  %49 = load i32, ptr %48, align 4, !tbaa !7
+===== 18837 =====
+  %50 = and i32 %49, %45
+===== 18837 =====
+  %49 = load i32, ptr %48, align 4, !tbaa !7
+  %50 = and i32 %49, %45
+===== 18837 =====
+  %48 = getelementptr inbounds i32, ptr %2, i64 %47
+  %49 = load i32, ptr %48, align 4, !tbaa !7
+  %50 = and i32 %49, %45
+  store i32 %50, ptr %48, align 4, !tbaa !7
+  br label %51
+===== 18837 =====
+  %48 = getelementptr inbounds i32, ptr %2, i64 %47
+  %49 = load i32, ptr %48, align 4, !tbaa !7
+  %50 = and i32 %49, %45
+===== 18837 =====
+  %50 = and i32 %49, %45
+  store i32 %50, ptr %48, align 4, !tbaa !7
+  br label %51
+  %52 = add nuw nsw i32 %31, 1
+  %53 = icmp eq i32 %52, 256
+===== 18837 =====
+  %46 = lshr i32 %34, 5
+  %47 = zext i32 %46 to i64
+===== 18837 =====
+  %46 = lshr i32 %34, 5
+  %47 = zext i32 %46 to i64
+  %48 = getelementptr inbounds i32, ptr %2, i64 %47
+  %49 = load i32, ptr %48, align 4, !tbaa !7
+  %50 = and i32 %49, %45
+===== 18837 =====
+  %37 = shl nuw i32 1, %36
+  br i1 %35, label %44, label %38
+  %45 = xor i32 %37, -1
+  %46 = lshr i32 %34, 5
+  %47 = zext i32 %46 to i64
+===== 18837 =====
+  %47 = zext i32 %46 to i64
+  %48 = getelementptr inbounds i32, ptr %2, i64 %47
+  %49 = load i32, ptr %48, align 4, !tbaa !7
+  %50 = and i32 %49, %45
+  store i32 %50, ptr %48, align 4, !tbaa !7
+===== 18837 =====
+  %47 = zext i32 %46 to i64
+  %48 = getelementptr inbounds i32, ptr %2, i64 %47
+  %49 = load i32, ptr %48, align 4, !tbaa !7
+  %50 = and i32 %49, %45
+===== 18837 =====
+  %50 = and i32 %49, %45
+  store i32 %50, ptr %48, align 4, !tbaa !7
+  br label %51
+===== 18837 =====
+  %49 = load i32, ptr %48, align 4, !tbaa !7
+  %50 = and i32 %49, %45
+  store i32 %50, ptr %48, align 4, !tbaa !7
+  br label %51
+  %52 = add nuw nsw i32 %31, 1
+===== 18837 =====
+  br i1 %35, label %44, label %38
+  %45 = xor i32 %37, -1
+  %46 = lshr i32 %34, 5
+  %47 = zext i32 %46 to i64
+===== 18837 =====
+  store i32 %50, ptr %48, align 4, !tbaa !7
+  br label %51
+  %52 = add nuw nsw i32 %31, 1
+  %53 = icmp eq i32 %52, 256
+===== 18837 =====
+  %36 = and i32 %31, 31
+  %37 = shl nuw i32 1, %36
+  br i1 %35, label %44, label %38
+  %45 = xor i32 %37, -1
+  %46 = lshr i32 %34, 5
+===== 18837 =====
+  %45 = xor i32 %37, -1
+===== 18837 =====
+  %35 = icmp eq i32 %33, 0
+  %36 = and i32 %31, 31
+  %37 = shl nuw i32 1, %36
+  br i1 %35, label %44, label %38
+  %45 = xor i32 %37, -1
+===== 18837 =====
+  %48 = getelementptr inbounds i32, ptr %2, i64 %47
+  %49 = load i32, ptr %48, align 4, !tbaa !7
+===== 18837 =====
+  %37 = shl nuw i32 1, %36
+  br i1 %35, label %44, label %38
+  %45 = xor i32 %37, -1
+  %46 = lshr i32 %34, 5
+===== 18837 =====
+  br i1 %35, label %44, label %38
+  %45 = xor i32 %37, -1
+  %46 = lshr i32 %34, 5
+===== 18837 =====
+  %46 = lshr i32 %34, 5
+===== 18837 =====
+  %45 = xor i32 %37, -1
+  %46 = lshr i32 %34, 5
+  %47 = zext i32 %46 to i64
+  %48 = getelementptr inbounds i32, ptr %2, i64 %47
+===== 18837 =====
+  %50 = and i32 %49, %45
+  store i32 %50, ptr %48, align 4, !tbaa !7
+===== 18837 =====
+  %47 = zext i32 %46 to i64
+===== 18837 =====
+  %46 = lshr i32 %34, 5
+  %47 = zext i32 %46 to i64
+  %48 = getelementptr inbounds i32, ptr %2, i64 %47
+===== 18837 =====
+  store i32 %50, ptr %48, align 4, !tbaa !7
+  br label %51
+===== 18837 =====
+  %49 = load i32, ptr %48, align 4, !tbaa !7
+  %50 = and i32 %49, %45
+  store i32 %50, ptr %48, align 4, !tbaa !7
+  br label %51
+===== 18837 =====
+  store i32 %50, ptr %48, align 4, !tbaa !7
+  br label %51
+  %52 = add nuw nsw i32 %31, 1
+===== 18837 =====
+  %46 = lshr i32 %34, 5
+  %47 = zext i32 %46 to i64
+  %48 = getelementptr inbounds i32, ptr %2, i64 %47
+  %49 = load i32, ptr %48, align 4, !tbaa !7
+===== 18837 =====
+  br i1 %35, label %44, label %38
+  %45 = xor i32 %37, -1
+===== 18837 =====
+  %37 = shl nuw i32 1, %36
+  br i1 %35, label %44, label %38
+  %45 = xor i32 %37, -1
+===== 18837 =====
+  %36 = and i32 %31, 31
+  %37 = shl nuw i32 1, %36
+  br i1 %35, label %44, label %38
+  %45 = xor i32 %37, -1
+===== 18837 =====
+  %48 = getelementptr inbounds i32, ptr %2, i64 %47
+===== 18837 =====
+  %45 = xor i32 %37, -1
+  %46 = lshr i32 %34, 5
+  %47 = zext i32 %46 to i64
+===== 18837 =====
+  store i32 %50, ptr %48, align 4, !tbaa !7
+  br label %51
+  %52 = add nuw nsw i32 %31, 1
+  %53 = icmp eq i32 %52, 256
+  br i1 %53, label %27, label %30, !llvm.loop !13
+===== 18837 =====
+  store i32 %50, ptr %48, align 4, !tbaa !7
+===== 18837 =====
+  %45 = xor i32 %37, -1
+  %46 = lshr i32 %34, 5
+===== 32640 =====
+  br i1 %53, label %27, label %30, !llvm.loop !13
+  %32 = tail call i32 @sim_rand() #4
+  %33 = and i32 %32, 1
+===== 32640 =====
+  br i1 %53, label %27, label %30, !llvm.loop !13
+  %32 = tail call i32 @sim_rand() #4
+===== 32640 =====
+  br i1 %26, label %9, label %12, !llvm.loop !11
+  %14 = and i32 %13, 224
+  %15 = or i32 %14, %8
+===== 32640 =====
+  %26 = icmp eq i32 %25, 256
+  br i1 %26, label %9, label %12, !llvm.loop !11
+  %14 = and i32 %13, 224
+===== 32640 =====
+  tail call void @sim_set_pixel(i32 noundef %13, i32 noundef %7, i32 noundef %24) #4
+  %25 = add nuw nsw i32 %13, 1
+  %26 = icmp eq i32 %25, 256
+  br i1 %26, label %9, label %12, !llvm.loop !11
+  %14 = and i32 %13, 224
+===== 32640 =====
+  %26 = icmp eq i32 %25, 256
+  br i1 %26, label %9, label %12, !llvm.loop !11
+  %14 = and i32 %13, 224
+  %15 = or i32 %14, %8
+===== 32640 =====
+  %25 = add nuw nsw i32 %13, 1
+  %26 = icmp eq i32 %25, 256
+  br i1 %26, label %9, label %12, !llvm.loop !11
+  %14 = and i32 %13, 224
+===== 32640 =====
+  %25 = add nuw nsw i32 %13, 1
+  %26 = icmp eq i32 %25, 256
+  br i1 %26, label %9, label %12, !llvm.loop !11
+  %14 = and i32 %13, 224
+  %15 = or i32 %14, %8
+===== 32640 =====
+  br i1 %26, label %9, label %12, !llvm.loop !11
+  %14 = and i32 %13, 224
+  %15 = or i32 %14, %8
+  %16 = lshr exact i32 %15, 5
+===== 32640 =====
+  %53 = icmp eq i32 %52, 256
+  br i1 %53, label %27, label %30, !llvm.loop !13
+  %32 = tail call i32 @sim_rand() #4
+===== 32640 =====
+  %53 = icmp eq i32 %52, 256
+  br i1 %53, label %27, label %30, !llvm.loop !13
+  %32 = tail call i32 @sim_rand() #4
+  %33 = and i32 %32, 1
+===== 32640 =====
+  %53 = icmp eq i32 %52, 256
+  br i1 %53, label %27, label %30, !llvm.loop !13
+  %32 = tail call i32 @sim_rand() #4
+  %33 = and i32 %32, 1
+  %34 = or i32 %31, %5
+===== 32640 =====
+  br i1 %26, label %9, label %12, !llvm.loop !11
+  %14 = and i32 %13, 224
+  %15 = or i32 %14, %8
+  %16 = lshr exact i32 %15, 5
+  %17 = zext i32 %16 to i64
+===== 32640 =====
+  %26 = icmp eq i32 %25, 256
+  br i1 %26, label %9, label %12, !llvm.loop !11
+  %14 = and i32 %13, 224
+  %15 = or i32 %14, %8
+  %16 = lshr exact i32 %15, 5
+===== 32640 =====
+  %52 = add nuw nsw i32 %31, 1
+  %53 = icmp eq i32 %52, 256
+  br i1 %53, label %27, label %30, !llvm.loop !13
+  %32 = tail call i32 @sim_rand() #4
+===== 32640 =====
+  %52 = add nuw nsw i32 %31, 1
+  %53 = icmp eq i32 %52, 256
+  br i1 %53, label %27, label %30, !llvm.loop !13
+  %32 = tail call i32 @sim_rand() #4
+  %33 = and i32 %32, 1
+===== 32640 =====
+  br label %51
+  %52 = add nuw nsw i32 %31, 1
+  %53 = icmp eq i32 %52, 256
+  br i1 %53, label %27, label %30, !llvm.loop !13
+  %32 = tail call i32 @sim_rand() #4
+===== 32640 =====
+  br i1 %53, label %27, label %30, !llvm.loop !13
+  %32 = tail call i32 @sim_rand() #4
+  %33 = and i32 %32, 1
+  %34 = or i32 %31, %5
+  %35 = icmp eq i32 %33, 0
+===== 32640 =====
+  br i1 %26, label %9, label %12, !llvm.loop !11
+  %14 = and i32 %13, 224
+===== 32640 =====
+  br i1 %53, label %27, label %30, !llvm.loop !13
+  %32 = tail call i32 @sim_rand() #4
+  %33 = and i32 %32, 1
+  %34 = or i32 %31, %5
+===== 32768 =====
+  %20 = and i32 %13, 31
+  %21 = shl nuw i32 1, %20
+  %22 = and i32 %21, %19
+  %23 = icmp eq i32 %22, 0
+===== 32768 =====
+  %22 = and i32 %21, %19
+  %23 = icmp eq i32 %22, 0
+  %24 = select i1 %23, i32 -16777216, i32 -16711936
+  tail call void @sim_set_pixel(i32 noundef %13, i32 noundef %7, i32 noundef %24) #4
+  %25 = add nuw nsw i32 %13, 1
+===== 32768 =====
+  %14 = and i32 %13, 224
+===== 32768 =====
+  %19 = load i32, ptr %18, align 4, !tbaa !7
+===== 32768 =====
+  %21 = shl nuw i32 1, %20
+===== 32768 =====
+  %34 = or i32 %31, %5
+  %35 = icmp eq i32 %33, 0
+  %36 = and i32 %31, 31
+===== 32768 =====
+  %14 = and i32 %13, 224
+  %15 = or i32 %14, %8
+===== 32768 =====
+  %15 = or i32 %14, %8
+===== 32768 =====
+  %17 = zext i32 %16 to i64
+  %18 = getelementptr inbounds i32, ptr %2, i64 %17
+  %19 = load i32, ptr %18, align 4, !tbaa !7
+  %20 = and i32 %13, 31
+  %21 = shl nuw i32 1, %20
+===== 32768 =====
+  tail call void @sim_set_pixel(i32 noundef %13, i32 noundef %7, i32 noundef %24) #4
+  %25 = add nuw nsw i32 %13, 1
+  %26 = icmp eq i32 %25, 256
+===== 32768 =====
+  %35 = icmp eq i32 %33, 0
+  %36 = and i32 %31, 31
+===== 32768 =====
+  %23 = icmp eq i32 %22, 0
+  %24 = select i1 %23, i32 -16777216, i32 -16711936
+  tail call void @sim_set_pixel(i32 noundef %13, i32 noundef %7, i32 noundef %24) #4
+  %25 = add nuw nsw i32 %13, 1
+  %26 = icmp eq i32 %25, 256
+===== 32768 =====
+  br i1 %26, label %9, label %12, !llvm.loop !11
+===== 32768 =====
+  %25 = add nuw nsw i32 %13, 1
+  %26 = icmp eq i32 %25, 256
+  br i1 %26, label %9, label %12, !llvm.loop !11
+===== 32768 =====
+  %16 = lshr exact i32 %15, 5
+===== 32768 =====
+  %14 = and i32 %13, 224
+  %15 = or i32 %14, %8
+  %16 = lshr exact i32 %15, 5
+===== 32768 =====
+  tail call void @sim_set_pixel(i32 noundef %13, i32 noundef %7, i32 noundef %24) #4
+  %25 = add nuw nsw i32 %13, 1
+  %26 = icmp eq i32 %25, 256
+  br i1 %26, label %9, label %12, !llvm.loop !11
+===== 32768 =====
+  %53 = icmp eq i32 %52, 256
+===== 32768 =====
+  %22 = and i32 %21, %19
+  %23 = icmp eq i32 %22, 0
+===== 32768 =====
+  %16 = lshr exact i32 %15, 5
+  %17 = zext i32 %16 to i64
+  %18 = getelementptr inbounds i32, ptr %2, i64 %17
+===== 32768 =====
+  %26 = icmp eq i32 %25, 256
+===== 32768 =====
+  %19 = load i32, ptr %18, align 4, !tbaa !7
+  %20 = and i32 %13, 31
+  %21 = shl nuw i32 1, %20
+  %22 = and i32 %21, %19
+===== 32768 =====
+  %33 = and i32 %32, 1
+  %34 = or i32 %31, %5
+  %35 = icmp eq i32 %33, 0
+===== 32768 =====
+  %32 = tail call i32 @sim_rand() #4
+  %33 = and i32 %32, 1
+===== 32768 =====
+  %14 = and i32 %13, 224
+  %15 = or i32 %14, %8
+  %16 = lshr exact i32 %15, 5
+  %17 = zext i32 %16 to i64
+===== 32768 =====
+  %17 = zext i32 %16 to i64
+  %18 = getelementptr inbounds i32, ptr %2, i64 %17
+  %19 = load i32, ptr %18, align 4, !tbaa !7
+  %20 = and i32 %13, 31
+===== 32768 =====
+  %21 = shl nuw i32 1, %20
+  %22 = and i32 %21, %19
+===== 32768 =====
+  %22 = and i32 %21, %19
+  %23 = icmp eq i32 %22, 0
+  %24 = select i1 %23, i32 -16777216, i32 -16711936
+  tail call void @sim_set_pixel(i32 noundef %13, i32 noundef %7, i32 noundef %24) #4
+===== 32768 =====
+  br label %51
+  %52 = add nuw nsw i32 %31, 1
+  %53 = icmp eq i32 %52, 256
+===== 32768 =====
+  %17 = zext i32 %16 to i64
+  %18 = getelementptr inbounds i32, ptr %2, i64 %17
+  %19 = load i32, ptr %18, align 4, !tbaa !7
+===== 32768 =====
+  %15 = or i32 %14, %8
+  %16 = lshr exact i32 %15, 5
+===== 32768 =====
+  %34 = or i32 %31, %5
+===== 32768 =====
+  %36 = and i32 %31, 31
+===== 32768 =====
+  %24 = select i1 %23, i32 -16777216, i32 -16711936
+  tail call void @sim_set_pixel(i32 noundef %13, i32 noundef %7, i32 noundef %24) #4
+===== 32768 =====
+  %20 = and i32 %13, 31
+  %21 = shl nuw i32 1, %20
+  %22 = and i32 %21, %19
+===== 32768 =====
+  tail call void @sim_set_pixel(i32 noundef %13, i32 noundef %7, i32 noundef %24) #4
+===== 32768 =====
+  %32 = tail call i32 @sim_rand() #4
+===== 32768 =====
+  %20 = and i32 %13, 31
+  %21 = shl nuw i32 1, %20
+  %22 = and i32 %21, %19
+  %23 = icmp eq i32 %22, 0
+  %24 = select i1 %23, i32 -16777216, i32 -16711936
+===== 32768 =====
+  %33 = and i32 %32, 1
+  %34 = or i32 %31, %5
+  %35 = icmp eq i32 %33, 0
+  %36 = and i32 %31, 31
+  %37 = shl nuw i32 1, %36
+===== 32768 =====
+  %19 = load i32, ptr %18, align 4, !tbaa !7
+  %20 = and i32 %13, 31
+  %21 = shl nuw i32 1, %20
+  %22 = and i32 %21, %19
+  %23 = icmp eq i32 %22, 0
+===== 32768 =====
+  %36 = and i32 %31, 31
+  %37 = shl nuw i32 1, %36
+  br i1 %35, label %44, label %38
+===== 32768 =====
+  br label %51
+===== 32768 =====
+  %33 = and i32 %32, 1
+  %34 = or i32 %31, %5
+  %35 = icmp eq i32 %33, 0
+  %36 = and i32 %31, 31
+===== 32768 =====
+  %19 = load i32, ptr %18, align 4, !tbaa !7
+  %20 = and i32 %13, 31
+  %21 = shl nuw i32 1, %20
+===== 32768 =====
+  tail call void @sim_set_pixel(i32 noundef %13, i32 noundef %7, i32 noundef %24) #4
+  %25 = add nuw nsw i32 %13, 1
+===== 32768 =====
+  %35 = icmp eq i32 %33, 0
+  %36 = and i32 %31, 31
+  %37 = shl nuw i32 1, %36
+  br i1 %35, label %44, label %38
+===== 32768 =====
+  %32 = tail call i32 @sim_rand() #4
+  %33 = and i32 %32, 1
+  %34 = or i32 %31, %5
+===== 32768 =====
+  %32 = tail call i32 @sim_rand() #4
+  %33 = and i32 %32, 1
+  %34 = or i32 %31, %5
+  %35 = icmp eq i32 %33, 0
+  %36 = and i32 %31, 31
+===== 32768 =====
+  %26 = icmp eq i32 %25, 256
+  br i1 %26, label %9, label %12, !llvm.loop !11
+===== 32768 =====
+  %36 = and i32 %31, 31
+  %37 = shl nuw i32 1, %36
+===== 32768 =====
+  %15 = or i32 %14, %8
+  %16 = lshr exact i32 %15, 5
+  %17 = zext i32 %16 to i64
+===== 32768 =====
+  %24 = select i1 %23, i32 -16777216, i32 -16711936
+  tail call void @sim_set_pixel(i32 noundef %13, i32 noundef %7, i32 noundef %24) #4
+  %25 = add nuw nsw i32 %13, 1
+===== 32768 =====
+  %23 = icmp eq i32 %22, 0
+  %24 = select i1 %23, i32 -16777216, i32 -16711936
+  tail call void @sim_set_pixel(i32 noundef %13, i32 noundef %7, i32 noundef %24) #4
+  %25 = add nuw nsw i32 %13, 1
+===== 32768 =====
+  %35 = icmp eq i32 %33, 0
+===== 32768 =====
+  %25 = add nuw nsw i32 %13, 1
+  %26 = icmp eq i32 %25, 256
+===== 32768 =====
+  %25 = add nuw nsw i32 %13, 1
+===== 32768 =====
+  %23 = icmp eq i32 %22, 0
+===== 32768 =====
+  %18 = getelementptr inbounds i32, ptr %2, i64 %17
+  %19 = load i32, ptr %18, align 4, !tbaa !7
+  %20 = and i32 %13, 31
+===== 32768 =====
+  %20 = and i32 %13, 31
+===== 32768 =====
+  %23 = icmp eq i32 %22, 0
+  %24 = select i1 %23, i32 -16777216, i32 -16711936
+===== 32768 =====
+  %16 = lshr exact i32 %15, 5
+  %17 = zext i32 %16 to i64
+===== 32768 =====
+  %14 = and i32 %13, 224
+  %15 = or i32 %14, %8
+  %16 = lshr exact i32 %15, 5
+  %17 = zext i32 %16 to i64
+  %18 = getelementptr inbounds i32, ptr %2, i64 %17
+===== 32768 =====
+  %22 = and i32 %21, %19
+  %23 = icmp eq i32 %22, 0
+  %24 = select i1 %23, i32 -16777216, i32 -16711936
+===== 32768 =====
+  br i1 %53, label %27, label %30, !llvm.loop !13
+===== 32768 =====
+  %23 = icmp eq i32 %22, 0
+  %24 = select i1 %23, i32 -16777216, i32 -16711936
+  tail call void @sim_set_pixel(i32 noundef %13, i32 noundef %7, i32 noundef %24) #4
+===== 32768 =====
+  %52 = add nuw nsw i32 %31, 1
+===== 32768 =====
+  %17 = zext i32 %16 to i64
+  %18 = getelementptr inbounds i32, ptr %2, i64 %17
+===== 32768 =====
+  %21 = shl nuw i32 1, %20
+  %22 = and i32 %21, %19
+  %23 = icmp eq i32 %22, 0
+  %24 = select i1 %23, i32 -16777216, i32 -16711936
+  tail call void @sim_set_pixel(i32 noundef %13, i32 noundef %7, i32 noundef %24) #4
+===== 32768 =====
+  %18 = getelementptr inbounds i32, ptr %2, i64 %17
+  %19 = load i32, ptr %18, align 4, !tbaa !7
+  %20 = and i32 %13, 31
+  %21 = shl nuw i32 1, %20
+  %22 = and i32 %21, %19
+===== 32768 =====
+  %24 = select i1 %23, i32 -16777216, i32 -16711936
+===== 32768 =====
+  br label %51
+  %52 = add nuw nsw i32 %31, 1
+  %53 = icmp eq i32 %52, 256
+  br i1 %53, label %27, label %30, !llvm.loop !13
+===== 32768 =====
+  %37 = shl nuw i32 1, %36
+  br i1 %35, label %44, label %38
+===== 32768 =====
+  %32 = tail call i32 @sim_rand() #4
+  %33 = and i32 %32, 1
+  %34 = or i32 %31, %5
+  %35 = icmp eq i32 %33, 0
+===== 32768 =====
+  %18 = getelementptr inbounds i32, ptr %2, i64 %17
+  %19 = load i32, ptr %18, align 4, !tbaa !7
+  %20 = and i32 %13, 31
+  %21 = shl nuw i32 1, %20
+===== 32768 =====
+  %53 = icmp eq i32 %52, 256
+  br i1 %53, label %27, label %30, !llvm.loop !13
+===== 32768 =====
+  %34 = or i32 %31, %5
+  %35 = icmp eq i32 %33, 0
+  %36 = and i32 %31, 31
+  %37 = shl nuw i32 1, %36
+  br i1 %35, label %44, label %38
+===== 32768 =====
+  %15 = or i32 %14, %8
+  %16 = lshr exact i32 %15, 5
+  %17 = zext i32 %16 to i64
+  %18 = getelementptr inbounds i32, ptr %2, i64 %17
+===== 32768 =====
+  %34 = or i32 %31, %5
+  %35 = icmp eq i32 %33, 0
+===== 32768 =====
+  %16 = lshr exact i32 %15, 5
+  %17 = zext i32 %16 to i64
+  %18 = getelementptr inbounds i32, ptr %2, i64 %17
+  %19 = load i32, ptr %18, align 4, !tbaa !7
+===== 32768 =====
+  %19 = load i32, ptr %18, align 4, !tbaa !7
+  %20 = and i32 %13, 31
+===== 32768 =====
+  %18 = getelementptr inbounds i32, ptr %2, i64 %17
+  %19 = load i32, ptr %18, align 4, !tbaa !7
+===== 32768 =====
+  %22 = and i32 %21, %19
+===== 32768 =====
+  %18 = getelementptr inbounds i32, ptr %2, i64 %17
+===== 32768 =====
+  %15 = or i32 %14, %8
+  %16 = lshr exact i32 %15, 5
+  %17 = zext i32 %16 to i64
+  %18 = getelementptr inbounds i32, ptr %2, i64 %17
+  %19 = load i32, ptr %18, align 4, !tbaa !7
+===== 32768 =====
+  br label %51
+  %52 = add nuw nsw i32 %31, 1
+===== 32768 =====
+  %52 = add nuw nsw i32 %31, 1
+  %53 = icmp eq i32 %52, 256
+  br i1 %53, label %27, label %30, !llvm.loop !13
+===== 32768 =====
+  br i1 %35, label %44, label %38
+===== 32768 =====
+  %37 = shl nuw i32 1, %36
+===== 32768 =====
+  %21 = shl nuw i32 1, %20
+  %22 = and i32 %21, %19
+  %23 = icmp eq i32 %22, 0
+===== 32768 =====
+  %33 = and i32 %32, 1
+  %34 = or i32 %31, %5
+===== 32768 =====
+  %17 = zext i32 %16 to i64
+===== 32768 =====
+  %33 = and i32 %32, 1
+===== 32768 =====
+  %20 = and i32 %13, 31
+  %21 = shl nuw i32 1, %20
+===== 32768 =====
+  %16 = lshr exact i32 %15, 5
+  %17 = zext i32 %16 to i64
+  %18 = getelementptr inbounds i32, ptr %2, i64 %17
+  %19 = load i32, ptr %18, align 4, !tbaa !7
+  %20 = and i32 %13, 31
+===== 32768 =====
+  %21 = shl nuw i32 1, %20
+  %22 = and i32 %21, %19
+  %23 = icmp eq i32 %22, 0
+  %24 = select i1 %23, i32 -16777216, i32 -16711936
+===== 32768 =====
+  %35 = icmp eq i32 %33, 0
+  %36 = and i32 %31, 31
+  %37 = shl nuw i32 1, %36
+===== 32768 =====
+  %24 = select i1 %23, i32 -16777216, i32 -16711936
+  tail call void @sim_set_pixel(i32 noundef %13, i32 noundef %7, i32 noundef %24) #4
+  %25 = add nuw nsw i32 %13, 1
+  %26 = icmp eq i32 %25, 256
+  br i1 %26, label %9, label %12, !llvm.loop !11
+===== 32768 =====
+  %34 = or i32 %31, %5
+  %35 = icmp eq i32 %33, 0
+  %36 = and i32 %31, 31
+  %37 = shl nuw i32 1, %36
+===== 32768 =====
+  %24 = select i1 %23, i32 -16777216, i32 -16711936
+  tail call void @sim_set_pixel(i32 noundef %13, i32 noundef %7, i32 noundef %24) #4
+  %25 = add nuw nsw i32 %13, 1
+  %26 = icmp eq i32 %25, 256
+===== 32768 =====
+  %52 = add nuw nsw i32 %31, 1
+  %53 = icmp eq i32 %52, 256
+===== 73987 =====
+  store i32 %74, ptr %72, align 4, !tbaa !7
+  br label %82
+  %83 = icmp eq i32 %108, 256
+  br i1 %83, label %67, label %84, !llvm.loop !15
+  %88 = add nsw i32 %87, -1
+===== 74270 =====
+  br i1 %170, label %69, label %75
+  %70 = lshr i32 %174, 5
+  %71 = zext i32 %70 to i64
+  %72 = getelementptr inbounds i32, ptr %55, i64 %71
+===== 74270 =====
+  %71 = zext i32 %70 to i64
+===== 74270 =====
+  %72 = getelementptr inbounds i32, ptr %55, i64 %71
+  %73 = load i32, ptr %72, align 4, !tbaa !7
+  %74 = or i32 %73, %164
+===== 74270 =====
+  %74 = or i32 %73, %164
+===== 74270 =====
+  %73 = load i32, ptr %72, align 4, !tbaa !7
+  %74 = or i32 %73, %164
+===== 74270 =====
+  %73 = load i32, ptr %72, align 4, !tbaa !7
+  %74 = or i32 %73, %164
+  store i32 %74, ptr %72, align 4, !tbaa !7
+===== 74270 =====
+  br i1 %170, label %69, label %75
+  %70 = lshr i32 %174, 5
+  %71 = zext i32 %70 to i64
+  %72 = getelementptr inbounds i32, ptr %55, i64 %71
+  %73 = load i32, ptr %72, align 4, !tbaa !7
+===== 74270 =====
+  store i32 %74, ptr %72, align 4, !tbaa !7
+===== 74270 =====
+  store i32 %74, ptr %72, align 4, !tbaa !7
+  br label %82
+  %83 = icmp eq i32 %108, 256
+===== 74270 =====
+  %72 = getelementptr inbounds i32, ptr %55, i64 %71
+  %73 = load i32, ptr %72, align 4, !tbaa !7
+  %74 = or i32 %73, %164
+  store i32 %74, ptr %72, align 4, !tbaa !7
+===== 74270 =====
+  %172 = select i1 %171, i32 %85, i32 1
+  %173 = select i1 %170, i32 1, i32 %86
+  %174 = or i32 %87, %61
+  br i1 %170, label %69, label %75
+  %70 = lshr i32 %174, 5
+===== 74270 =====
+  %74 = or i32 %73, %164
+  store i32 %74, ptr %72, align 4, !tbaa !7
+===== 74270 =====
+  %74 = or i32 %73, %164
+  store i32 %74, ptr %72, align 4, !tbaa !7
+  br label %82
+  %83 = icmp eq i32 %108, 256
+  br i1 %83, label %67, label %84, !llvm.loop !15
+===== 74270 =====
+  %71 = zext i32 %70 to i64
+  %72 = getelementptr inbounds i32, ptr %55, i64 %71
+  %73 = load i32, ptr %72, align 4, !tbaa !7
+  %74 = or i32 %73, %164
+  store i32 %74, ptr %72, align 4, !tbaa !7
+===== 74270 =====
+  store i32 %74, ptr %72, align 4, !tbaa !7
+  br label %82
+  %83 = icmp eq i32 %108, 256
+  br i1 %83, label %67, label %84, !llvm.loop !15
+===== 74270 =====
+  %73 = load i32, ptr %72, align 4, !tbaa !7
+  %74 = or i32 %73, %164
+  store i32 %74, ptr %72, align 4, !tbaa !7
+  br label %82
+  %83 = icmp eq i32 %108, 256
+===== 74270 =====
+  %73 = load i32, ptr %72, align 4, !tbaa !7
+  %74 = or i32 %73, %164
+  store i32 %74, ptr %72, align 4, !tbaa !7
+  br label %82
+===== 74270 =====
+  %73 = load i32, ptr %72, align 4, !tbaa !7
+===== 74270 =====
+  %74 = or i32 %73, %164
+  store i32 %74, ptr %72, align 4, !tbaa !7
+  br label %82
+===== 74270 =====
+  %174 = or i32 %87, %61
+  br i1 %170, label %69, label %75
+  %70 = lshr i32 %174, 5
+  %71 = zext i32 %70 to i64
+===== 74270 =====
+  store i32 %74, ptr %72, align 4, !tbaa !7
+  br label %82
+===== 74270 =====
+  %71 = zext i32 %70 to i64
+  %72 = getelementptr inbounds i32, ptr %55, i64 %71
+===== 74270 =====
+  %174 = or i32 %87, %61
+  br i1 %170, label %69, label %75
+  %70 = lshr i32 %174, 5
+===== 74270 =====
+  %70 = lshr i32 %174, 5
+  %71 = zext i32 %70 to i64
+  %72 = getelementptr inbounds i32, ptr %55, i64 %71
+  %73 = load i32, ptr %72, align 4, !tbaa !7
+===== 74270 =====
+  br i1 %170, label %69, label %75
+  %70 = lshr i32 %174, 5
+===== 74270 =====
+  br i1 %170, label %69, label %75
+  %70 = lshr i32 %174, 5
+  %71 = zext i32 %70 to i64
+===== 74270 =====
+  %173 = select i1 %170, i32 1, i32 %86
+  %174 = or i32 %87, %61
+  br i1 %170, label %69, label %75
+  %70 = lshr i32 %174, 5
+  %71 = zext i32 %70 to i64
+===== 74270 =====
+  %70 = lshr i32 %174, 5
+  %71 = zext i32 %70 to i64
+  %72 = getelementptr inbounds i32, ptr %55, i64 %71
+  %73 = load i32, ptr %72, align 4, !tbaa !7
+  %74 = or i32 %73, %164
+===== 74270 =====
+  %74 = or i32 %73, %164
+  store i32 %74, ptr %72, align 4, !tbaa !7
+  br label %82
+  %83 = icmp eq i32 %108, 256
+===== 74270 =====
+  %174 = or i32 %87, %61
+  br i1 %170, label %69, label %75
+  %70 = lshr i32 %174, 5
+  %71 = zext i32 %70 to i64
+  %72 = getelementptr inbounds i32, ptr %55, i64 %71
+===== 74270 =====
+  %70 = lshr i32 %174, 5
+===== 74270 =====
+  %173 = select i1 %170, i32 1, i32 %86
+  %174 = or i32 %87, %61
+  br i1 %170, label %69, label %75
+  %70 = lshr i32 %174, 5
+===== 74270 =====
+  %70 = lshr i32 %174, 5
+  %71 = zext i32 %70 to i64
+  %72 = getelementptr inbounds i32, ptr %55, i64 %71
+===== 74270 =====
+  %71 = zext i32 %70 to i64
+  %72 = getelementptr inbounds i32, ptr %55, i64 %71
+  %73 = load i32, ptr %72, align 4, !tbaa !7
+  %74 = or i32 %73, %164
+===== 74270 =====
+  %72 = getelementptr inbounds i32, ptr %55, i64 %71
+===== 74270 =====
+  %72 = getelementptr inbounds i32, ptr %55, i64 %71
+  %73 = load i32, ptr %72, align 4, !tbaa !7
+  %74 = or i32 %73, %164
+  store i32 %74, ptr %72, align 4, !tbaa !7
+  br label %82
+===== 74270 =====
+  %71 = zext i32 %70 to i64
+  %72 = getelementptr inbounds i32, ptr %55, i64 %71
+  %73 = load i32, ptr %72, align 4, !tbaa !7
+===== 74270 =====
+  %70 = lshr i32 %174, 5
+  %71 = zext i32 %70 to i64
+===== 74270 =====
+  %72 = getelementptr inbounds i32, ptr %55, i64 %71
+  %73 = load i32, ptr %72, align 4, !tbaa !7
+===== 187133 =====
+  store i32 %81, ptr %79, align 4, !tbaa !7
+  br label %82
+  %83 = icmp eq i32 %108, 256
+  br i1 %83, label %67, label %84, !llvm.loop !15
+  %88 = add nsw i32 %87, -1
+===== 187874 =====
+  %79 = getelementptr inbounds i32, ptr %55, i64 %78
+===== 187874 =====
+  %76 = xor i32 %164, -1
+===== 187874 =====
+  %80 = load i32, ptr %79, align 4, !tbaa !7
+  %81 = and i32 %80, %76
+  store i32 %81, ptr %79, align 4, !tbaa !7
+  br label %82
+  %83 = icmp eq i32 %108, 256
+===== 187874 =====
+  %80 = load i32, ptr %79, align 4, !tbaa !7
+  %81 = and i32 %80, %76
+  store i32 %81, ptr %79, align 4, !tbaa !7
+===== 187874 =====
+  %77 = lshr i32 %174, 5
+  %78 = zext i32 %77 to i64
+  %79 = getelementptr inbounds i32, ptr %55, i64 %78
+  %80 = load i32, ptr %79, align 4, !tbaa !7
+===== 187874 =====
+  %79 = getelementptr inbounds i32, ptr %55, i64 %78
+  %80 = load i32, ptr %79, align 4, !tbaa !7
+  %81 = and i32 %80, %76
+  store i32 %81, ptr %79, align 4, !tbaa !7
+===== 187874 =====
+  %81 = and i32 %80, %76
+  store i32 %81, ptr %79, align 4, !tbaa !7
+  br label %82
+  %83 = icmp eq i32 %108, 256
+  br i1 %83, label %67, label %84, !llvm.loop !15
+===== 187874 =====
+  store i32 %81, ptr %79, align 4, !tbaa !7
+  br label %82
+  %83 = icmp eq i32 %108, 256
+  br i1 %83, label %67, label %84, !llvm.loop !15
+===== 187874 =====
+  %174 = or i32 %87, %61
+  br i1 %170, label %69, label %75
+  %76 = xor i32 %164, -1
+===== 187874 =====
+  %80 = load i32, ptr %79, align 4, !tbaa !7
+  %81 = and i32 %80, %76
+===== 187874 =====
+  %78 = zext i32 %77 to i64
+  %79 = getelementptr inbounds i32, ptr %55, i64 %78
+  %80 = load i32, ptr %79, align 4, !tbaa !7
+===== 187874 =====
+  %77 = lshr i32 %174, 5
+  %78 = zext i32 %77 to i64
+===== 187874 =====
+  %173 = select i1 %170, i32 1, i32 %86
+  %174 = or i32 %87, %61
+  br i1 %170, label %69, label %75
+  %76 = xor i32 %164, -1
+===== 187874 =====
+  %174 = or i32 %87, %61
+  br i1 %170, label %69, label %75
+  %76 = xor i32 %164, -1
+  %77 = lshr i32 %174, 5
+===== 187874 =====
+  %173 = select i1 %170, i32 1, i32 %86
+  %174 = or i32 %87, %61
+  br i1 %170, label %69, label %75
+  %76 = xor i32 %164, -1
+  %77 = lshr i32 %174, 5
+===== 187874 =====
+  %80 = load i32, ptr %79, align 4, !tbaa !7
+  %81 = and i32 %80, %76
+  store i32 %81, ptr %79, align 4, !tbaa !7
+  br label %82
+===== 187874 =====
+  %76 = xor i32 %164, -1
+  %77 = lshr i32 %174, 5
+  %78 = zext i32 %77 to i64
+  %79 = getelementptr inbounds i32, ptr %55, i64 %78
+  %80 = load i32, ptr %79, align 4, !tbaa !7
+===== 187874 =====
+  %174 = or i32 %87, %61
+  br i1 %170, label %69, label %75
+  %76 = xor i32 %164, -1
+  %77 = lshr i32 %174, 5
+  %78 = zext i32 %77 to i64
+===== 187874 =====
+  %76 = xor i32 %164, -1
+  %77 = lshr i32 %174, 5
+  %78 = zext i32 %77 to i64
+===== 187874 =====
+  %77 = lshr i32 %174, 5
+  %78 = zext i32 %77 to i64
+  %79 = getelementptr inbounds i32, ptr %55, i64 %78
+===== 187874 =====
+  %172 = select i1 %171, i32 %85, i32 1
+  %173 = select i1 %170, i32 1, i32 %86
+  %174 = or i32 %87, %61
+  br i1 %170, label %69, label %75
+  %76 = xor i32 %164, -1
+===== 187874 =====
+  %79 = getelementptr inbounds i32, ptr %55, i64 %78
+  %80 = load i32, ptr %79, align 4, !tbaa !7
+===== 187874 =====
+  br i1 %170, label %69, label %75
+  %76 = xor i32 %164, -1
+  %77 = lshr i32 %174, 5
+  %78 = zext i32 %77 to i64
+  %79 = getelementptr inbounds i32, ptr %55, i64 %78
+===== 187874 =====
+  br i1 %170, label %69, label %75
+  %76 = xor i32 %164, -1
+  %77 = lshr i32 %174, 5
+  %78 = zext i32 %77 to i64
+===== 187874 =====
+  %80 = load i32, ptr %79, align 4, !tbaa !7
+===== 187874 =====
+  %79 = getelementptr inbounds i32, ptr %55, i64 %78
+  %80 = load i32, ptr %79, align 4, !tbaa !7
+  %81 = and i32 %80, %76
+===== 187874 =====
+  %78 = zext i32 %77 to i64
+  %79 = getelementptr inbounds i32, ptr %55, i64 %78
+  %80 = load i32, ptr %79, align 4, !tbaa !7
+  %81 = and i32 %80, %76
+  store i32 %81, ptr %79, align 4, !tbaa !7
+===== 187874 =====
+  %78 = zext i32 %77 to i64
+===== 187874 =====
+  %81 = and i32 %80, %76
+===== 187874 =====
+  %78 = zext i32 %77 to i64
+  %79 = getelementptr inbounds i32, ptr %55, i64 %78
+  %80 = load i32, ptr %79, align 4, !tbaa !7
+  %81 = and i32 %80, %76
+===== 187874 =====
+  %77 = lshr i32 %174, 5
+  %78 = zext i32 %77 to i64
+  %79 = getelementptr inbounds i32, ptr %55, i64 %78
+  %80 = load i32, ptr %79, align 4, !tbaa !7
+  %81 = and i32 %80, %76
+===== 187874 =====
+  store i32 %81, ptr %79, align 4, !tbaa !7
+===== 187874 =====
+  %76 = xor i32 %164, -1
+  %77 = lshr i32 %174, 5
+===== 187874 =====
+  %81 = and i32 %80, %76
+  store i32 %81, ptr %79, align 4, !tbaa !7
+===== 187874 =====
+  %77 = lshr i32 %174, 5
+===== 187874 =====
+  br i1 %170, label %69, label %75
+  %76 = xor i32 %164, -1
+  %77 = lshr i32 %174, 5
+===== 187874 =====
+  store i32 %81, ptr %79, align 4, !tbaa !7
+  br label %82
+  %83 = icmp eq i32 %108, 256
+===== 187874 =====
+  store i32 %81, ptr %79, align 4, !tbaa !7
+  br label %82
+===== 187874 =====
+  %81 = and i32 %80, %76
+  store i32 %81, ptr %79, align 4, !tbaa !7
+  br label %82
+===== 187874 =====
+  br i1 %170, label %69, label %75
+  %76 = xor i32 %164, -1
+===== 187874 =====
+  %79 = getelementptr inbounds i32, ptr %55, i64 %78
+  %80 = load i32, ptr %79, align 4, !tbaa !7
+  %81 = and i32 %80, %76
+  store i32 %81, ptr %79, align 4, !tbaa !7
+  br label %82
+===== 187874 =====
+  %76 = xor i32 %164, -1
+  %77 = lshr i32 %174, 5
+  %78 = zext i32 %77 to i64
+  %79 = getelementptr inbounds i32, ptr %55, i64 %78
+===== 187874 =====
+  %78 = zext i32 %77 to i64
+  %79 = getelementptr inbounds i32, ptr %55, i64 %78
+===== 187874 =====
+  %81 = and i32 %80, %76
+  store i32 %81, ptr %79, align 4, !tbaa !7
+  br label %82
+  %83 = icmp eq i32 %108, 256
+===== 249017 =====
+  br i1 %199, label %182, label %185, !llvm.loop !11
+  %187 = and i32 %186, 224
+  %188 = or i32 %187, %181
+  %189 = lshr exact i32 %188, 5
+===== 249017 =====
+  %198 = add nuw nsw i32 %186, 1
+  %199 = icmp eq i32 %198, 256
+  br i1 %199, label %182, label %185, !llvm.loop !11
+  %187 = and i32 %186, 224
+  %188 = or i32 %187, %181
+===== 249017 =====
+  tail call void @sim_set_pixel(i32 noundef %186, i32 noundef %180, i32 noundef %197) #4
+  %198 = add nuw nsw i32 %186, 1
+  %199 = icmp eq i32 %198, 256
+  br i1 %199, label %182, label %185, !llvm.loop !11
+  %187 = and i32 %186, 224
+===== 249017 =====
+  br i1 %199, label %182, label %185, !llvm.loop !11
+  %187 = and i32 %186, 224
+  %188 = or i32 %187, %181
+  %189 = lshr exact i32 %188, 5
+  %190 = zext i32 %189 to i64
+===== 249017 =====
+  br i1 %199, label %182, label %185, !llvm.loop !11
+  %187 = and i32 %186, 224
+===== 249017 =====
+  %199 = icmp eq i32 %198, 256
+  br i1 %199, label %182, label %185, !llvm.loop !11
+  %187 = and i32 %186, 224
+  %188 = or i32 %187, %181
+  %189 = lshr exact i32 %188, 5
+===== 249017 =====
+  %198 = add nuw nsw i32 %186, 1
+  %199 = icmp eq i32 %198, 256
+  br i1 %199, label %182, label %185, !llvm.loop !11
+  %187 = and i32 %186, 224
+===== 249017 =====
+  %199 = icmp eq i32 %198, 256
+  br i1 %199, label %182, label %185, !llvm.loop !11
+  %187 = and i32 %186, 224
+  %188 = or i32 %187, %181
+===== 249017 =====
+  %199 = icmp eq i32 %198, 256
+  br i1 %199, label %182, label %185, !llvm.loop !11
+  %187 = and i32 %186, 224
+===== 249017 =====
+  br i1 %199, label %182, label %185, !llvm.loop !11
+  %187 = and i32 %186, 224
+  %188 = or i32 %187, %181
+===== 249993 =====
+  %190 = zext i32 %189 to i64
+  %191 = getelementptr inbounds i32, ptr %55, i64 %190
+===== 249993 =====
+  %191 = getelementptr inbounds i32, ptr %55, i64 %190
+  %192 = load i32, ptr %191, align 4, !tbaa !7
+  %193 = and i32 %186, 31
+  %194 = shl nuw i32 1, %193
+  %195 = and i32 %194, %192
+===== 249993 =====
+  %191 = getelementptr inbounds i32, ptr %55, i64 %190
+  %192 = load i32, ptr %191, align 4, !tbaa !7
+  %193 = and i32 %186, 31
+===== 249993 =====
+  %194 = shl nuw i32 1, %193
+===== 249993 =====
+  %194 = shl nuw i32 1, %193
+  %195 = and i32 %194, %192
+  %196 = icmp eq i32 %195, 0
+  %197 = select i1 %196, i32 -16777216, i32 -16711936
+===== 249993 =====
+  %192 = load i32, ptr %191, align 4, !tbaa !7
+  %193 = and i32 %186, 31
+  %194 = shl nuw i32 1, %193
+  %195 = and i32 %194, %192
+  %196 = icmp eq i32 %195, 0
+===== 249993 =====
+  %197 = select i1 %196, i32 -16777216, i32 -16711936
+  tail call void @sim_set_pixel(i32 noundef %186, i32 noundef %180, i32 noundef %197) #4
+  %198 = add nuw nsw i32 %186, 1
+  %199 = icmp eq i32 %198, 256
+===== 249993 =====
+  %189 = lshr exact i32 %188, 5
+  %190 = zext i32 %189 to i64
+  %191 = getelementptr inbounds i32, ptr %55, i64 %190
+  %192 = load i32, ptr %191, align 4, !tbaa !7
+===== 249993 =====
+  %190 = zext i32 %189 to i64
+  %191 = getelementptr inbounds i32, ptr %55, i64 %190
+  %192 = load i32, ptr %191, align 4, !tbaa !7
+  %193 = and i32 %186, 31
+  %194 = shl nuw i32 1, %193
+===== 249993 =====
+  %195 = and i32 %194, %192
+  %196 = icmp eq i32 %195, 0
+  %197 = select i1 %196, i32 -16777216, i32 -16711936
+===== 249993 =====
+  %194 = shl nuw i32 1, %193
+  %195 = and i32 %194, %192
+===== 249993 =====
+  %192 = load i32, ptr %191, align 4, !tbaa !7
+  %193 = and i32 %186, 31
+  %194 = shl nuw i32 1, %193
+===== 249993 =====
+  %195 = and i32 %194, %192
+  %196 = icmp eq i32 %195, 0
+  %197 = select i1 %196, i32 -16777216, i32 -16711936
+  tail call void @sim_set_pixel(i32 noundef %186, i32 noundef %180, i32 noundef %197) #4
+===== 249993 =====
+  %196 = icmp eq i32 %195, 0
+  %197 = select i1 %196, i32 -16777216, i32 -16711936
+  tail call void @sim_set_pixel(i32 noundef %186, i32 noundef %180, i32 noundef %197) #4
+  %198 = add nuw nsw i32 %186, 1
+  %199 = icmp eq i32 %198, 256
+===== 249993 =====
+  %192 = load i32, ptr %191, align 4, !tbaa !7
+  %193 = and i32 %186, 31
+===== 249993 =====
+  %188 = or i32 %187, %181
+  %189 = lshr exact i32 %188, 5
+  %190 = zext i32 %189 to i64
+  %191 = getelementptr inbounds i32, ptr %55, i64 %190
+===== 249993 =====
+  br i1 %199, label %182, label %185, !llvm.loop !11
+===== 249993 =====
+  %196 = icmp eq i32 %195, 0
+===== 249993 =====
+  %192 = load i32, ptr %191, align 4, !tbaa !7
+===== 249993 =====
+  %190 = zext i32 %189 to i64
+  %191 = getelementptr inbounds i32, ptr %55, i64 %190
+  %192 = load i32, ptr %191, align 4, !tbaa !7
+===== 249993 =====
+  %195 = and i32 %194, %192
+===== 249993 =====
+  %193 = and i32 %186, 31
+  %194 = shl nuw i32 1, %193
+  %195 = and i32 %194, %192
+  %196 = icmp eq i32 %195, 0
+===== 249993 =====
+  %191 = getelementptr inbounds i32, ptr %55, i64 %190
+  %192 = load i32, ptr %191, align 4, !tbaa !7
+===== 249993 =====
+  %198 = add nuw nsw i32 %186, 1
+  %199 = icmp eq i32 %198, 256
+===== 249993 =====
+  %193 = and i32 %186, 31
+  %194 = shl nuw i32 1, %193
+  %195 = and i32 %194, %192
+  %196 = icmp eq i32 %195, 0
+  %197 = select i1 %196, i32 -16777216, i32 -16711936
+===== 249993 =====
+  %187 = and i32 %186, 224
+  %188 = or i32 %187, %181
+  %189 = lshr exact i32 %188, 5
+  %190 = zext i32 %189 to i64
+  %191 = getelementptr inbounds i32, ptr %55, i64 %190
+===== 249993 =====
+  %194 = shl nuw i32 1, %193
+  %195 = and i32 %194, %192
+  %196 = icmp eq i32 %195, 0
+===== 249993 =====
+  %198 = add nuw nsw i32 %186, 1
+  %199 = icmp eq i32 %198, 256
+  br i1 %199, label %182, label %185, !llvm.loop !11
+===== 249993 =====
+  %196 = icmp eq i32 %195, 0
+  %197 = select i1 %196, i32 -16777216, i32 -16711936
+  tail call void @sim_set_pixel(i32 noundef %186, i32 noundef %180, i32 noundef %197) #4
+===== 249993 =====
+  %195 = and i32 %194, %192
+  %196 = icmp eq i32 %195, 0
+===== 249993 =====
+  %199 = icmp eq i32 %198, 256
+===== 249993 =====
+  %193 = and i32 %186, 31
+  %194 = shl nuw i32 1, %193
+  %195 = and i32 %194, %192
+===== 249993 =====
+  %199 = icmp eq i32 %198, 256
+  br i1 %199, label %182, label %185, !llvm.loop !11
+===== 249993 =====
+  tail call void @sim_set_pixel(i32 noundef %186, i32 noundef %180, i32 noundef %197) #4
+  %198 = add nuw nsw i32 %186, 1
+  %199 = icmp eq i32 %198, 256
+===== 249993 =====
+  tail call void @sim_set_pixel(i32 noundef %186, i32 noundef %180, i32 noundef %197) #4
+  %198 = add nuw nsw i32 %186, 1
+===== 249993 =====
+  %197 = select i1 %196, i32 -16777216, i32 -16711936
+  tail call void @sim_set_pixel(i32 noundef %186, i32 noundef %180, i32 noundef %197) #4
+  %198 = add nuw nsw i32 %186, 1
+===== 249993 =====
+  %198 = add nuw nsw i32 %186, 1
+===== 249993 =====
+  %193 = and i32 %186, 31
+  %194 = shl nuw i32 1, %193
+===== 249993 =====
+  %189 = lshr exact i32 %188, 5
+  %190 = zext i32 %189 to i64
+  %191 = getelementptr inbounds i32, ptr %55, i64 %190
+===== 249993 =====
+  %192 = load i32, ptr %191, align 4, !tbaa !7
+  %193 = and i32 %186, 31
+  %194 = shl nuw i32 1, %193
+  %195 = and i32 %194, %192
+===== 249993 =====
+  %196 = icmp eq i32 %195, 0
+  %197 = select i1 %196, i32 -16777216, i32 -16711936
+  tail call void @sim_set_pixel(i32 noundef %186, i32 noundef %180, i32 noundef %197) #4
+  %198 = add nuw nsw i32 %186, 1
+===== 249993 =====
+  %197 = select i1 %196, i32 -16777216, i32 -16711936
+  tail call void @sim_set_pixel(i32 noundef %186, i32 noundef %180, i32 noundef %197) #4
+  %198 = add nuw nsw i32 %186, 1
+  %199 = icmp eq i32 %198, 256
+  br i1 %199, label %182, label %185, !llvm.loop !11
+===== 249993 =====
+  %190 = zext i32 %189 to i64
+  %191 = getelementptr inbounds i32, ptr %55, i64 %190
+  %192 = load i32, ptr %191, align 4, !tbaa !7
+  %193 = and i32 %186, 31
+===== 249993 =====
+  tail call void @sim_set_pixel(i32 noundef %186, i32 noundef %180, i32 noundef %197) #4
+  %198 = add nuw nsw i32 %186, 1
+  %199 = icmp eq i32 %198, 256
+  br i1 %199, label %182, label %185, !llvm.loop !11
+===== 249993 =====
+  %197 = select i1 %196, i32 -16777216, i32 -16711936
+===== 249993 =====
+  %193 = and i32 %186, 31
+===== 249993 =====
+  %194 = shl nuw i32 1, %193
+  %195 = and i32 %194, %192
+  %196 = icmp eq i32 %195, 0
+  %197 = select i1 %196, i32 -16777216, i32 -16711936
+  tail call void @sim_set_pixel(i32 noundef %186, i32 noundef %180, i32 noundef %197) #4
+===== 249993 =====
+  %196 = icmp eq i32 %195, 0
+  %197 = select i1 %196, i32 -16777216, i32 -16711936
+===== 249993 =====
+  %191 = getelementptr inbounds i32, ptr %55, i64 %190
+  %192 = load i32, ptr %191, align 4, !tbaa !7
+  %193 = and i32 %186, 31
+  %194 = shl nuw i32 1, %193
+===== 249993 =====
+  %188 = or i32 %187, %181
+  %189 = lshr exact i32 %188, 5
+  %190 = zext i32 %189 to i64
+  %191 = getelementptr inbounds i32, ptr %55, i64 %190
+  %192 = load i32, ptr %191, align 4, !tbaa !7
+===== 249993 =====
+  tail call void @sim_set_pixel(i32 noundef %186, i32 noundef %180, i32 noundef %197) #4
+===== 249993 =====
+  %197 = select i1 %196, i32 -16777216, i32 -16711936
+  tail call void @sim_set_pixel(i32 noundef %186, i32 noundef %180, i32 noundef %197) #4
+===== 249993 =====
+  %189 = lshr exact i32 %188, 5
+  %190 = zext i32 %189 to i64
+  %191 = getelementptr inbounds i32, ptr %55, i64 %190
+  %192 = load i32, ptr %191, align 4, !tbaa !7
+  %193 = and i32 %186, 31
+===== 249993 =====
+  %195 = and i32 %194, %192
+  %196 = icmp eq i32 %195, 0
+  %197 = select i1 %196, i32 -16777216, i32 -16711936
+  tail call void @sim_set_pixel(i32 noundef %186, i32 noundef %180, i32 noundef %197) #4
+  %198 = add nuw nsw i32 %186, 1
+===== 249993 =====
+  %191 = getelementptr inbounds i32, ptr %55, i64 %190
+===== 249994 =====
+  %187 = and i32 %186, 224
+  %188 = or i32 %187, %181
+===== 249994 =====
+  %187 = and i32 %186, 224
+  %188 = or i32 %187, %181
+  %189 = lshr exact i32 %188, 5
+  %190 = zext i32 %189 to i64
+===== 249994 =====
+  %189 = lshr exact i32 %188, 5
+  %190 = zext i32 %189 to i64
+===== 249994 =====
+  %187 = and i32 %186, 224
+  %188 = or i32 %187, %181
+  %189 = lshr exact i32 %188, 5
+===== 249994 =====
+  %188 = or i32 %187, %181
+===== 249994 =====
+  %188 = or i32 %187, %181
+  %189 = lshr exact i32 %188, 5
+  %190 = zext i32 %189 to i64
+===== 249994 =====
+  %190 = zext i32 %189 to i64
+===== 249994 =====
+  %188 = or i32 %187, %181
+  %189 = lshr exact i32 %188, 5
+===== 249994 =====
+  %187 = and i32 %186, 224
+===== 249994 =====
+  %189 = lshr exact i32 %188, 5
+===== 261120 =====
+  br i1 %83, label %67, label %84, !llvm.loop !15
+  %88 = add nsw i32 %87, -1
+  %89 = and i32 %88, 224
+  %90 = or i32 %89, %63
+===== 261120 =====
+  br i1 %83, label %67, label %84, !llvm.loop !15
+  %88 = add nsw i32 %87, -1
+===== 261120 =====
+  br i1 %83, label %67, label %84, !llvm.loop !15
+  %88 = add nsw i32 %87, -1
+  %89 = and i32 %88, 224
+===== 261120 =====
+  %83 = icmp eq i32 %108, 256
+  br i1 %83, label %67, label %84, !llvm.loop !15
+  %88 = add nsw i32 %87, -1
+  %89 = and i32 %88, 224
+  %90 = or i32 %89, %63
+===== 261120 =====
+  %83 = icmp eq i32 %108, 256
+  br i1 %83, label %67, label %84, !llvm.loop !15
+  %88 = add nsw i32 %87, -1
+===== 261120 =====
+  %83 = icmp eq i32 %108, 256
+  br i1 %83, label %67, label %84, !llvm.loop !15
+  %88 = add nsw i32 %87, -1
+  %89 = and i32 %88, 224
+===== 261120 =====
+  br label %82
+  %83 = icmp eq i32 %108, 256
+  br i1 %83, label %67, label %84, !llvm.loop !15
+  %88 = add nsw i32 %87, -1
+  %89 = and i32 %88, 224
+===== 261120 =====
+  br label %82
+  %83 = icmp eq i32 %108, 256
+  br i1 %83, label %67, label %84, !llvm.loop !15
+  %88 = add nsw i32 %87, -1
+===== 261120 =====
+  br i1 %83, label %67, label %84, !llvm.loop !15
+  %88 = add nsw i32 %87, -1
+  %89 = and i32 %88, 224
+  %90 = or i32 %89, %63
+  %91 = lshr exact i32 %90, 5
+===== 262144 =====
+  %135 = or i32 %89, %66
+  %136 = lshr exact i32 %135, 5
+  %137 = zext i32 %136 to i64
+===== 262144 =====
+  %148 = lshr i32 %147, %104
+  %149 = and i32 %148, 1
+  %150 = add nuw nsw i32 %142, %149
+  %151 = or i32 %109, %66
+===== 262144 =====
+  %110 = or i32 %109, %63
+  %111 = lshr exact i32 %110, 5
+  %112 = zext i32 %111 to i64
+===== 262144 =====
+  %128 = lshr exact i32 %127, 5
+  %129 = zext i32 %128 to i64
+  %130 = getelementptr inbounds i32, ptr %56, i64 %129
+===== 262144 =====
+  %115 = and i32 %108, 31
+  %116 = lshr i32 %114, %115
+===== 262144 =====
+  %152 = lshr exact i32 %151, 5
+  %153 = zext i32 %152 to i64
+  %154 = getelementptr inbounds i32, ptr %56, i64 %153
+===== 262144 =====
+  %108 = add nuw nsw i32 %87, 1
+===== 262144 =====
+  %134 = add nuw nsw i32 %126, %133
+  %135 = or i32 %89, %66
+  %136 = lshr exact i32 %135, 5
+  %137 = zext i32 %136 to i64
+  %138 = getelementptr inbounds i32, ptr %56, i64 %137
+===== 262144 =====
+  %108 = add nuw nsw i32 %87, 1
+  %109 = and i32 %108, 224
+  %110 = or i32 %109, %63
+  %111 = lshr exact i32 %110, 5
+  %112 = zext i32 %111 to i64
+===== 262144 =====
+  %120 = lshr exact i32 %119, 5
+===== 262144 =====
+  %114 = load i32, ptr %113, align 4, !tbaa !7
+  %115 = and i32 %108, 31
+  %116 = lshr i32 %114, %115
+  %117 = and i32 %116, 1
+  %118 = add nuw nsw i32 %107, %117
+===== 262144 =====
+  %95 = and i32 %88, 31
+===== 262144 =====
+  %106 = and i32 %105, 1
+  %107 = add nuw nsw i32 %106, %97
+  %108 = add nuw nsw i32 %87, 1
+  %109 = and i32 %108, 224
+===== 262144 =====
+  %174 = or i32 %87, %61
+===== 262144 =====
+  %96 = lshr i32 %94, %95
+  %97 = and i32 %96, 1
+===== 262144 =====
+  %113 = getelementptr inbounds i32, ptr %56, i64 %112
+  %114 = load i32, ptr %113, align 4, !tbaa !7
+  %115 = and i32 %108, 31
+  %116 = lshr i32 %114, %115
+===== 262144 =====
+  %107 = add nuw nsw i32 %106, %97
+  %108 = add nuw nsw i32 %87, 1
+  %109 = and i32 %108, 224
+===== 262144 =====
+  %106 = and i32 %105, 1
+===== 262144 =====
+  %103 = load i32, ptr %102, align 4, !tbaa !7
+  %104 = and i32 %87, 31
+  %105 = lshr i32 %103, %104
+  %106 = and i32 %105, 1
+===== 262144 =====
+  %112 = zext i32 %111 to i64
+===== 262144 =====
+  %111 = lshr exact i32 %110, 5
+  %112 = zext i32 %111 to i64
+  %113 = getelementptr inbounds i32, ptr %56, i64 %112
+===== 262144 =====
+  %106 = and i32 %105, 1
+  %107 = add nuw nsw i32 %106, %97
+===== 262144 =====
+  %110 = or i32 %109, %63
+===== 262144 =====
+  %104 = and i32 %87, 31
+  %105 = lshr i32 %103, %104
+  %106 = and i32 %105, 1
+  %107 = add nuw nsw i32 %106, %97
+  %108 = add nuw nsw i32 %87, 1
+===== 262144 =====
+  %105 = lshr i32 %103, %104
+===== 262144 =====
+  %111 = lshr exact i32 %110, 5
+  %112 = zext i32 %111 to i64
+  %113 = getelementptr inbounds i32, ptr %56, i64 %112
+  %114 = load i32, ptr %113, align 4, !tbaa !7
+  %115 = and i32 %108, 31
+===== 262144 =====
+  %89 = and i32 %88, 224
+  %90 = or i32 %89, %63
+===== 262144 =====
+  %105 = lshr i32 %103, %104
+  %106 = and i32 %105, 1
+  %107 = add nuw nsw i32 %106, %97
+  %108 = add nuw nsw i32 %87, 1
+===== 262144 =====
+  %114 = load i32, ptr %113, align 4, !tbaa !7
+  %115 = and i32 %108, 31
+  %116 = lshr i32 %114, %115
+  %117 = and i32 %116, 1
+===== 262144 =====
+  %154 = getelementptr inbounds i32, ptr %56, i64 %153
+===== 262144 =====
+  %90 = or i32 %89, %63
+  %91 = lshr exact i32 %90, 5
+  %92 = zext i32 %91 to i64
+===== 262144 =====
+  %108 = add nuw nsw i32 %87, 1
+  %109 = and i32 %108, 224
+  %110 = or i32 %109, %63
+===== 262144 =====
+  %111 = lshr exact i32 %110, 5
+===== 262144 =====
+  %102 = getelementptr inbounds i32, ptr %56, i64 %101
+  %103 = load i32, ptr %102, align 4, !tbaa !7
+  %104 = and i32 %87, 31
+  %105 = lshr i32 %103, %104
+===== 262144 =====
+  %111 = lshr exact i32 %110, 5
+  %112 = zext i32 %111 to i64
+===== 262144 =====
+  %110 = or i32 %109, %63
+  %111 = lshr exact i32 %110, 5
+  %112 = zext i32 %111 to i64
+  %113 = getelementptr inbounds i32, ptr %56, i64 %112
+===== 262144 =====
+  %103 = load i32, ptr %102, align 4, !tbaa !7
+  %104 = and i32 %87, 31
+  %105 = lshr i32 %103, %104
+  %106 = and i32 %105, 1
+  %107 = add nuw nsw i32 %106, %97
+===== 262144 =====
+  %93 = getelementptr inbounds i32, ptr %56, i64 %92
+  %94 = load i32, ptr %93, align 4, !tbaa !7
+  %95 = and i32 %88, 31
+  %96 = lshr i32 %94, %95
+  %97 = and i32 %96, 1
+===== 262144 =====
+  %93 = getelementptr inbounds i32, ptr %56, i64 %92
+  %94 = load i32, ptr %93, align 4, !tbaa !7
+  %95 = and i32 %88, 31
+  %96 = lshr i32 %94, %95
+===== 262144 =====
+  %113 = getelementptr inbounds i32, ptr %56, i64 %112
+  %114 = load i32, ptr %113, align 4, !tbaa !7
+===== 262144 =====
+  %116 = lshr i32 %114, %115
+===== 262144 =====
+  %171 = xor i1 %166, %170
+  %172 = select i1 %171, i32 %85, i32 1
+===== 262144 =====
+  %91 = lshr exact i32 %90, 5
+  %92 = zext i32 %91 to i64
+===== 262144 =====
+  %119 = or i32 %89, %61
+  %120 = lshr exact i32 %119, 5
+  %121 = zext i32 %120 to i64
+===== 262144 =====
+  %89 = and i32 %88, 224
+  %90 = or i32 %89, %63
+  %91 = lshr exact i32 %90, 5
+  %92 = zext i32 %91 to i64
+===== 262144 =====
+  %88 = add nsw i32 %87, -1
+  %89 = and i32 %88, 224
+  %90 = or i32 %89, %63
+  %91 = lshr exact i32 %90, 5
+  %92 = zext i32 %91 to i64
+===== 262144 =====
+  %102 = getelementptr inbounds i32, ptr %56, i64 %101
+  %103 = load i32, ptr %102, align 4, !tbaa !7
+  %104 = and i32 %87, 31
+  %105 = lshr i32 %103, %104
+  %106 = and i32 %105, 1
+===== 262144 =====
+  %90 = or i32 %89, %63
+  %91 = lshr exact i32 %90, 5
+  %92 = zext i32 %91 to i64
+  %93 = getelementptr inbounds i32, ptr %56, i64 %92
+===== 262144 =====
+  %161 = zext i32 %160 to i64
+  %162 = getelementptr inbounds i32, ptr %56, i64 %161
+  %163 = load i32, ptr %162, align 4, !tbaa !7
+  %164 = shl nuw i32 1, %104
+  %165 = and i32 %163, %164
+===== 262144 =====
+  %89 = and i32 %88, 224
+  %90 = or i32 %89, %63
+  %91 = lshr exact i32 %90, 5
+  %92 = zext i32 %91 to i64
+  %93 = getelementptr inbounds i32, ptr %56, i64 %92
+===== 262144 =====
+  %94 = load i32, ptr %93, align 4, !tbaa !7
+===== 262144 =====
+  %91 = lshr exact i32 %90, 5
+  %92 = zext i32 %91 to i64
+  %93 = getelementptr inbounds i32, ptr %56, i64 %92
+  %94 = load i32, ptr %93, align 4, !tbaa !7
+===== 262144 =====
+  %94 = load i32, ptr %93, align 4, !tbaa !7
+  %95 = and i32 %88, 31
+===== 262144 =====
+  %116 = lshr i32 %114, %115
+  %117 = and i32 %116, 1
+  %118 = add nuw nsw i32 %107, %117
+  %119 = or i32 %89, %61
+  %120 = lshr exact i32 %119, 5
+===== 262144 =====
+  %109 = and i32 %108, 224
+===== 262144 =====
+  %162 = getelementptr inbounds i32, ptr %56, i64 %161
+===== 262144 =====
+  %91 = lshr exact i32 %90, 5
+  %92 = zext i32 %91 to i64
+  %93 = getelementptr inbounds i32, ptr %56, i64 %92
+  %94 = load i32, ptr %93, align 4, !tbaa !7
+  %95 = and i32 %88, 31
+===== 262144 =====
+  %117 = and i32 %116, 1
+  %118 = add nuw nsw i32 %107, %117
+  %119 = or i32 %89, %61
+  %120 = lshr exact i32 %119, 5
+  %121 = zext i32 %120 to i64
+===== 262144 =====
+  %95 = and i32 %88, 31
+  %96 = lshr i32 %94, %95
+===== 262144 =====
+  %114 = load i32, ptr %113, align 4, !tbaa !7
+  %115 = and i32 %108, 31
+===== 262144 =====
+  %138 = getelementptr inbounds i32, ptr %56, i64 %137
+  %139 = load i32, ptr %138, align 4, !tbaa !7
+  %140 = lshr i32 %139, %95
+  %141 = and i32 %140, 1
+===== 262144 =====
+  %94 = load i32, ptr %93, align 4, !tbaa !7
+  %95 = and i32 %88, 31
+  %96 = lshr i32 %94, %95
+===== 262144 =====
+  %92 = zext i32 %91 to i64
+  %93 = getelementptr inbounds i32, ptr %56, i64 %92
+  %94 = load i32, ptr %93, align 4, !tbaa !7
+  %95 = and i32 %88, 31
+  %96 = lshr i32 %94, %95
+===== 262144 =====
+  %116 = lshr i32 %114, %115
+  %117 = and i32 %116, 1
+===== 262144 =====
+  %97 = and i32 %96, 1
+===== 262144 =====
+  %95 = and i32 %88, 31
+  %96 = lshr i32 %94, %95
+  %97 = and i32 %96, 1
+===== 262144 =====
+  %103 = load i32, ptr %102, align 4, !tbaa !7
+===== 262144 =====
+  %118 = add nuw nsw i32 %107, %117
+  %119 = or i32 %89, %61
+===== 262144 =====
+  %113 = getelementptr inbounds i32, ptr %56, i64 %112
+  %114 = load i32, ptr %113, align 4, !tbaa !7
+  %115 = and i32 %108, 31
+===== 262144 =====
+  %163 = load i32, ptr %162, align 4, !tbaa !7
+===== 262144 =====
+  %89 = and i32 %88, 224
+===== 262144 =====
+  %114 = load i32, ptr %113, align 4, !tbaa !7
+  %115 = and i32 %108, 31
+  %116 = lshr i32 %114, %115
+===== 262144 =====
+  %88 = add nsw i32 %87, -1
+===== 262144 =====
+  %112 = zext i32 %111 to i64
+  %113 = getelementptr inbounds i32, ptr %56, i64 %112
+  %114 = load i32, ptr %113, align 4, !tbaa !7
+  %115 = and i32 %108, 31
+  %116 = lshr i32 %114, %115
+===== 262144 =====
+  %143 = or i32 %98, %66
+  %144 = lshr exact i32 %143, 5
+  %145 = zext i32 %144 to i64
+  %146 = getelementptr inbounds i32, ptr %56, i64 %145
+===== 262144 =====
+  %115 = and i32 %108, 31
+  %116 = lshr i32 %114, %115
+  %117 = and i32 %116, 1
+===== 262144 =====
+  %123 = load i32, ptr %122, align 4, !tbaa !7
+===== 262144 =====
+  %117 = and i32 %116, 1
+  %118 = add nuw nsw i32 %107, %117
+===== 262144 =====
+  %91 = lshr exact i32 %90, 5
+===== 262144 =====
+  %90 = or i32 %89, %63
+  %91 = lshr exact i32 %90, 5
+===== 262144 =====
+  %119 = or i32 %89, %61
+===== 262144 =====
+  %160 = lshr exact i32 %159, 5
+  %161 = zext i32 %160 to i64
+  %162 = getelementptr inbounds i32, ptr %56, i64 %161
+  %163 = load i32, ptr %162, align 4, !tbaa !7
+  %164 = shl nuw i32 1, %104
+===== 262144 =====
+  %98 = and i32 %87, 224
+===== 262144 =====
+  %116 = lshr i32 %114, %115
+  %117 = and i32 %116, 1
+  %118 = add nuw nsw i32 %107, %117
+  %119 = or i32 %89, %61
+===== 262144 =====
+  %112 = zext i32 %111 to i64
+  %113 = getelementptr inbounds i32, ptr %56, i64 %112
+===== 262144 =====
+  %119 = or i32 %89, %61
+  %120 = lshr exact i32 %119, 5
+===== 262144 =====
+  %90 = or i32 %89, %63
+  %91 = lshr exact i32 %90, 5
+  %92 = zext i32 %91 to i64
+  %93 = getelementptr inbounds i32, ptr %56, i64 %92
+  %94 = load i32, ptr %93, align 4, !tbaa !7
+===== 262144 =====
+  %170 = select i1 %166, i1 %169, i1 %168
+  %171 = xor i1 %166, %170
+  %172 = select i1 %171, i32 %85, i32 1
+===== 262144 =====
+  %117 = and i32 %116, 1
+  %118 = add nuw nsw i32 %107, %117
+  %119 = or i32 %89, %61
+  %120 = lshr exact i32 %119, 5
+===== 262144 =====
+  %121 = zext i32 %120 to i64
+===== 262144 =====
+  %101 = zext i32 %100 to i64
+  %102 = getelementptr inbounds i32, ptr %56, i64 %101
+  %103 = load i32, ptr %102, align 4, !tbaa !7
+  %104 = and i32 %87, 31
+===== 262144 =====
+  %133 = and i32 %132, 1
+===== 262144 =====
+  %89 = and i32 %88, 224
+  %90 = or i32 %89, %63
+  %91 = lshr exact i32 %90, 5
+===== 262144 =====
+  %144 = lshr exact i32 %143, 5
+  %145 = zext i32 %144 to i64
+  %146 = getelementptr inbounds i32, ptr %56, i64 %145
+  %147 = load i32, ptr %146, align 4, !tbaa !7
+  %148 = lshr i32 %147, %104
+===== 262144 =====
+  %129 = zext i32 %128 to i64
+===== 262144 =====
+  %120 = lshr exact i32 %119, 5
+  %121 = zext i32 %120 to i64
+===== 262144 =====
+  %100 = lshr exact i32 %99, 5
+  %101 = zext i32 %100 to i64
+  %102 = getelementptr inbounds i32, ptr %56, i64 %101
+===== 262144 =====
+  %99 = or i32 %98, %63
+  %100 = lshr exact i32 %99, 5
+  %101 = zext i32 %100 to i64
+===== 262144 =====
+  %98 = and i32 %87, 224
+  %99 = or i32 %98, %63
+  %100 = lshr exact i32 %99, 5
+  %101 = zext i32 %100 to i64
+===== 262144 =====
+  %97 = and i32 %96, 1
+  %98 = and i32 %87, 224
+  %99 = or i32 %98, %63
+  %100 = lshr exact i32 %99, 5
+  %101 = zext i32 %100 to i64
+===== 262144 =====
+  %105 = lshr i32 %103, %104
+  %106 = and i32 %105, 1
+===== 262144 =====
+  %138 = getelementptr inbounds i32, ptr %56, i64 %137
+  %139 = load i32, ptr %138, align 4, !tbaa !7
+  %140 = lshr i32 %139, %95
+  %141 = and i32 %140, 1
+  %142 = add nuw nsw i32 %134, %141
+===== 262144 =====
+  %102 = getelementptr inbounds i32, ptr %56, i64 %101
+===== 262144 =====
+  %153 = zext i32 %152 to i64
+  %154 = getelementptr inbounds i32, ptr %56, i64 %153
+===== 262144 =====
+  %137 = zext i32 %136 to i64
+  %138 = getelementptr inbounds i32, ptr %56, i64 %137
+  %139 = load i32, ptr %138, align 4, !tbaa !7
+===== 262144 =====
+  %109 = and i32 %108, 224
+  %110 = or i32 %109, %63
+===== 262144 =====
+  %122 = getelementptr inbounds i32, ptr %56, i64 %121
+===== 262144 =====
+  %97 = and i32 %96, 1
+  %98 = and i32 %87, 224
+  %99 = or i32 %98, %63
+===== 262144 =====
+  %101 = zext i32 %100 to i64
+  %102 = getelementptr inbounds i32, ptr %56, i64 %101
+===== 262144 =====
+  %129 = zext i32 %128 to i64
+  %130 = getelementptr inbounds i32, ptr %56, i64 %129
+  %131 = load i32, ptr %130, align 4, !tbaa !7
+  %132 = lshr i32 %131, %115
+===== 262144 =====
+  %112 = zext i32 %111 to i64
+  %113 = getelementptr inbounds i32, ptr %56, i64 %112
+  %114 = load i32, ptr %113, align 4, !tbaa !7
+  %115 = and i32 %108, 31
+===== 262144 =====
+  %106 = and i32 %105, 1
+  %107 = add nuw nsw i32 %106, %97
+  %108 = add nuw nsw i32 %87, 1
+  %109 = and i32 %108, 224
+  %110 = or i32 %109, %63
+===== 262144 =====
+  %122 = getelementptr inbounds i32, ptr %56, i64 %121
+  %123 = load i32, ptr %122, align 4, !tbaa !7
+  %124 = lshr i32 %123, %95
+  %125 = and i32 %124, 1
+===== 262144 =====
+  %99 = or i32 %98, %63
+  %100 = lshr exact i32 %99, 5
+  %101 = zext i32 %100 to i64
+  %102 = getelementptr inbounds i32, ptr %56, i64 %101
+===== 262144 =====
+  %115 = and i32 %108, 31
+===== 262144 =====
+  %114 = load i32, ptr %113, align 4, !tbaa !7
+===== 262144 =====
+  %98 = and i32 %87, 224
+  %99 = or i32 %98, %63
+  %100 = lshr exact i32 %99, 5
+  %101 = zext i32 %100 to i64
+  %102 = getelementptr inbounds i32, ptr %56, i64 %101
+===== 262144 =====
+  %109 = and i32 %108, 224
+  %110 = or i32 %109, %63
+  %111 = lshr exact i32 %110, 5
+  %112 = zext i32 %111 to i64
+  %113 = getelementptr inbounds i32, ptr %56, i64 %112
+===== 262144 =====
+  %170 = select i1 %166, i1 %169, i1 %168
+===== 262144 =====
+  %154 = getelementptr inbounds i32, ptr %56, i64 %153
+  %155 = load i32, ptr %154, align 4, !tbaa !7
+  %156 = lshr i32 %155, %115
+  %157 = and i32 %156, 1
+===== 262144 =====
+  %107 = add nuw nsw i32 %106, %97
+===== 262144 =====
+  %101 = zext i32 %100 to i64
+  %102 = getelementptr inbounds i32, ptr %56, i64 %101
+  %103 = load i32, ptr %102, align 4, !tbaa !7
+===== 262144 =====
+  %100 = lshr exact i32 %99, 5
+  %101 = zext i32 %100 to i64
+  %102 = getelementptr inbounds i32, ptr %56, i64 %101
+  %103 = load i32, ptr %102, align 4, !tbaa !7
+===== 262144 =====
+  %99 = or i32 %98, %63
+  %100 = lshr exact i32 %99, 5
+  %101 = zext i32 %100 to i64
+  %102 = getelementptr inbounds i32, ptr %56, i64 %101
+  %103 = load i32, ptr %102, align 4, !tbaa !7
+===== 262144 =====
+  %166 = icmp eq i32 %165, 0
+  %167 = and i32 %158, -2
+  %168 = icmp eq i32 %167, 2
+  %169 = icmp eq i32 %158, 3
+===== 262144 =====
+  %158 = add nuw nsw i32 %150, %157
+===== 262144 =====
+  %121 = zext i32 %120 to i64
+  %122 = getelementptr inbounds i32, ptr %56, i64 %121
+===== 262144 =====
+  %97 = and i32 %96, 1
+  %98 = and i32 %87, 224
+===== 262144 =====
+  %95 = and i32 %88, 31
+  %96 = lshr i32 %94, %95
+  %97 = and i32 %96, 1
+  %98 = and i32 %87, 224
+===== 262144 =====
+  %98 = and i32 %87, 224
+  %99 = or i32 %98, %63
+===== 262144 =====
+  %151 = or i32 %109, %66
+  %152 = lshr exact i32 %151, 5
+===== 262144 =====
+  %120 = lshr exact i32 %119, 5
+  %121 = zext i32 %120 to i64
+  %122 = getelementptr inbounds i32, ptr %56, i64 %121
+===== 262144 =====
+  %96 = lshr i32 %94, %95
+  %97 = and i32 %96, 1
+  %98 = and i32 %87, 224
+  %99 = or i32 %98, %63
+===== 262144 =====
+  %157 = and i32 %156, 1
+===== 262144 =====
+  %100 = lshr exact i32 %99, 5
+===== 262144 =====
+  %104 = and i32 %87, 31
+===== 262144 =====
+  %99 = or i32 %98, %63
+  %100 = lshr exact i32 %99, 5
+===== 262144 =====
+  %143 = or i32 %98, %66
+  %144 = lshr exact i32 %143, 5
+  %145 = zext i32 %144 to i64
+  %146 = getelementptr inbounds i32, ptr %56, i64 %145
+  %147 = load i32, ptr %146, align 4, !tbaa !7
+===== 262144 =====
+  %139 = load i32, ptr %138, align 4, !tbaa !7
+  %140 = lshr i32 %139, %95
+===== 262144 =====
+  %116 = lshr i32 %114, %115
+  %117 = and i32 %116, 1
+  %118 = add nuw nsw i32 %107, %117
+===== 262144 =====
+  %98 = and i32 %87, 224
+  %99 = or i32 %98, %63
+  %100 = lshr exact i32 %99, 5
+===== 262144 =====
+  %115 = and i32 %108, 31
+  %116 = lshr i32 %114, %115
+  %117 = and i32 %116, 1
+  %118 = add nuw nsw i32 %107, %117
+  %119 = or i32 %89, %61
+===== 262144 =====
+  %110 = or i32 %109, %63
+  %111 = lshr exact i32 %110, 5
+  %112 = zext i32 %111 to i64
+  %113 = getelementptr inbounds i32, ptr %56, i64 %112
+  %114 = load i32, ptr %113, align 4, !tbaa !7
+===== 262144 =====
+  %149 = and i32 %148, 1
+  %150 = add nuw nsw i32 %142, %149
+===== 262144 =====
+  %97 = and i32 %96, 1
+  %98 = and i32 %87, 224
+  %99 = or i32 %98, %63
+  %100 = lshr exact i32 %99, 5
+===== 262144 =====
+  %96 = lshr i32 %94, %95
+  %97 = and i32 %96, 1
+  %98 = and i32 %87, 224
+  %99 = or i32 %98, %63
+  %100 = lshr exact i32 %99, 5
+===== 262144 =====
+  %168 = icmp eq i32 %167, 2
+  %169 = icmp eq i32 %158, 3
+===== 262144 =====
+  %123 = load i32, ptr %122, align 4, !tbaa !7
+  %124 = lshr i32 %123, %95
+  %125 = and i32 %124, 1
+  %126 = add nuw nsw i32 %118, %125
+  %127 = or i32 %109, %61
+===== 262144 =====
+  %103 = load i32, ptr %102, align 4, !tbaa !7
+  %104 = and i32 %87, 31
+  %105 = lshr i32 %103, %104
+===== 262144 =====
+  %101 = zext i32 %100 to i64
+===== 262144 =====
+  %118 = add nuw nsw i32 %107, %117
+  %119 = or i32 %89, %61
+  %120 = lshr exact i32 %119, 5
+  %121 = zext i32 %120 to i64
+===== 262144 =====
+  %142 = add nuw nsw i32 %134, %141
+  %143 = or i32 %98, %66
+  %144 = lshr exact i32 %143, 5
+===== 262144 =====
+  %100 = lshr exact i32 %99, 5
+  %101 = zext i32 %100 to i64
+===== 262144 =====
+  %144 = lshr exact i32 %143, 5
+  %145 = zext i32 %144 to i64
+  %146 = getelementptr inbounds i32, ptr %56, i64 %145
+===== 262144 =====
+  %146 = getelementptr inbounds i32, ptr %56, i64 %145
+  %147 = load i32, ptr %146, align 4, !tbaa !7
+  %148 = lshr i32 %147, %104
+===== 262144 =====
+  %147 = load i32, ptr %146, align 4, !tbaa !7
+  %148 = lshr i32 %147, %104
+===== 262144 =====
+  %144 = lshr exact i32 %143, 5
+  %145 = zext i32 %144 to i64
+  %146 = getelementptr inbounds i32, ptr %56, i64 %145
+  %147 = load i32, ptr %146, align 4, !tbaa !7
+===== 262144 =====
+  %145 = zext i32 %144 to i64
+  %146 = getelementptr inbounds i32, ptr %56, i64 %145
+  %147 = load i32, ptr %146, align 4, !tbaa !7
+===== 262144 =====
+  %153 = zext i32 %152 to i64
+  %154 = getelementptr inbounds i32, ptr %56, i64 %153
+  %155 = load i32, ptr %154, align 4, !tbaa !7
+  %156 = lshr i32 %155, %115
+  %157 = and i32 %156, 1
+===== 262144 =====
+  %146 = getelementptr inbounds i32, ptr %56, i64 %145
+  %147 = load i32, ptr %146, align 4, !tbaa !7
+===== 262144 =====
+  %147 = load i32, ptr %146, align 4, !tbaa !7
+===== 262144 =====
+  %142 = add nuw nsw i32 %134, %141
+  %143 = or i32 %98, %66
+  %144 = lshr exact i32 %143, 5
+  %145 = zext i32 %144 to i64
+  %146 = getelementptr inbounds i32, ptr %56, i64 %145
+===== 262144 =====
+  %145 = zext i32 %144 to i64
+  %146 = getelementptr inbounds i32, ptr %56, i64 %145
+  %147 = load i32, ptr %146, align 4, !tbaa !7
+  %148 = lshr i32 %147, %104
+===== 262144 =====
+  %146 = getelementptr inbounds i32, ptr %56, i64 %145
+===== 262144 =====
+  %142 = add nuw nsw i32 %134, %141
+  %143 = or i32 %98, %66
+  %144 = lshr exact i32 %143, 5
+  %145 = zext i32 %144 to i64
+===== 262144 =====
+  %143 = or i32 %98, %66
+  %144 = lshr exact i32 %143, 5
+  %145 = zext i32 %144 to i64
+===== 262144 =====
+  %144 = lshr exact i32 %143, 5
+  %145 = zext i32 %144 to i64
+===== 262144 =====
+  %140 = lshr i32 %139, %95
+  %141 = and i32 %140, 1
+  %142 = add nuw nsw i32 %134, %141
+  %143 = or i32 %98, %66
+  %144 = lshr exact i32 %143, 5
+===== 262144 =====
+  %141 = and i32 %140, 1
+  %142 = add nuw nsw i32 %134, %141
+  %143 = or i32 %98, %66
+  %144 = lshr exact i32 %143, 5
+===== 262144 =====
+  %143 = or i32 %98, %66
+  %144 = lshr exact i32 %143, 5
+===== 262144 =====
+  %141 = and i32 %140, 1
+  %142 = add nuw nsw i32 %134, %141
+  %143 = or i32 %98, %66
+===== 262144 =====
+  %157 = and i32 %156, 1
+  %158 = add nuw nsw i32 %150, %157
+  %159 = or i32 %98, %61
+===== 262144 =====
+  %148 = lshr i32 %147, %104
+  %149 = and i32 %148, 1
+  %150 = add nuw nsw i32 %142, %149
+  %151 = or i32 %109, %66
+  %152 = lshr exact i32 %151, 5
+===== 262144 =====
+  %149 = and i32 %148, 1
+  %150 = add nuw nsw i32 %142, %149
+  %151 = or i32 %109, %66
+  %152 = lshr exact i32 %151, 5
+===== 262144 =====
+  %150 = add nuw nsw i32 %142, %149
+  %151 = or i32 %109, %66
+  %152 = lshr exact i32 %151, 5
+===== 262144 =====
+  %83 = icmp eq i32 %108, 256
+===== 262144 =====
+  %155 = load i32, ptr %154, align 4, !tbaa !7
+  %156 = lshr i32 %155, %115
+  %157 = and i32 %156, 1
+===== 262144 =====
+  %152 = lshr exact i32 %151, 5
+===== 262144 =====
+  %147 = load i32, ptr %146, align 4, !tbaa !7
+  %148 = lshr i32 %147, %104
+  %149 = and i32 %148, 1
+  %150 = add nuw nsw i32 %142, %149
+  %151 = or i32 %109, %66
+===== 262144 =====
+  %150 = add nuw nsw i32 %142, %149
+  %151 = or i32 %109, %66
+===== 262144 =====
+  %143 = or i32 %98, %66
+===== 262144 =====
+  %151 = or i32 %109, %66
+===== 262144 =====
+  %146 = getelementptr inbounds i32, ptr %56, i64 %145
+  %147 = load i32, ptr %146, align 4, !tbaa !7
+  %148 = lshr i32 %147, %104
+  %149 = and i32 %148, 1
+  %150 = add nuw nsw i32 %142, %149
+===== 262144 =====
+  %150 = add nuw nsw i32 %142, %149
+===== 262144 =====
+  %145 = zext i32 %144 to i64
+  %146 = getelementptr inbounds i32, ptr %56, i64 %145
+  %147 = load i32, ptr %146, align 4, !tbaa !7
+  %148 = lshr i32 %147, %104
+  %149 = and i32 %148, 1
+===== 262144 =====
+  %146 = getelementptr inbounds i32, ptr %56, i64 %145
+  %147 = load i32, ptr %146, align 4, !tbaa !7
+  %148 = lshr i32 %147, %104
+  %149 = and i32 %148, 1
+===== 262144 =====
+  %147 = load i32, ptr %146, align 4, !tbaa !7
+  %148 = lshr i32 %147, %104
+  %149 = and i32 %148, 1
+===== 262144 =====
+  %148 = lshr i32 %147, %104
+  %149 = and i32 %148, 1
+===== 262144 =====
+  %149 = and i32 %148, 1
+===== 262144 =====
+  %134 = add nuw nsw i32 %126, %133
+  %135 = or i32 %89, %66
+===== 262144 =====
+  %137 = zext i32 %136 to i64
+  %138 = getelementptr inbounds i32, ptr %56, i64 %137
+===== 262144 =====
+  %133 = and i32 %132, 1
+  %134 = add nuw nsw i32 %126, %133
+  %135 = or i32 %89, %66
+  %136 = lshr exact i32 %135, 5
+  %137 = zext i32 %136 to i64
+===== 262144 =====
+  %134 = add nuw nsw i32 %126, %133
+  %135 = or i32 %89, %66
+  %136 = lshr exact i32 %135, 5
+  %137 = zext i32 %136 to i64
+===== 262144 =====
+  %137 = zext i32 %136 to i64
+===== 262144 =====
+  %132 = lshr i32 %131, %115
+  %133 = and i32 %132, 1
+  %134 = add nuw nsw i32 %126, %133
+  %135 = or i32 %89, %66
+  %136 = lshr exact i32 %135, 5
+===== 262144 =====
+  %131 = load i32, ptr %130, align 4, !tbaa !7
+  %132 = lshr i32 %131, %115
+  %133 = and i32 %132, 1
+  %134 = add nuw nsw i32 %126, %133
+  %135 = or i32 %89, %66
+===== 262144 =====
+  %132 = lshr i32 %131, %115
+  %133 = and i32 %132, 1
+  %134 = add nuw nsw i32 %126, %133
+  %135 = or i32 %89, %66
+===== 262144 =====
+  %133 = and i32 %132, 1
+  %134 = add nuw nsw i32 %126, %133
+  %135 = or i32 %89, %66
+===== 262144 =====
+  %136 = lshr exact i32 %135, 5
+  %137 = zext i32 %136 to i64
+  %138 = getelementptr inbounds i32, ptr %56, i64 %137
+===== 262144 =====
+  %135 = or i32 %89, %66
+===== 262144 =====
+  %130 = getelementptr inbounds i32, ptr %56, i64 %129
+  %131 = load i32, ptr %130, align 4, !tbaa !7
+  %132 = lshr i32 %131, %115
+  %133 = and i32 %132, 1
+  %134 = add nuw nsw i32 %126, %133
+===== 262144 =====
+  %131 = load i32, ptr %130, align 4, !tbaa !7
+  %132 = lshr i32 %131, %115
+  %133 = and i32 %132, 1
+  %134 = add nuw nsw i32 %126, %133
+===== 262144 =====
+  %133 = and i32 %132, 1
+  %134 = add nuw nsw i32 %126, %133
+===== 262144 =====
+  %134 = add nuw nsw i32 %126, %133
+===== 262144 =====
+  %130 = getelementptr inbounds i32, ptr %56, i64 %129
+  %131 = load i32, ptr %130, align 4, !tbaa !7
+  %132 = lshr i32 %131, %115
+  %133 = and i32 %132, 1
+===== 262144 =====
+  %131 = load i32, ptr %130, align 4, !tbaa !7
+  %132 = lshr i32 %131, %115
+  %133 = and i32 %132, 1
+===== 262144 =====
+  %132 = lshr i32 %131, %115
+  %133 = and i32 %132, 1
+===== 262144 =====
+  %138 = getelementptr inbounds i32, ptr %56, i64 %137
+  %139 = load i32, ptr %138, align 4, !tbaa !7
+  %140 = lshr i32 %139, %95
+===== 262144 =====
+  %141 = and i32 %140, 1
+  %142 = add nuw nsw i32 %134, %141
+===== 262144 =====
+  %137 = zext i32 %136 to i64
+  %138 = getelementptr inbounds i32, ptr %56, i64 %137
+  %139 = load i32, ptr %138, align 4, !tbaa !7
+  %140 = lshr i32 %139, %95
+  %141 = and i32 %140, 1
+===== 262144 =====
+  %139 = load i32, ptr %138, align 4, !tbaa !7
+  %140 = lshr i32 %139, %95
+  %141 = and i32 %140, 1
+===== 262144 =====
+  %140 = lshr i32 %139, %95
+  %141 = and i32 %140, 1
+===== 262144 =====
+  %141 = and i32 %140, 1
+===== 262144 =====
+  %139 = load i32, ptr %138, align 4, !tbaa !7
+  %140 = lshr i32 %139, %95
+  %141 = and i32 %140, 1
+  %142 = add nuw nsw i32 %134, %141
+===== 262144 =====
+  %136 = lshr exact i32 %135, 5
+  %137 = zext i32 %136 to i64
+  %138 = getelementptr inbounds i32, ptr %56, i64 %137
+  %139 = load i32, ptr %138, align 4, !tbaa !7
+  %140 = lshr i32 %139, %95
+===== 262144 =====
+  %137 = zext i32 %136 to i64
+  %138 = getelementptr inbounds i32, ptr %56, i64 %137
+  %139 = load i32, ptr %138, align 4, !tbaa !7
+  %140 = lshr i32 %139, %95
+===== 262144 =====
+  %153 = zext i32 %152 to i64
+===== 262144 =====
+  %135 = or i32 %89, %66
+  %136 = lshr exact i32 %135, 5
+  %137 = zext i32 %136 to i64
+  %138 = getelementptr inbounds i32, ptr %56, i64 %137
+  %139 = load i32, ptr %138, align 4, !tbaa !7
+===== 262144 =====
+  %136 = lshr exact i32 %135, 5
+  %137 = zext i32 %136 to i64
+  %138 = getelementptr inbounds i32, ptr %56, i64 %137
+  %139 = load i32, ptr %138, align 4, !tbaa !7
+===== 262144 =====
+  %172 = select i1 %171, i32 %85, i32 1
+  %173 = select i1 %170, i32 1, i32 %86
+===== 262144 =====
+  %165 = and i32 %163, %164
+  %166 = icmp eq i32 %165, 0
+  %167 = and i32 %158, -2
+  %168 = icmp eq i32 %167, 2
+  %169 = icmp eq i32 %158, 3
+===== 262144 =====
+  %139 = load i32, ptr %138, align 4, !tbaa !7
+===== 262144 =====
+  %135 = or i32 %89, %66
+  %136 = lshr exact i32 %135, 5
+  %137 = zext i32 %136 to i64
+  %138 = getelementptr inbounds i32, ptr %56, i64 %137
+===== 262144 =====
+  %139 = load i32, ptr %138, align 4, !tbaa !7
+  %140 = lshr i32 %139, %95
+  %141 = and i32 %140, 1
+  %142 = add nuw nsw i32 %134, %141
+  %143 = or i32 %98, %66
+===== 262144 =====
+  %165 = and i32 %163, %164
+  %166 = icmp eq i32 %165, 0
+  %167 = and i32 %158, -2
+===== 262144 =====
+  %168 = icmp eq i32 %167, 2
+  %169 = icmp eq i32 %158, 3
+  %170 = select i1 %166, i1 %169, i1 %168
+===== 262144 =====
+  %169 = icmp eq i32 %158, 3
+  %170 = select i1 %166, i1 %169, i1 %168
+===== 262144 =====
+  %167 = and i32 %158, -2
+  %168 = icmp eq i32 %167, 2
+  %169 = icmp eq i32 %158, 3
+===== 262144 =====
+  %169 = icmp eq i32 %158, 3
+===== 262144 =====
+  %164 = shl nuw i32 1, %104
+  %165 = and i32 %163, %164
+  %166 = icmp eq i32 %165, 0
+  %167 = and i32 %158, -2
+  %168 = icmp eq i32 %167, 2
+===== 262144 =====
+  %165 = and i32 %163, %164
+  %166 = icmp eq i32 %165, 0
+  %167 = and i32 %158, -2
+  %168 = icmp eq i32 %167, 2
+===== 262144 =====
+  %167 = and i32 %158, -2
+  %168 = icmp eq i32 %167, 2
+===== 262144 =====
+  %168 = icmp eq i32 %167, 2
+===== 262144 =====
+  %167 = and i32 %158, -2
+  %168 = icmp eq i32 %167, 2
+  %169 = icmp eq i32 %158, 3
+  %170 = select i1 %166, i1 %169, i1 %168
+===== 262144 =====
+  %167 = and i32 %158, -2
+===== 262144 =====
+  %162 = getelementptr inbounds i32, ptr %56, i64 %161
+  %163 = load i32, ptr %162, align 4, !tbaa !7
+  %164 = shl nuw i32 1, %104
+  %165 = and i32 %163, %164
+  %166 = icmp eq i32 %165, 0
+===== 262144 =====
+  %164 = shl nuw i32 1, %104
+  %165 = and i32 %163, %164
+  %166 = icmp eq i32 %165, 0
+===== 262144 =====
+  %165 = and i32 %163, %164
+  %166 = icmp eq i32 %165, 0
+===== 262144 =====
+  %166 = icmp eq i32 %165, 0
+===== 262144 =====
+  %164 = shl nuw i32 1, %104
+  %165 = and i32 %163, %164
+  %166 = icmp eq i32 %165, 0
+  %167 = and i32 %158, -2
+===== 262144 =====
+  %163 = load i32, ptr %162, align 4, !tbaa !7
+  %164 = shl nuw i32 1, %104
+  %165 = and i32 %163, %164
+===== 262144 =====
+  %164 = shl nuw i32 1, %104
+  %165 = and i32 %163, %164
+===== 262144 =====
+  %172 = select i1 %171, i32 %85, i32 1
+  %173 = select i1 %170, i32 1, i32 %86
+  %174 = or i32 %87, %61
+===== 262144 =====
+  br label %82
+  %83 = icmp eq i32 %108, 256
+  br i1 %83, label %67, label %84, !llvm.loop !15
+===== 262144 =====
+  %83 = icmp eq i32 %108, 256
+  br i1 %83, label %67, label %84, !llvm.loop !15
+===== 262144 =====
+  br i1 %83, label %67, label %84, !llvm.loop !15
+===== 262144 =====
+  br label %82
+===== 262144 =====
+  %171 = xor i1 %166, %170
+  %172 = select i1 %171, i32 %85, i32 1
+  %173 = select i1 %170, i32 1, i32 %86
+  %174 = or i32 %87, %61
+  br i1 %170, label %69, label %75
+===== 262144 =====
+  %174 = or i32 %87, %61
+  br i1 %170, label %69, label %75
+===== 262144 =====
+  br i1 %170, label %69, label %75
+===== 262144 =====
+  %171 = xor i1 %166, %170
+  %172 = select i1 %171, i32 %85, i32 1
+  %173 = select i1 %170, i32 1, i32 %86
+  %174 = or i32 %87, %61
+===== 262144 =====
+  %172 = select i1 %171, i32 %85, i32 1
+  %173 = select i1 %170, i32 1, i32 %86
+  %174 = or i32 %87, %61
+  br i1 %170, label %69, label %75
+===== 262144 =====
+  %173 = select i1 %170, i32 1, i32 %86
+===== 262144 =====
+  %168 = icmp eq i32 %167, 2
+  %169 = icmp eq i32 %158, 3
+  %170 = select i1 %166, i1 %169, i1 %168
+  %171 = xor i1 %166, %170
+  %172 = select i1 %171, i32 %85, i32 1
+===== 262144 =====
+  %169 = icmp eq i32 %158, 3
+  %170 = select i1 %166, i1 %169, i1 %168
+  %171 = xor i1 %166, %170
+  %172 = select i1 %171, i32 %85, i32 1
+===== 262144 =====
+  %172 = select i1 %171, i32 %85, i32 1
+===== 262144 =====
+  %170 = select i1 %166, i1 %169, i1 %168
+  %171 = xor i1 %166, %170
+  %172 = select i1 %171, i32 %85, i32 1
+  %173 = select i1 %170, i32 1, i32 %86
+===== 262144 =====
+  %167 = and i32 %158, -2
+  %168 = icmp eq i32 %167, 2
+  %169 = icmp eq i32 %158, 3
+  %170 = select i1 %166, i1 %169, i1 %168
+  %171 = xor i1 %166, %170
+===== 262144 =====
+  %170 = select i1 %166, i1 %169, i1 %168
+  %171 = xor i1 %166, %170
+===== 262144 =====
+  %166 = icmp eq i32 %165, 0
+  %167 = and i32 %158, -2
+  %168 = icmp eq i32 %167, 2
+  %169 = icmp eq i32 %158, 3
+  %170 = select i1 %166, i1 %169, i1 %168
+===== 262144 =====
+  %151 = or i32 %109, %66
+  %152 = lshr exact i32 %151, 5
+  %153 = zext i32 %152 to i64
+  %154 = getelementptr inbounds i32, ptr %56, i64 %153
+  %155 = load i32, ptr %154, align 4, !tbaa !7
+===== 262144 =====
+  %158 = add nuw nsw i32 %150, %157
+  %159 = or i32 %98, %61
+===== 262144 =====
+  %159 = or i32 %98, %61
+===== 262144 =====
+  %155 = load i32, ptr %154, align 4, !tbaa !7
+  %156 = lshr i32 %155, %115
+  %157 = and i32 %156, 1
+  %158 = add nuw nsw i32 %150, %157
+===== 262144 =====
+  %156 = lshr i32 %155, %115
+  %157 = and i32 %156, 1
+  %158 = add nuw nsw i32 %150, %157
+===== 262144 =====
+  %157 = and i32 %156, 1
+  %158 = add nuw nsw i32 %150, %157
+===== 262144 =====
+  %156 = lshr i32 %155, %115
+  %157 = and i32 %156, 1
+===== 262144 =====
+  %152 = lshr exact i32 %151, 5
+  %153 = zext i32 %152 to i64
+  %154 = getelementptr inbounds i32, ptr %56, i64 %153
+  %155 = load i32, ptr %154, align 4, !tbaa !7
+  %156 = lshr i32 %155, %115
+===== 262144 =====
+  %155 = load i32, ptr %154, align 4, !tbaa !7
+  %156 = lshr i32 %155, %115
+===== 262144 =====
+  %160 = lshr exact i32 %159, 5
+===== 262144 =====
+  %152 = lshr exact i32 %151, 5
+  %153 = zext i32 %152 to i64
+  %154 = getelementptr inbounds i32, ptr %56, i64 %153
+  %155 = load i32, ptr %154, align 4, !tbaa !7
+===== 262144 =====
+  %154 = getelementptr inbounds i32, ptr %56, i64 %153
+  %155 = load i32, ptr %154, align 4, !tbaa !7
+===== 262144 =====
+  %155 = load i32, ptr %154, align 4, !tbaa !7
+===== 262144 =====
+  %149 = and i32 %148, 1
+  %150 = add nuw nsw i32 %142, %149
+  %151 = or i32 %109, %66
+  %152 = lshr exact i32 %151, 5
+  %153 = zext i32 %152 to i64
+===== 262144 =====
+  %155 = load i32, ptr %154, align 4, !tbaa !7
+  %156 = lshr i32 %155, %115
+  %157 = and i32 %156, 1
+  %158 = add nuw nsw i32 %150, %157
+  %159 = or i32 %98, %61
+===== 262144 =====
+  %150 = add nuw nsw i32 %142, %149
+  %151 = or i32 %109, %66
+  %152 = lshr exact i32 %151, 5
+  %153 = zext i32 %152 to i64
+===== 262144 =====
+  %151 = or i32 %109, %66
+  %152 = lshr exact i32 %151, 5
+  %153 = zext i32 %152 to i64
+===== 262144 =====
+  %152 = lshr exact i32 %151, 5
+  %153 = zext i32 %152 to i64
+===== 262144 =====
+  %159 = or i32 %98, %61
+  %160 = lshr exact i32 %159, 5
+  %161 = zext i32 %160 to i64
+  %162 = getelementptr inbounds i32, ptr %56, i64 %161
+===== 262144 =====
+  %165 = and i32 %163, %164
+===== 262144 =====
+  %161 = zext i32 %160 to i64
+  %162 = getelementptr inbounds i32, ptr %56, i64 %161
+  %163 = load i32, ptr %162, align 4, !tbaa !7
+  %164 = shl nuw i32 1, %104
+===== 262144 =====
+  %162 = getelementptr inbounds i32, ptr %56, i64 %161
+  %163 = load i32, ptr %162, align 4, !tbaa !7
+  %164 = shl nuw i32 1, %104
+===== 262144 =====
+  %163 = load i32, ptr %162, align 4, !tbaa !7
+  %164 = shl nuw i32 1, %104
+===== 262144 =====
+  %164 = shl nuw i32 1, %104
+===== 262144 =====
+  %159 = or i32 %98, %61
+  %160 = lshr exact i32 %159, 5
+  %161 = zext i32 %160 to i64
+  %162 = getelementptr inbounds i32, ptr %56, i64 %161
+  %163 = load i32, ptr %162, align 4, !tbaa !7
+===== 262144 =====
+  %160 = lshr exact i32 %159, 5
+  %161 = zext i32 %160 to i64
+  %162 = getelementptr inbounds i32, ptr %56, i64 %161
+  %163 = load i32, ptr %162, align 4, !tbaa !7
+===== 262144 =====
+  %161 = zext i32 %160 to i64
+  %162 = getelementptr inbounds i32, ptr %56, i64 %161
+  %163 = load i32, ptr %162, align 4, !tbaa !7
+===== 262144 =====
+  %128 = lshr exact i32 %127, 5
+  %129 = zext i32 %128 to i64
+  %130 = getelementptr inbounds i32, ptr %56, i64 %129
+  %131 = load i32, ptr %130, align 4, !tbaa !7
+  %132 = lshr i32 %131, %115
+===== 262144 =====
+  %161 = zext i32 %160 to i64
+  %162 = getelementptr inbounds i32, ptr %56, i64 %161
+===== 262144 =====
+  %159 = or i32 %98, %61
+  %160 = lshr exact i32 %159, 5
+  %161 = zext i32 %160 to i64
+===== 262144 =====
+  %156 = lshr i32 %155, %115
+  %157 = and i32 %156, 1
+  %158 = add nuw nsw i32 %150, %157
+  %159 = or i32 %98, %61
+  %160 = lshr exact i32 %159, 5
+===== 262144 =====
+  %157 = and i32 %156, 1
+  %158 = add nuw nsw i32 %150, %157
+  %159 = or i32 %98, %61
+  %160 = lshr exact i32 %159, 5
+===== 262144 =====
+  %161 = zext i32 %160 to i64
+===== 262144 =====
+  %158 = add nuw nsw i32 %150, %157
+  %159 = or i32 %98, %61
+  %160 = lshr exact i32 %159, 5
+===== 262144 =====
+  %159 = or i32 %98, %61
+  %160 = lshr exact i32 %159, 5
+===== 262144 =====
+  %121 = zext i32 %120 to i64
+  %122 = getelementptr inbounds i32, ptr %56, i64 %121
+  %123 = load i32, ptr %122, align 4, !tbaa !7
+===== 262144 =====
+  %107 = add nuw nsw i32 %106, %97
+  %108 = add nuw nsw i32 %87, 1
+===== 262144 =====
+  %132 = lshr i32 %131, %115
+  %133 = and i32 %132, 1
+  %134 = add nuw nsw i32 %126, %133
+===== 262144 =====
+  %112 = zext i32 %111 to i64
+  %113 = getelementptr inbounds i32, ptr %56, i64 %112
+  %114 = load i32, ptr %113, align 4, !tbaa !7
+===== 262144 =====
+  %118 = add nuw nsw i32 %107, %117
+===== 262144 =====
+  %88 = add nsw i32 %87, -1
+  %89 = and i32 %88, 224
+===== 262144 =====
+  %141 = and i32 %140, 1
+  %142 = add nuw nsw i32 %134, %141
+  %143 = or i32 %98, %66
+  %144 = lshr exact i32 %143, 5
+  %145 = zext i32 %144 to i64
+===== 262144 =====
+  %107 = add nuw nsw i32 %106, %97
+  %108 = add nuw nsw i32 %87, 1
+  %109 = and i32 %108, 224
+  %110 = or i32 %109, %63
+===== 262144 =====
+  %157 = and i32 %156, 1
+  %158 = add nuw nsw i32 %150, %157
+  %159 = or i32 %98, %61
+  %160 = lshr exact i32 %159, 5
+  %161 = zext i32 %160 to i64
+===== 262144 =====
+  %93 = getelementptr inbounds i32, ptr %56, i64 %92
+  %94 = load i32, ptr %93, align 4, !tbaa !7
+===== 262144 =====
+  %124 = lshr i32 %123, %95
+  %125 = and i32 %124, 1
+  %126 = add nuw nsw i32 %118, %125
+===== 262144 =====
+  %109 = and i32 %108, 224
+  %110 = or i32 %109, %63
+  %111 = lshr exact i32 %110, 5
+  %112 = zext i32 %111 to i64
+===== 262144 =====
+  %162 = getelementptr inbounds i32, ptr %56, i64 %161
+  %163 = load i32, ptr %162, align 4, !tbaa !7
+===== 262144 =====
+  %94 = load i32, ptr %93, align 4, !tbaa !7
+  %95 = and i32 %88, 31
+  %96 = lshr i32 %94, %95
+  %97 = and i32 %96, 1
+===== 262144 =====
+  %92 = zext i32 %91 to i64
+===== 262144 =====
+  %94 = load i32, ptr %93, align 4, !tbaa !7
+  %95 = and i32 %88, 31
+  %96 = lshr i32 %94, %95
+  %97 = and i32 %96, 1
+  %98 = and i32 %87, 224
+===== 262144 =====
+  %101 = zext i32 %100 to i64
+  %102 = getelementptr inbounds i32, ptr %56, i64 %101
+  %103 = load i32, ptr %102, align 4, !tbaa !7
+  %104 = and i32 %87, 31
+  %105 = lshr i32 %103, %104
+===== 262144 =====
+  %162 = getelementptr inbounds i32, ptr %56, i64 %161
+  %163 = load i32, ptr %162, align 4, !tbaa !7
+  %164 = shl nuw i32 1, %104
+  %165 = and i32 %163, %164
+===== 262144 =====
+  %171 = xor i1 %166, %170
+===== 262144 =====
+  %92 = zext i32 %91 to i64
+  %93 = getelementptr inbounds i32, ptr %56, i64 %92
+  %94 = load i32, ptr %93, align 4, !tbaa !7
+  %95 = and i32 %88, 31
+===== 262144 =====
+  %125 = and i32 %124, 1
+  %126 = add nuw nsw i32 %118, %125
+  %127 = or i32 %109, %61
+  %128 = lshr exact i32 %127, 5
+===== 262144 =====
+  %102 = getelementptr inbounds i32, ptr %56, i64 %101
+  %103 = load i32, ptr %102, align 4, !tbaa !7
+===== 262144 =====
+  %169 = icmp eq i32 %158, 3
+  %170 = select i1 %166, i1 %169, i1 %168
+  %171 = xor i1 %166, %170
+  %172 = select i1 %171, i32 %85, i32 1
+  %173 = select i1 %170, i32 1, i32 %86
+===== 262144 =====
+  %145 = zext i32 %144 to i64
+===== 262144 =====
+  %113 = getelementptr inbounds i32, ptr %56, i64 %112
+===== 262144 =====
+  %150 = add nuw nsw i32 %142, %149
+  %151 = or i32 %109, %66
+  %152 = lshr exact i32 %151, 5
+  %153 = zext i32 %152 to i64
+  %154 = getelementptr inbounds i32, ptr %56, i64 %153
+===== 262144 =====
+  %90 = or i32 %89, %63
+===== 262144 =====
+  %93 = getelementptr inbounds i32, ptr %56, i64 %92
+  %94 = load i32, ptr %93, align 4, !tbaa !7
+  %95 = and i32 %88, 31
+===== 262144 =====
+  %154 = getelementptr inbounds i32, ptr %56, i64 %153
+  %155 = load i32, ptr %154, align 4, !tbaa !7
+  %156 = lshr i32 %155, %115
+===== 262144 =====
+  %163 = load i32, ptr %162, align 4, !tbaa !7
+  %164 = shl nuw i32 1, %104
+  %165 = and i32 %163, %164
+  %166 = icmp eq i32 %165, 0
+===== 262144 =====
+  %166 = icmp eq i32 %165, 0
+  %167 = and i32 %158, -2
+  %168 = icmp eq i32 %167, 2
+===== 262144 =====
+  %171 = xor i1 %166, %170
+  %172 = select i1 %171, i32 %85, i32 1
+  %173 = select i1 %170, i32 1, i32 %86
+===== 262144 =====
+  %104 = and i32 %87, 31
+  %105 = lshr i32 %103, %104
+  %106 = and i32 %105, 1
+  %107 = add nuw nsw i32 %106, %97
+===== 262144 =====
+  %136 = lshr exact i32 %135, 5
+===== 262144 =====
+  %130 = getelementptr inbounds i32, ptr %56, i64 %129
+  %131 = load i32, ptr %130, align 4, !tbaa !7
+  %132 = lshr i32 %131, %115
+===== 262144 =====
+  %105 = lshr i32 %103, %104
+  %106 = and i32 %105, 1
+  %107 = add nuw nsw i32 %106, %97
+  %108 = add nuw nsw i32 %87, 1
+  %109 = and i32 %108, 224
+===== 262144 =====
+  %129 = zext i32 %128 to i64
+  %130 = getelementptr inbounds i32, ptr %56, i64 %129
+  %131 = load i32, ptr %130, align 4, !tbaa !7
+===== 262144 =====
+  %91 = lshr exact i32 %90, 5
+  %92 = zext i32 %91 to i64
+  %93 = getelementptr inbounds i32, ptr %56, i64 %92
+===== 262144 =====
+  %126 = add nuw nsw i32 %118, %125
+  %127 = or i32 %109, %61
+  %128 = lshr exact i32 %127, 5
+  %129 = zext i32 %128 to i64
+  %130 = getelementptr inbounds i32, ptr %56, i64 %129
+===== 262144 =====
+  %107 = add nuw nsw i32 %106, %97
+  %108 = add nuw nsw i32 %87, 1
+  %109 = and i32 %108, 224
+  %110 = or i32 %109, %63
+  %111 = lshr exact i32 %110, 5
+===== 262144 =====
+  %118 = add nuw nsw i32 %107, %117
+  %119 = or i32 %89, %61
+  %120 = lshr exact i32 %119, 5
+  %121 = zext i32 %120 to i64
+  %122 = getelementptr inbounds i32, ptr %56, i64 %121
+===== 262144 =====
+  %142 = add nuw nsw i32 %134, %141
+  %143 = or i32 %98, %66
+===== 262144 =====
+  %113 = getelementptr inbounds i32, ptr %56, i64 %112
+  %114 = load i32, ptr %113, align 4, !tbaa !7
+  %115 = and i32 %108, 31
+  %116 = lshr i32 %114, %115
+  %117 = and i32 %116, 1
+===== 262144 =====
+  %102 = getelementptr inbounds i32, ptr %56, i64 %101
+  %103 = load i32, ptr %102, align 4, !tbaa !7
+  %104 = and i32 %87, 31
+===== 262144 =====
+  %104 = and i32 %87, 31
+  %105 = lshr i32 %103, %104
+===== 262144 =====
+  %92 = zext i32 %91 to i64
+  %93 = getelementptr inbounds i32, ptr %56, i64 %92
+===== 262144 =====
+  %92 = zext i32 %91 to i64
+  %93 = getelementptr inbounds i32, ptr %56, i64 %92
+  %94 = load i32, ptr %93, align 4, !tbaa !7
+===== 262144 =====
+  %110 = or i32 %109, %63
+  %111 = lshr exact i32 %110, 5
+===== 262144 =====
+  %140 = lshr i32 %139, %95
+  %141 = and i32 %140, 1
+  %142 = add nuw nsw i32 %134, %141
+===== 262144 =====
+  %109 = and i32 %108, 224
+  %110 = or i32 %109, %63
+  %111 = lshr exact i32 %110, 5
+===== 262144 =====
+  %135 = or i32 %89, %66
+  %136 = lshr exact i32 %135, 5
+===== 262144 =====
+  %166 = icmp eq i32 %165, 0
+  %167 = and i32 %158, -2
+===== 262144 =====
+  %140 = lshr i32 %139, %95
+===== 262144 =====
+  %148 = lshr i32 %147, %104
+  %149 = and i32 %148, 1
+  %150 = add nuw nsw i32 %142, %149
+===== 262144 =====
+  %93 = getelementptr inbounds i32, ptr %56, i64 %92
+===== 262144 =====
+  %118 = add nuw nsw i32 %107, %117
+  %119 = or i32 %89, %61
+  %120 = lshr exact i32 %119, 5
+===== 262144 =====
+  %173 = select i1 %170, i32 1, i32 %86
+  %174 = or i32 %87, %61
+  br i1 %170, label %69, label %75
+===== 262144 =====
+  %158 = add nuw nsw i32 %150, %157
+  %159 = or i32 %98, %61
+  %160 = lshr exact i32 %159, 5
+  %161 = zext i32 %160 to i64
+===== 262144 =====
+  %138 = getelementptr inbounds i32, ptr %56, i64 %137
+===== 262144 =====
+  %108 = add nuw nsw i32 %87, 1
+  %109 = and i32 %108, 224
+  %110 = or i32 %109, %63
+  %111 = lshr exact i32 %110, 5
+===== 262144 =====
+  %88 = add nsw i32 %87, -1
+  %89 = and i32 %88, 224
+  %90 = or i32 %89, %63
+===== 262144 =====
+  %100 = lshr exact i32 %99, 5
+  %101 = zext i32 %100 to i64
+  %102 = getelementptr inbounds i32, ptr %56, i64 %101
+  %103 = load i32, ptr %102, align 4, !tbaa !7
+  %104 = and i32 %87, 31
+===== 262144 =====
+  %108 = add nuw nsw i32 %87, 1
+  %109 = and i32 %108, 224
+===== 262144 =====
+  %104 = and i32 %87, 31
+  %105 = lshr i32 %103, %104
+  %106 = and i32 %105, 1
+===== 262144 =====
+  %154 = getelementptr inbounds i32, ptr %56, i64 %153
+  %155 = load i32, ptr %154, align 4, !tbaa !7
+  %156 = lshr i32 %155, %115
+  %157 = and i32 %156, 1
+  %158 = add nuw nsw i32 %150, %157
+===== 262144 =====
+  %136 = lshr exact i32 %135, 5
+  %137 = zext i32 %136 to i64
+===== 262144 =====
+  %156 = lshr i32 %155, %115
+  %157 = and i32 %156, 1
+  %158 = add nuw nsw i32 %150, %157
+  %159 = or i32 %98, %61
+===== 262144 =====
+  %99 = or i32 %98, %63
+===== 262144 =====
+  %147 = load i32, ptr %146, align 4, !tbaa !7
+  %148 = lshr i32 %147, %104
+  %149 = and i32 %148, 1
+  %150 = add nuw nsw i32 %142, %149
+===== 262144 =====
+  %145 = zext i32 %144 to i64
+  %146 = getelementptr inbounds i32, ptr %56, i64 %145
+===== 262144 =====
+  %142 = add nuw nsw i32 %134, %141
+===== 262144 =====
+  %156 = lshr i32 %155, %115
+===== 262144 =====
+  %124 = lshr i32 %123, %95
+  %125 = and i32 %124, 1
+  %126 = add nuw nsw i32 %118, %125
+  %127 = or i32 %109, %61
+===== 262144 =====
+  %125 = and i32 %124, 1
+  %126 = add nuw nsw i32 %118, %125
+  %127 = or i32 %109, %61
+===== 262144 =====
+  %140 = lshr i32 %139, %95
+  %141 = and i32 %140, 1
+  %142 = add nuw nsw i32 %134, %141
+  %143 = or i32 %98, %66
+===== 262144 =====
+  %126 = add nuw nsw i32 %118, %125
+  %127 = or i32 %109, %61
+===== 262144 =====
+  %127 = or i32 %109, %61
+===== 262144 =====
+  %122 = getelementptr inbounds i32, ptr %56, i64 %121
+  %123 = load i32, ptr %122, align 4, !tbaa !7
+  %124 = lshr i32 %123, %95
+  %125 = and i32 %124, 1
+  %126 = add nuw nsw i32 %118, %125
+===== 262144 =====
+  %123 = load i32, ptr %122, align 4, !tbaa !7
+  %124 = lshr i32 %123, %95
+  %125 = and i32 %124, 1
+  %126 = add nuw nsw i32 %118, %125
+===== 262144 =====
+  %125 = and i32 %124, 1
+  %126 = add nuw nsw i32 %118, %125
+===== 262144 =====
+  %128 = lshr exact i32 %127, 5
+===== 262144 =====
+  %121 = zext i32 %120 to i64
+  %122 = getelementptr inbounds i32, ptr %56, i64 %121
+  %123 = load i32, ptr %122, align 4, !tbaa !7
+  %124 = lshr i32 %123, %95
+  %125 = and i32 %124, 1
+===== 262144 =====
+  %123 = load i32, ptr %122, align 4, !tbaa !7
+  %124 = lshr i32 %123, %95
+  %125 = and i32 %124, 1
+===== 262144 =====
+  %124 = lshr i32 %123, %95
+  %125 = and i32 %124, 1
+===== 262144 =====
+  %125 = and i32 %124, 1
+===== 262144 =====
+  %120 = lshr exact i32 %119, 5
+  %121 = zext i32 %120 to i64
+  %122 = getelementptr inbounds i32, ptr %56, i64 %121
+  %123 = load i32, ptr %122, align 4, !tbaa !7
+  %124 = lshr i32 %123, %95
+===== 262144 =====
+  %121 = zext i32 %120 to i64
+  %122 = getelementptr inbounds i32, ptr %56, i64 %121
+  %123 = load i32, ptr %122, align 4, !tbaa !7
+  %124 = lshr i32 %123, %95
+===== 262144 =====
+  %122 = getelementptr inbounds i32, ptr %56, i64 %121
+  %123 = load i32, ptr %122, align 4, !tbaa !7
+  %124 = lshr i32 %123, %95
+===== 262144 =====
+  %123 = load i32, ptr %122, align 4, !tbaa !7
+  %124 = lshr i32 %123, %95
+===== 262144 =====
+  %125 = and i32 %124, 1
+  %126 = add nuw nsw i32 %118, %125
+  %127 = or i32 %109, %61
+  %128 = lshr exact i32 %127, 5
+  %129 = zext i32 %128 to i64
+===== 262144 =====
+  %132 = lshr i32 %131, %115
+===== 262144 =====
+  %160 = lshr exact i32 %159, 5
+  %161 = zext i32 %160 to i64
+===== 262144 =====
+  %127 = or i32 %109, %61
+  %128 = lshr exact i32 %127, 5
+  %129 = zext i32 %128 to i64
+  %130 = getelementptr inbounds i32, ptr %56, i64 %129
+  %131 = load i32, ptr %130, align 4, !tbaa !7
+===== 262144 =====
+  %128 = lshr exact i32 %127, 5
+  %129 = zext i32 %128 to i64
+  %130 = getelementptr inbounds i32, ptr %56, i64 %129
+  %131 = load i32, ptr %130, align 4, !tbaa !7
+===== 262144 =====
+  %131 = load i32, ptr %130, align 4, !tbaa !7
+===== 262144 =====
+  %127 = or i32 %109, %61
+  %128 = lshr exact i32 %127, 5
+  %129 = zext i32 %128 to i64
+  %130 = getelementptr inbounds i32, ptr %56, i64 %129
+===== 262144 =====
+  %129 = zext i32 %128 to i64
+  %130 = getelementptr inbounds i32, ptr %56, i64 %129
+===== 262144 =====
+  %130 = getelementptr inbounds i32, ptr %56, i64 %129
+===== 262144 =====
+  %124 = lshr i32 %123, %95
+===== 262144 =====
+  %126 = add nuw nsw i32 %118, %125
+  %127 = or i32 %109, %61
+  %128 = lshr exact i32 %127, 5
+  %129 = zext i32 %128 to i64
+===== 262144 =====
+  %127 = or i32 %109, %61
+  %128 = lshr exact i32 %127, 5
+  %129 = zext i32 %128 to i64
+===== 262144 =====
+  %163 = load i32, ptr %162, align 4, !tbaa !7
+  %164 = shl nuw i32 1, %104
+  %165 = and i32 %163, %164
+  %166 = icmp eq i32 %165, 0
+  %167 = and i32 %158, -2
+===== 262144 =====
+  %128 = lshr exact i32 %127, 5
+  %129 = zext i32 %128 to i64
+===== 262144 =====
+  %124 = lshr i32 %123, %95
+  %125 = and i32 %124, 1
+  %126 = add nuw nsw i32 %118, %125
+  %127 = or i32 %109, %61
+  %128 = lshr exact i32 %127, 5
+===== 262144 =====
+  %126 = add nuw nsw i32 %118, %125
+  %127 = or i32 %109, %61
+  %128 = lshr exact i32 %127, 5
+===== 262144 =====
+  %130 = getelementptr inbounds i32, ptr %56, i64 %129
+  %131 = load i32, ptr %130, align 4, !tbaa !7
+===== 262144 =====
+  %153 = zext i32 %152 to i64
+  %154 = getelementptr inbounds i32, ptr %56, i64 %153
+  %155 = load i32, ptr %154, align 4, !tbaa !7
+  %156 = lshr i32 %155, %115
+===== 262144 =====
+  %106 = and i32 %105, 1
+  %107 = add nuw nsw i32 %106, %97
+  %108 = add nuw nsw i32 %87, 1
+===== 262144 =====
+  %133 = and i32 %132, 1
+  %134 = add nuw nsw i32 %126, %133
+  %135 = or i32 %89, %66
+  %136 = lshr exact i32 %135, 5
+===== 262144 =====
+  %153 = zext i32 %152 to i64
+  %154 = getelementptr inbounds i32, ptr %56, i64 %153
+  %155 = load i32, ptr %154, align 4, !tbaa !7
+===== 262144 =====
+  %88 = add nsw i32 %87, -1
+  %89 = and i32 %88, 224
+  %90 = or i32 %89, %63
+  %91 = lshr exact i32 %90, 5
+===== 262144 =====
+  %117 = and i32 %116, 1
+===== 262144 =====
+  %105 = lshr i32 %103, %104
+  %106 = and i32 %105, 1
+  %107 = add nuw nsw i32 %106, %97
+===== 262144 =====
+  %111 = lshr exact i32 %110, 5
+  %112 = zext i32 %111 to i64
+  %113 = getelementptr inbounds i32, ptr %56, i64 %112
+  %114 = load i32, ptr %113, align 4, !tbaa !7
+===== 262144 =====
+  %158 = add nuw nsw i32 %150, %157
+  %159 = or i32 %98, %61
+  %160 = lshr exact i32 %159, 5
+  %161 = zext i32 %160 to i64
+  %162 = getelementptr inbounds i32, ptr %56, i64 %161
+===== 262144 =====
+  %131 = load i32, ptr %130, align 4, !tbaa !7
+  %132 = lshr i32 %131, %115
+===== 262144 =====
+  %96 = lshr i32 %94, %95
+  %97 = and i32 %96, 1
+  %98 = and i32 %87, 224
+===== 262144 =====
+  %168 = icmp eq i32 %167, 2
+  %169 = icmp eq i32 %158, 3
+  %170 = select i1 %166, i1 %169, i1 %168
+  %171 = xor i1 %166, %170
+===== 262144 =====
+  %170 = select i1 %166, i1 %169, i1 %168
+  %171 = xor i1 %166, %170
+  %172 = select i1 %171, i32 %85, i32 1
+  %173 = select i1 %170, i32 1, i32 %86
+  %174 = or i32 %87, %61
+===== 262144 =====
+  %96 = lshr i32 %94, %95
+===== 262144 =====
+  %169 = icmp eq i32 %158, 3
+  %170 = select i1 %166, i1 %169, i1 %168
+  %171 = xor i1 %166, %170
+===== 262144 =====
+  %129 = zext i32 %128 to i64
+  %130 = getelementptr inbounds i32, ptr %56, i64 %129
+  %131 = load i32, ptr %130, align 4, !tbaa !7
+  %132 = lshr i32 %131, %115
+  %133 = and i32 %132, 1
+===== 262144 =====
+  br label %82
+  %83 = icmp eq i32 %108, 256
+===== 262144 =====
+  %103 = load i32, ptr %102, align 4, !tbaa !7
+  %104 = and i32 %87, 31
+===== 262144 =====
+  %173 = select i1 %170, i32 1, i32 %86
+  %174 = or i32 %87, %61
+===== 262144 =====
+  %119 = or i32 %89, %61
+  %120 = lshr exact i32 %119, 5
+  %121 = zext i32 %120 to i64
+  %122 = getelementptr inbounds i32, ptr %56, i64 %121
+  %123 = load i32, ptr %122, align 4, !tbaa !7
+===== 262144 =====
+  %120 = lshr exact i32 %119, 5
+  %121 = zext i32 %120 to i64
+  %122 = getelementptr inbounds i32, ptr %56, i64 %121
+  %123 = load i32, ptr %122, align 4, !tbaa !7
+===== 262144 =====
+  %122 = getelementptr inbounds i32, ptr %56, i64 %121
+  %123 = load i32, ptr %122, align 4, !tbaa !7
+===== 262144 =====
+  %138 = getelementptr inbounds i32, ptr %56, i64 %137
+  %139 = load i32, ptr %138, align 4, !tbaa !7
+===== 262144 =====
+  %134 = add nuw nsw i32 %126, %133
+  %135 = or i32 %89, %66
+  %136 = lshr exact i32 %135, 5
+===== 262144 =====
+  %144 = lshr exact i32 %143, 5
+===== 262144 =====
+  %117 = and i32 %116, 1
+  %118 = add nuw nsw i32 %107, %117
+  %119 = or i32 %89, %61
+===== 262144 =====
+  %95 = and i32 %88, 31
+  %96 = lshr i32 %94, %95
+  %97 = and i32 %96, 1
+  %98 = and i32 %87, 224
+  %99 = or i32 %98, %63
+===== 262144 =====
+  %148 = lshr i32 %147, %104
+===== 262144 =====
+  %149 = and i32 %148, 1
+  %150 = add nuw nsw i32 %142, %149
+  %151 = or i32 %109, %66
+===== 262144 =====
+  %119 = or i32 %89, %61
+  %120 = lshr exact i32 %119, 5
+  %121 = zext i32 %120 to i64
+  %122 = getelementptr inbounds i32, ptr %56, i64 %121
+===== 262144 =====
+  %126 = add nuw nsw i32 %118, %125
+===== 262144 =====
+  %115 = and i32 %108, 31
+  %116 = lshr i32 %114, %115
+  %117 = and i32 %116, 1
+  %118 = add nuw nsw i32 %107, %117
+===== 262144 =====
+  %160 = lshr exact i32 %159, 5
+  %161 = zext i32 %160 to i64
+  %162 = getelementptr inbounds i32, ptr %56, i64 %161
+===== 262144 =====
+  %151 = or i32 %109, %66
+  %152 = lshr exact i32 %151, 5
+  %153 = zext i32 %152 to i64
+  %154 = getelementptr inbounds i32, ptr %56, i64 %153
+===== 262144 =====
+  %127 = or i32 %109, %61
+  %128 = lshr exact i32 %127, 5

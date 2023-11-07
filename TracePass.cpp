@@ -11,7 +11,7 @@ namespace {
 
 struct TracePass : public PassInfoMixin<TracePass> {
 
-    static inline constexpr const char * const LOG_FUNCTION_NAME = "puts";
+    static inline constexpr const char * const LOG_FUNCTION_NAME = "log_llvm_ir";
 
     PreservedAnalyses run(Function & function, FunctionAnalysisManager &) {
         IRBuilder<> builder(function.getContext());

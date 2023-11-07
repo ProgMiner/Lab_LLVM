@@ -205,465 +205,465 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @main() local_unnamed_addr #0 {
-  tail call void @puts(ptr nonnull @0) #4
+  tail call void @log_llvm_ir(ptr nonnull @0) #4
   %1 = alloca [1024 x i32], align 16
-  tail call void @puts(ptr nonnull @1) #4
+  tail call void @log_llvm_ir(ptr nonnull @1) #4
   %2 = alloca [1024 x i32], align 16
-  tail call void @puts(ptr nonnull @2) #4
+  tail call void @log_llvm_ir(ptr nonnull @2) #4
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %1) #4
-  tail call void @puts(ptr nonnull @3) #4
+  tail call void @log_llvm_ir(ptr nonnull @3) #4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %1, i8 0, i64 4096, i1 false)
-  tail call void @puts(ptr nonnull @4) #4
+  tail call void @log_llvm_ir(ptr nonnull @4) #4
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %2) #4
-  tail call void @puts(ptr nonnull @5) #4
+  tail call void @log_llvm_ir(ptr nonnull @5) #4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %2, i8 0, i64 4096, i1 false)
-  tail call void @puts(ptr nonnull @6) #4
+  tail call void @log_llvm_ir(ptr nonnull @6) #4
   br label %3
 
 3:                                                ; preds = %0, %27
   %4 = phi i32 [ 0, %0 ], [ %28, %27 ]
-  tail call void @puts(ptr nonnull @7) #4
+  tail call void @log_llvm_ir(ptr nonnull @7) #4
   %5 = shl i32 %4, 8
-  tail call void @puts(ptr nonnull @8) #4
+  tail call void @log_llvm_ir(ptr nonnull @8) #4
   br label %30
 
 6:                                                ; preds = %27, %9
   %7 = phi i32 [ %10, %9 ], [ 0, %27 ]
-  tail call void @puts(ptr nonnull @9) #4
+  tail call void @log_llvm_ir(ptr nonnull @9) #4
   %8 = shl i32 %7, 8
-  tail call void @puts(ptr nonnull @10) #4
+  tail call void @log_llvm_ir(ptr nonnull @10) #4
   br label %12
 
 9:                                                ; preds = %12
-  tail call void @puts(ptr nonnull @11) #4
+  tail call void @log_llvm_ir(ptr nonnull @11) #4
   %10 = add nuw nsw i32 %7, 1
-  tail call void @puts(ptr nonnull @12) #4
+  tail call void @log_llvm_ir(ptr nonnull @12) #4
   %11 = icmp eq i32 %10, 128
-  tail call void @puts(ptr nonnull @13) #4
+  tail call void @log_llvm_ir(ptr nonnull @13) #4
   br i1 %11, label %55, label %6, !llvm.loop !5
 
 12:                                               ; preds = %12, %6
   %13 = phi i32 [ 0, %6 ], [ %25, %12 ]
-  tail call void @puts(ptr nonnull @14) #4
+  tail call void @log_llvm_ir(ptr nonnull @14) #4
   %14 = and i32 %13, 224
-  tail call void @puts(ptr nonnull @15) #4
+  tail call void @log_llvm_ir(ptr nonnull @15) #4
   %15 = or i32 %14, %8
-  tail call void @puts(ptr nonnull @16) #4
+  tail call void @log_llvm_ir(ptr nonnull @16) #4
   %16 = lshr exact i32 %15, 5
-  tail call void @puts(ptr nonnull @17) #4
+  tail call void @log_llvm_ir(ptr nonnull @17) #4
   %17 = zext i32 %16 to i64
-  tail call void @puts(ptr nonnull @18) #4
+  tail call void @log_llvm_ir(ptr nonnull @18) #4
   %18 = getelementptr inbounds i32, ptr %2, i64 %17
-  tail call void @puts(ptr nonnull @19) #4
+  tail call void @log_llvm_ir(ptr nonnull @19) #4
   %19 = load i32, ptr %18, align 4, !tbaa !7
-  tail call void @puts(ptr nonnull @20) #4
+  tail call void @log_llvm_ir(ptr nonnull @20) #4
   %20 = and i32 %13, 31
-  tail call void @puts(ptr nonnull @21) #4
+  tail call void @log_llvm_ir(ptr nonnull @21) #4
   %21 = shl nuw i32 1, %20
-  tail call void @puts(ptr nonnull @22) #4
+  tail call void @log_llvm_ir(ptr nonnull @22) #4
   %22 = and i32 %21, %19
-  tail call void @puts(ptr nonnull @23) #4
+  tail call void @log_llvm_ir(ptr nonnull @23) #4
   %23 = icmp eq i32 %22, 0
-  tail call void @puts(ptr nonnull @24) #4
+  tail call void @log_llvm_ir(ptr nonnull @24) #4
   %24 = select i1 %23, i32 -16777216, i32 -16711936
-  tail call void @puts(ptr nonnull @25) #4
+  tail call void @log_llvm_ir(ptr nonnull @25) #4
   tail call void @sim_set_pixel(i32 noundef %13, i32 noundef %7, i32 noundef %24) #4
-  tail call void @puts(ptr nonnull @26) #4
+  tail call void @log_llvm_ir(ptr nonnull @26) #4
   %25 = add nuw nsw i32 %13, 1
-  tail call void @puts(ptr nonnull @27) #4
+  tail call void @log_llvm_ir(ptr nonnull @27) #4
   %26 = icmp eq i32 %25, 256
-  tail call void @puts(ptr nonnull @28) #4
+  tail call void @log_llvm_ir(ptr nonnull @28) #4
   br i1 %26, label %9, label %12, !llvm.loop !11
 
 27:                                               ; preds = %51
-  tail call void @puts(ptr nonnull @29) #4
+  tail call void @log_llvm_ir(ptr nonnull @29) #4
   %28 = add nuw nsw i32 %4, 1
-  tail call void @puts(ptr nonnull @30) #4
+  tail call void @log_llvm_ir(ptr nonnull @30) #4
   %29 = icmp eq i32 %28, 128
-  tail call void @puts(ptr nonnull @31) #4
+  tail call void @log_llvm_ir(ptr nonnull @31) #4
   br i1 %29, label %6, label %3, !llvm.loop !12
 
 30:                                               ; preds = %3, %51
   %31 = phi i32 [ 0, %3 ], [ %53, %51 ]
-  tail call void @puts(ptr nonnull @32) #4
+  tail call void @log_llvm_ir(ptr nonnull @32) #4
   %32 = tail call i32 @sim_rand() #4
-  tail call void @puts(ptr nonnull @33) #4
+  tail call void @log_llvm_ir(ptr nonnull @33) #4
   %33 = and i32 %32, 1
-  tail call void @puts(ptr nonnull @34) #4
+  tail call void @log_llvm_ir(ptr nonnull @34) #4
   %34 = or i32 %31, %5
-  tail call void @puts(ptr nonnull @35) #4
+  tail call void @log_llvm_ir(ptr nonnull @35) #4
   %35 = icmp eq i32 %33, 0
-  tail call void @puts(ptr nonnull @36) #4
+  tail call void @log_llvm_ir(ptr nonnull @36) #4
   %36 = and i32 %31, 31
-  tail call void @puts(ptr nonnull @37) #4
+  tail call void @log_llvm_ir(ptr nonnull @37) #4
   %37 = shl nuw i32 1, %36
-  tail call void @puts(ptr nonnull @38) #4
+  tail call void @log_llvm_ir(ptr nonnull @38) #4
   br i1 %35, label %44, label %38
 
 38:                                               ; preds = %30
-  tail call void @puts(ptr nonnull @39) #4
+  tail call void @log_llvm_ir(ptr nonnull @39) #4
   %39 = lshr i32 %34, 5
-  tail call void @puts(ptr nonnull @40) #4
+  tail call void @log_llvm_ir(ptr nonnull @40) #4
   %40 = zext i32 %39 to i64
-  tail call void @puts(ptr nonnull @41) #4
+  tail call void @log_llvm_ir(ptr nonnull @41) #4
   %41 = getelementptr inbounds i32, ptr %2, i64 %40
-  tail call void @puts(ptr nonnull @42) #4
+  tail call void @log_llvm_ir(ptr nonnull @42) #4
   %42 = load i32, ptr %41, align 4, !tbaa !7
-  tail call void @puts(ptr nonnull @43) #4
+  tail call void @log_llvm_ir(ptr nonnull @43) #4
   %43 = or i32 %42, %37
-  tail call void @puts(ptr nonnull @44) #4
+  tail call void @log_llvm_ir(ptr nonnull @44) #4
   store i32 %43, ptr %41, align 4, !tbaa !7
   br label %51
 
 44:                                               ; preds = %30
-  tail call void @puts(ptr nonnull @45) #4
+  tail call void @log_llvm_ir(ptr nonnull @45) #4
   %45 = xor i32 %37, -1
-  tail call void @puts(ptr nonnull @46) #4
+  tail call void @log_llvm_ir(ptr nonnull @46) #4
   %46 = lshr i32 %34, 5
-  tail call void @puts(ptr nonnull @47) #4
+  tail call void @log_llvm_ir(ptr nonnull @47) #4
   %47 = zext i32 %46 to i64
-  tail call void @puts(ptr nonnull @48) #4
+  tail call void @log_llvm_ir(ptr nonnull @48) #4
   %48 = getelementptr inbounds i32, ptr %2, i64 %47
-  tail call void @puts(ptr nonnull @49) #4
+  tail call void @log_llvm_ir(ptr nonnull @49) #4
   %49 = load i32, ptr %48, align 4, !tbaa !7
-  tail call void @puts(ptr nonnull @50) #4
+  tail call void @log_llvm_ir(ptr nonnull @50) #4
   %50 = and i32 %49, %45
-  tail call void @puts(ptr nonnull @51) #4
+  tail call void @log_llvm_ir(ptr nonnull @51) #4
   store i32 %50, ptr %48, align 4, !tbaa !7
   br label %51
 
 51:                                               ; preds = %38, %44
   %52 = phi ptr [ @52, %38 ], [ @52, %44 ]
-  tail call void @puts(ptr nonnull %52) #4
-  tail call void @puts(ptr nonnull @53) #4
+  tail call void @log_llvm_ir(ptr nonnull %52) #4
+  tail call void @log_llvm_ir(ptr nonnull @53) #4
   %53 = add nuw nsw i32 %31, 1
-  tail call void @puts(ptr nonnull @54) #4
+  tail call void @log_llvm_ir(ptr nonnull @54) #4
   %54 = icmp eq i32 %53, 256
-  tail call void @puts(ptr nonnull @55) #4
+  tail call void @log_llvm_ir(ptr nonnull @55) #4
   br i1 %54, label %27, label %30, !llvm.loop !13
 
 55:                                               ; preds = %9, %202
   %56 = phi ptr [ %57, %202 ], [ %1, %9 ]
   %57 = phi ptr [ %56, %202 ], [ %2, %9 ]
-  tail call void @puts(ptr nonnull @56) #4
+  tail call void @log_llvm_ir(ptr nonnull @56) #4
   tail call void @sim_flush() #4
-  tail call void @puts(ptr nonnull @57) #4
+  tail call void @log_llvm_ir(ptr nonnull @57) #4
   br label %58
 
 58:                                               ; preds = %68, %55
   %59 = phi i32 [ 0, %55 ], [ %174, %68 ]
   %60 = phi i32 [ 0, %55 ], [ %175, %68 ]
   %61 = phi i32 [ 0, %55 ], [ %65, %68 ]
-  tail call void @puts(ptr nonnull @58) #4
+  tail call void @log_llvm_ir(ptr nonnull @58) #4
   %62 = shl i32 %61, 8
-  tail call void @puts(ptr nonnull @59) #4
+  tail call void @log_llvm_ir(ptr nonnull @59) #4
   %63 = add nuw nsw i32 %62, 32512
-  tail call void @puts(ptr nonnull @60) #4
+  tail call void @log_llvm_ir(ptr nonnull @60) #4
   %64 = and i32 %63, 32512
-  tail call void @puts(ptr nonnull @61) #4
+  tail call void @log_llvm_ir(ptr nonnull @61) #4
   %65 = add nuw nsw i32 %61, 1
-  tail call void @puts(ptr nonnull @62) #4
+  tail call void @log_llvm_ir(ptr nonnull @62) #4
   %66 = shl i32 %65, 8
-  tail call void @puts(ptr nonnull @63) #4
+  tail call void @log_llvm_ir(ptr nonnull @63) #4
   %67 = and i32 %66, 32512
-  tail call void @puts(ptr nonnull @64) #4
+  tail call void @log_llvm_ir(ptr nonnull @64) #4
   br label %86
 
 68:                                               ; preds = %83
-  tail call void @puts(ptr nonnull @65) #4
+  tail call void @log_llvm_ir(ptr nonnull @65) #4
   %69 = icmp eq i32 %65, 128
-  tail call void @puts(ptr nonnull @66) #4
+  tail call void @log_llvm_ir(ptr nonnull @66) #4
   br i1 %69, label %177, label %58, !llvm.loop !14
 
 70:                                               ; preds = %86
-  tail call void @puts(ptr nonnull @67) #4
+  tail call void @log_llvm_ir(ptr nonnull @67) #4
   %71 = lshr i32 %176, 5
-  tail call void @puts(ptr nonnull @68) #4
+  tail call void @log_llvm_ir(ptr nonnull @68) #4
   %72 = zext i32 %71 to i64
-  tail call void @puts(ptr nonnull @69) #4
+  tail call void @log_llvm_ir(ptr nonnull @69) #4
   %73 = getelementptr inbounds i32, ptr %56, i64 %72
-  tail call void @puts(ptr nonnull @70) #4
+  tail call void @log_llvm_ir(ptr nonnull @70) #4
   %74 = load i32, ptr %73, align 4, !tbaa !7
-  tail call void @puts(ptr nonnull @71) #4
+  tail call void @log_llvm_ir(ptr nonnull @71) #4
   %75 = or i32 %74, %166
-  tail call void @puts(ptr nonnull @72) #4
+  tail call void @log_llvm_ir(ptr nonnull @72) #4
   store i32 %75, ptr %73, align 4, !tbaa !7
   br label %83
 
 76:                                               ; preds = %86
-  tail call void @puts(ptr nonnull @73) #4
+  tail call void @log_llvm_ir(ptr nonnull @73) #4
   %77 = xor i32 %166, -1
-  tail call void @puts(ptr nonnull @74) #4
+  tail call void @log_llvm_ir(ptr nonnull @74) #4
   %78 = lshr i32 %176, 5
-  tail call void @puts(ptr nonnull @75) #4
+  tail call void @log_llvm_ir(ptr nonnull @75) #4
   %79 = zext i32 %78 to i64
-  tail call void @puts(ptr nonnull @76) #4
+  tail call void @log_llvm_ir(ptr nonnull @76) #4
   %80 = getelementptr inbounds i32, ptr %56, i64 %79
-  tail call void @puts(ptr nonnull @77) #4
+  tail call void @log_llvm_ir(ptr nonnull @77) #4
   %81 = load i32, ptr %80, align 4, !tbaa !7
-  tail call void @puts(ptr nonnull @78) #4
+  tail call void @log_llvm_ir(ptr nonnull @78) #4
   %82 = and i32 %81, %77
-  tail call void @puts(ptr nonnull @79) #4
+  tail call void @log_llvm_ir(ptr nonnull @79) #4
   store i32 %82, ptr %80, align 4, !tbaa !7
   br label %83
 
 83:                                               ; preds = %76, %70
   %84 = phi ptr [ @80, %76 ], [ @80, %70 ]
-  tail call void @puts(ptr nonnull %84) #4
-  tail call void @puts(ptr nonnull @81) #4
+  tail call void @log_llvm_ir(ptr nonnull %84) #4
+  tail call void @log_llvm_ir(ptr nonnull @81) #4
   %85 = icmp eq i32 %110, 256
-  tail call void @puts(ptr nonnull @82) #4
+  tail call void @log_llvm_ir(ptr nonnull @82) #4
   br i1 %85, label %68, label %86, !llvm.loop !15
 
 86:                                               ; preds = %83, %58
   %87 = phi i32 [ %59, %58 ], [ %174, %83 ]
   %88 = phi i32 [ %60, %58 ], [ %175, %83 ]
   %89 = phi i32 [ 0, %58 ], [ %110, %83 ]
-  tail call void @puts(ptr nonnull @83) #4
+  tail call void @log_llvm_ir(ptr nonnull @83) #4
   %90 = add nsw i32 %89, -1
-  tail call void @puts(ptr nonnull @84) #4
+  tail call void @log_llvm_ir(ptr nonnull @84) #4
   %91 = and i32 %90, 224
-  tail call void @puts(ptr nonnull @85) #4
+  tail call void @log_llvm_ir(ptr nonnull @85) #4
   %92 = or i32 %91, %64
-  tail call void @puts(ptr nonnull @86) #4
+  tail call void @log_llvm_ir(ptr nonnull @86) #4
   %93 = lshr exact i32 %92, 5
-  tail call void @puts(ptr nonnull @87) #4
+  tail call void @log_llvm_ir(ptr nonnull @87) #4
   %94 = zext i32 %93 to i64
-  tail call void @puts(ptr nonnull @88) #4
+  tail call void @log_llvm_ir(ptr nonnull @88) #4
   %95 = getelementptr inbounds i32, ptr %57, i64 %94
-  tail call void @puts(ptr nonnull @89) #4
+  tail call void @log_llvm_ir(ptr nonnull @89) #4
   %96 = load i32, ptr %95, align 4, !tbaa !7
-  tail call void @puts(ptr nonnull @90) #4
+  tail call void @log_llvm_ir(ptr nonnull @90) #4
   %97 = and i32 %90, 31
-  tail call void @puts(ptr nonnull @91) #4
+  tail call void @log_llvm_ir(ptr nonnull @91) #4
   %98 = lshr i32 %96, %97
-  tail call void @puts(ptr nonnull @92) #4
+  tail call void @log_llvm_ir(ptr nonnull @92) #4
   %99 = and i32 %98, 1
-  tail call void @puts(ptr nonnull @93) #4
+  tail call void @log_llvm_ir(ptr nonnull @93) #4
   %100 = and i32 %89, 224
-  tail call void @puts(ptr nonnull @94) #4
+  tail call void @log_llvm_ir(ptr nonnull @94) #4
   %101 = or i32 %100, %64
-  tail call void @puts(ptr nonnull @95) #4
+  tail call void @log_llvm_ir(ptr nonnull @95) #4
   %102 = lshr exact i32 %101, 5
-  tail call void @puts(ptr nonnull @96) #4
+  tail call void @log_llvm_ir(ptr nonnull @96) #4
   %103 = zext i32 %102 to i64
-  tail call void @puts(ptr nonnull @97) #4
+  tail call void @log_llvm_ir(ptr nonnull @97) #4
   %104 = getelementptr inbounds i32, ptr %57, i64 %103
-  tail call void @puts(ptr nonnull @98) #4
+  tail call void @log_llvm_ir(ptr nonnull @98) #4
   %105 = load i32, ptr %104, align 4, !tbaa !7
-  tail call void @puts(ptr nonnull @99) #4
+  tail call void @log_llvm_ir(ptr nonnull @99) #4
   %106 = and i32 %89, 31
-  tail call void @puts(ptr nonnull @100) #4
+  tail call void @log_llvm_ir(ptr nonnull @100) #4
   %107 = lshr i32 %105, %106
-  tail call void @puts(ptr nonnull @101) #4
+  tail call void @log_llvm_ir(ptr nonnull @101) #4
   %108 = and i32 %107, 1
-  tail call void @puts(ptr nonnull @102) #4
+  tail call void @log_llvm_ir(ptr nonnull @102) #4
   %109 = add nuw nsw i32 %108, %99
-  tail call void @puts(ptr nonnull @103) #4
+  tail call void @log_llvm_ir(ptr nonnull @103) #4
   %110 = add nuw nsw i32 %89, 1
-  tail call void @puts(ptr nonnull @104) #4
+  tail call void @log_llvm_ir(ptr nonnull @104) #4
   %111 = and i32 %110, 224
-  tail call void @puts(ptr nonnull @105) #4
+  tail call void @log_llvm_ir(ptr nonnull @105) #4
   %112 = or i32 %111, %64
-  tail call void @puts(ptr nonnull @106) #4
+  tail call void @log_llvm_ir(ptr nonnull @106) #4
   %113 = lshr exact i32 %112, 5
-  tail call void @puts(ptr nonnull @107) #4
+  tail call void @log_llvm_ir(ptr nonnull @107) #4
   %114 = zext i32 %113 to i64
-  tail call void @puts(ptr nonnull @108) #4
+  tail call void @log_llvm_ir(ptr nonnull @108) #4
   %115 = getelementptr inbounds i32, ptr %57, i64 %114
-  tail call void @puts(ptr nonnull @109) #4
+  tail call void @log_llvm_ir(ptr nonnull @109) #4
   %116 = load i32, ptr %115, align 4, !tbaa !7
-  tail call void @puts(ptr nonnull @110) #4
+  tail call void @log_llvm_ir(ptr nonnull @110) #4
   %117 = and i32 %110, 31
-  tail call void @puts(ptr nonnull @111) #4
+  tail call void @log_llvm_ir(ptr nonnull @111) #4
   %118 = lshr i32 %116, %117
-  tail call void @puts(ptr nonnull @112) #4
+  tail call void @log_llvm_ir(ptr nonnull @112) #4
   %119 = and i32 %118, 1
-  tail call void @puts(ptr nonnull @113) #4
+  tail call void @log_llvm_ir(ptr nonnull @113) #4
   %120 = add nuw nsw i32 %109, %119
-  tail call void @puts(ptr nonnull @114) #4
+  tail call void @log_llvm_ir(ptr nonnull @114) #4
   %121 = or i32 %91, %62
-  tail call void @puts(ptr nonnull @115) #4
+  tail call void @log_llvm_ir(ptr nonnull @115) #4
   %122 = lshr exact i32 %121, 5
-  tail call void @puts(ptr nonnull @116) #4
+  tail call void @log_llvm_ir(ptr nonnull @116) #4
   %123 = zext i32 %122 to i64
-  tail call void @puts(ptr nonnull @117) #4
+  tail call void @log_llvm_ir(ptr nonnull @117) #4
   %124 = getelementptr inbounds i32, ptr %57, i64 %123
-  tail call void @puts(ptr nonnull @118) #4
+  tail call void @log_llvm_ir(ptr nonnull @118) #4
   %125 = load i32, ptr %124, align 4, !tbaa !7
-  tail call void @puts(ptr nonnull @119) #4
+  tail call void @log_llvm_ir(ptr nonnull @119) #4
   %126 = lshr i32 %125, %97
-  tail call void @puts(ptr nonnull @120) #4
+  tail call void @log_llvm_ir(ptr nonnull @120) #4
   %127 = and i32 %126, 1
-  tail call void @puts(ptr nonnull @121) #4
+  tail call void @log_llvm_ir(ptr nonnull @121) #4
   %128 = add nuw nsw i32 %120, %127
-  tail call void @puts(ptr nonnull @122) #4
+  tail call void @log_llvm_ir(ptr nonnull @122) #4
   %129 = or i32 %111, %62
-  tail call void @puts(ptr nonnull @123) #4
+  tail call void @log_llvm_ir(ptr nonnull @123) #4
   %130 = lshr exact i32 %129, 5
-  tail call void @puts(ptr nonnull @124) #4
+  tail call void @log_llvm_ir(ptr nonnull @124) #4
   %131 = zext i32 %130 to i64
-  tail call void @puts(ptr nonnull @125) #4
+  tail call void @log_llvm_ir(ptr nonnull @125) #4
   %132 = getelementptr inbounds i32, ptr %57, i64 %131
-  tail call void @puts(ptr nonnull @126) #4
+  tail call void @log_llvm_ir(ptr nonnull @126) #4
   %133 = load i32, ptr %132, align 4, !tbaa !7
-  tail call void @puts(ptr nonnull @127) #4
+  tail call void @log_llvm_ir(ptr nonnull @127) #4
   %134 = lshr i32 %133, %117
-  tail call void @puts(ptr nonnull @128) #4
+  tail call void @log_llvm_ir(ptr nonnull @128) #4
   %135 = and i32 %134, 1
-  tail call void @puts(ptr nonnull @129) #4
+  tail call void @log_llvm_ir(ptr nonnull @129) #4
   %136 = add nuw nsw i32 %128, %135
-  tail call void @puts(ptr nonnull @130) #4
+  tail call void @log_llvm_ir(ptr nonnull @130) #4
   %137 = or i32 %91, %67
-  tail call void @puts(ptr nonnull @131) #4
+  tail call void @log_llvm_ir(ptr nonnull @131) #4
   %138 = lshr exact i32 %137, 5
-  tail call void @puts(ptr nonnull @132) #4
+  tail call void @log_llvm_ir(ptr nonnull @132) #4
   %139 = zext i32 %138 to i64
-  tail call void @puts(ptr nonnull @133) #4
+  tail call void @log_llvm_ir(ptr nonnull @133) #4
   %140 = getelementptr inbounds i32, ptr %57, i64 %139
-  tail call void @puts(ptr nonnull @134) #4
+  tail call void @log_llvm_ir(ptr nonnull @134) #4
   %141 = load i32, ptr %140, align 4, !tbaa !7
-  tail call void @puts(ptr nonnull @135) #4
+  tail call void @log_llvm_ir(ptr nonnull @135) #4
   %142 = lshr i32 %141, %97
-  tail call void @puts(ptr nonnull @136) #4
+  tail call void @log_llvm_ir(ptr nonnull @136) #4
   %143 = and i32 %142, 1
-  tail call void @puts(ptr nonnull @137) #4
+  tail call void @log_llvm_ir(ptr nonnull @137) #4
   %144 = add nuw nsw i32 %136, %143
-  tail call void @puts(ptr nonnull @138) #4
+  tail call void @log_llvm_ir(ptr nonnull @138) #4
   %145 = or i32 %100, %67
-  tail call void @puts(ptr nonnull @139) #4
+  tail call void @log_llvm_ir(ptr nonnull @139) #4
   %146 = lshr exact i32 %145, 5
-  tail call void @puts(ptr nonnull @140) #4
+  tail call void @log_llvm_ir(ptr nonnull @140) #4
   %147 = zext i32 %146 to i64
-  tail call void @puts(ptr nonnull @141) #4
+  tail call void @log_llvm_ir(ptr nonnull @141) #4
   %148 = getelementptr inbounds i32, ptr %57, i64 %147
-  tail call void @puts(ptr nonnull @142) #4
+  tail call void @log_llvm_ir(ptr nonnull @142) #4
   %149 = load i32, ptr %148, align 4, !tbaa !7
-  tail call void @puts(ptr nonnull @143) #4
+  tail call void @log_llvm_ir(ptr nonnull @143) #4
   %150 = lshr i32 %149, %106
-  tail call void @puts(ptr nonnull @144) #4
+  tail call void @log_llvm_ir(ptr nonnull @144) #4
   %151 = and i32 %150, 1
-  tail call void @puts(ptr nonnull @145) #4
+  tail call void @log_llvm_ir(ptr nonnull @145) #4
   %152 = add nuw nsw i32 %144, %151
-  tail call void @puts(ptr nonnull @146) #4
+  tail call void @log_llvm_ir(ptr nonnull @146) #4
   %153 = or i32 %111, %67
-  tail call void @puts(ptr nonnull @147) #4
+  tail call void @log_llvm_ir(ptr nonnull @147) #4
   %154 = lshr exact i32 %153, 5
-  tail call void @puts(ptr nonnull @148) #4
+  tail call void @log_llvm_ir(ptr nonnull @148) #4
   %155 = zext i32 %154 to i64
-  tail call void @puts(ptr nonnull @149) #4
+  tail call void @log_llvm_ir(ptr nonnull @149) #4
   %156 = getelementptr inbounds i32, ptr %57, i64 %155
-  tail call void @puts(ptr nonnull @150) #4
+  tail call void @log_llvm_ir(ptr nonnull @150) #4
   %157 = load i32, ptr %156, align 4, !tbaa !7
-  tail call void @puts(ptr nonnull @151) #4
+  tail call void @log_llvm_ir(ptr nonnull @151) #4
   %158 = lshr i32 %157, %117
-  tail call void @puts(ptr nonnull @152) #4
+  tail call void @log_llvm_ir(ptr nonnull @152) #4
   %159 = and i32 %158, 1
-  tail call void @puts(ptr nonnull @153) #4
+  tail call void @log_llvm_ir(ptr nonnull @153) #4
   %160 = add nuw nsw i32 %152, %159
-  tail call void @puts(ptr nonnull @154) #4
+  tail call void @log_llvm_ir(ptr nonnull @154) #4
   %161 = or i32 %100, %62
-  tail call void @puts(ptr nonnull @155) #4
+  tail call void @log_llvm_ir(ptr nonnull @155) #4
   %162 = lshr exact i32 %161, 5
-  tail call void @puts(ptr nonnull @156) #4
+  tail call void @log_llvm_ir(ptr nonnull @156) #4
   %163 = zext i32 %162 to i64
-  tail call void @puts(ptr nonnull @157) #4
+  tail call void @log_llvm_ir(ptr nonnull @157) #4
   %164 = getelementptr inbounds i32, ptr %57, i64 %163
-  tail call void @puts(ptr nonnull @158) #4
+  tail call void @log_llvm_ir(ptr nonnull @158) #4
   %165 = load i32, ptr %164, align 4, !tbaa !7
-  tail call void @puts(ptr nonnull @159) #4
+  tail call void @log_llvm_ir(ptr nonnull @159) #4
   %166 = shl nuw i32 1, %106
-  tail call void @puts(ptr nonnull @160) #4
+  tail call void @log_llvm_ir(ptr nonnull @160) #4
   %167 = and i32 %165, %166
-  tail call void @puts(ptr nonnull @161) #4
+  tail call void @log_llvm_ir(ptr nonnull @161) #4
   %168 = icmp eq i32 %167, 0
-  tail call void @puts(ptr nonnull @162) #4
+  tail call void @log_llvm_ir(ptr nonnull @162) #4
   %169 = and i32 %160, -2
-  tail call void @puts(ptr nonnull @163) #4
+  tail call void @log_llvm_ir(ptr nonnull @163) #4
   %170 = icmp eq i32 %169, 2
-  tail call void @puts(ptr nonnull @164) #4
+  tail call void @log_llvm_ir(ptr nonnull @164) #4
   %171 = icmp eq i32 %160, 3
-  tail call void @puts(ptr nonnull @165) #4
+  tail call void @log_llvm_ir(ptr nonnull @165) #4
   %172 = select i1 %168, i1 %171, i1 %170
-  tail call void @puts(ptr nonnull @166) #4
+  tail call void @log_llvm_ir(ptr nonnull @166) #4
   %173 = xor i1 %168, %172
-  tail call void @puts(ptr nonnull @167) #4
+  tail call void @log_llvm_ir(ptr nonnull @167) #4
   %174 = select i1 %173, i32 %87, i32 1
-  tail call void @puts(ptr nonnull @168) #4
+  tail call void @log_llvm_ir(ptr nonnull @168) #4
   %175 = select i1 %172, i32 1, i32 %88
-  tail call void @puts(ptr nonnull @169) #4
+  tail call void @log_llvm_ir(ptr nonnull @169) #4
   %176 = or i32 %89, %62
-  tail call void @puts(ptr nonnull @170) #4
+  tail call void @log_llvm_ir(ptr nonnull @170) #4
   br i1 %172, label %70, label %76
 
 177:                                              ; preds = %68
-  tail call void @puts(ptr nonnull @171) #4
+  tail call void @log_llvm_ir(ptr nonnull @171) #4
   %178 = icmp eq i32 %174, 0
-  tail call void @puts(ptr nonnull @172) #4
+  tail call void @log_llvm_ir(ptr nonnull @172) #4
   %179 = icmp eq i32 %175, 0
-  tail call void @puts(ptr nonnull @173) #4
+  tail call void @log_llvm_ir(ptr nonnull @173) #4
   %180 = select i1 %178, i1 %179, i1 false
-  tail call void @puts(ptr nonnull @174) #4
+  tail call void @log_llvm_ir(ptr nonnull @174) #4
   br i1 %180, label %203, label %181
 
 181:                                              ; preds = %177, %184
   %182 = phi i32 [ %185, %184 ], [ 0, %177 ]
-  tail call void @puts(ptr nonnull @175) #4
+  tail call void @log_llvm_ir(ptr nonnull @175) #4
   %183 = shl i32 %182, 8
-  tail call void @puts(ptr nonnull @176) #4
+  tail call void @log_llvm_ir(ptr nonnull @176) #4
   br label %187
 
 184:                                              ; preds = %187
-  tail call void @puts(ptr nonnull @177) #4
+  tail call void @log_llvm_ir(ptr nonnull @177) #4
   %185 = add nuw nsw i32 %182, 1
-  tail call void @puts(ptr nonnull @178) #4
+  tail call void @log_llvm_ir(ptr nonnull @178) #4
   %186 = icmp eq i32 %185, 128
-  tail call void @puts(ptr nonnull @179) #4
+  tail call void @log_llvm_ir(ptr nonnull @179) #4
   br i1 %186, label %202, label %181, !llvm.loop !5
 
 187:                                              ; preds = %187, %181
   %188 = phi i32 [ 0, %181 ], [ %200, %187 ]
-  tail call void @puts(ptr nonnull @180) #4
+  tail call void @log_llvm_ir(ptr nonnull @180) #4
   %189 = and i32 %188, 224
-  tail call void @puts(ptr nonnull @181) #4
+  tail call void @log_llvm_ir(ptr nonnull @181) #4
   %190 = or i32 %189, %183
-  tail call void @puts(ptr nonnull @182) #4
+  tail call void @log_llvm_ir(ptr nonnull @182) #4
   %191 = lshr exact i32 %190, 5
-  tail call void @puts(ptr nonnull @183) #4
+  tail call void @log_llvm_ir(ptr nonnull @183) #4
   %192 = zext i32 %191 to i64
-  tail call void @puts(ptr nonnull @184) #4
+  tail call void @log_llvm_ir(ptr nonnull @184) #4
   %193 = getelementptr inbounds i32, ptr %56, i64 %192
-  tail call void @puts(ptr nonnull @185) #4
+  tail call void @log_llvm_ir(ptr nonnull @185) #4
   %194 = load i32, ptr %193, align 4, !tbaa !7
-  tail call void @puts(ptr nonnull @186) #4
+  tail call void @log_llvm_ir(ptr nonnull @186) #4
   %195 = and i32 %188, 31
-  tail call void @puts(ptr nonnull @187) #4
+  tail call void @log_llvm_ir(ptr nonnull @187) #4
   %196 = shl nuw i32 1, %195
-  tail call void @puts(ptr nonnull @188) #4
+  tail call void @log_llvm_ir(ptr nonnull @188) #4
   %197 = and i32 %196, %194
-  tail call void @puts(ptr nonnull @189) #4
+  tail call void @log_llvm_ir(ptr nonnull @189) #4
   %198 = icmp eq i32 %197, 0
-  tail call void @puts(ptr nonnull @190) #4
+  tail call void @log_llvm_ir(ptr nonnull @190) #4
   %199 = select i1 %198, i32 -16777216, i32 -16711936
-  tail call void @puts(ptr nonnull @191) #4
+  tail call void @log_llvm_ir(ptr nonnull @191) #4
   tail call void @sim_set_pixel(i32 noundef %188, i32 noundef %182, i32 noundef %199) #4
-  tail call void @puts(ptr nonnull @192) #4
+  tail call void @log_llvm_ir(ptr nonnull @192) #4
   %200 = add nuw nsw i32 %188, 1
-  tail call void @puts(ptr nonnull @193) #4
+  tail call void @log_llvm_ir(ptr nonnull @193) #4
   %201 = icmp eq i32 %200, 256
-  tail call void @puts(ptr nonnull @194) #4
+  tail call void @log_llvm_ir(ptr nonnull @194) #4
   br i1 %201, label %184, label %187, !llvm.loop !11
 
 202:                                              ; preds = %184
-  tail call void @puts(ptr nonnull @195) #4
+  tail call void @log_llvm_ir(ptr nonnull @195) #4
   br label %55, !llvm.loop !16
 
 203:                                              ; preds = %177
-  tail call void @puts(ptr nonnull @196) #4
+  tail call void @log_llvm_ir(ptr nonnull @196) #4
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %2) #4
-  tail call void @puts(ptr nonnull @197) #4
+  tail call void @log_llvm_ir(ptr nonnull @197) #4
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %1) #4
-  tail call void @puts(ptr nonnull @198) #4
+  tail call void @log_llvm_ir(ptr nonnull @198) #4
   ret i32 0
 }
 
@@ -682,7 +682,7 @@ declare void @sim_set_pixel(i32 noundef, i32 noundef, i32 noundef) local_unnamed
 
 declare void @sim_flush() local_unnamed_addr #3
 
-declare void @puts(ptr)
+declare void @log_llvm_ir(ptr)
 
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
