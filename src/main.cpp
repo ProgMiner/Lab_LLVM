@@ -637,7 +637,7 @@ static Function * generate_main(Module * const module) {
     auto * const v151 = builder.CreateOr(v109, v66);
 
     //   %152 = lshr exact i32 %151, 5
-    auto * const v152 = builder.CreateLShr(v151, builder.getInt32(1), "", true);
+    auto * const v152 = builder.CreateLShr(v151, builder.getInt32(5), "", true);
 
     //   %153 = zext i32 %152 to i64
     auto * const v153 = builder.CreateZExt(v152, builder.getInt64Ty());
