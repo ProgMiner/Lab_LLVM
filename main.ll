@@ -7,10 +7,8 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local i32 @main() local_unnamed_addr #0 {
   %1 = alloca [1024 x i32], align 16
   %2 = alloca [1024 x i32], align 16
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %1) #4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %1, i8 0, i64 4096, i1 false)
-  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %2) #4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %2, i8 0, i64 4096, i1 false)
+  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %1) #3
+  call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %2) #3
   br label %3
 
 3:                                                ; preds = %0, %27
@@ -41,7 +39,7 @@ define dso_local i32 @main() local_unnamed_addr #0 {
   %22 = and i32 %21, %19
   %23 = icmp eq i32 %22, 0
   %24 = select i1 %23, i32 -16777216, i32 -16711936
-  tail call void @sim_set_pixel(i32 noundef %13, i32 noundef %7, i32 noundef %24) #4
+  tail call void @sim_set_pixel(i32 noundef %13, i32 noundef %7, i32 noundef %24) #3
   %25 = add nuw nsw i32 %13, 1
   %26 = icmp eq i32 %25, 256
   br i1 %26, label %9, label %12, !llvm.loop !11
@@ -53,7 +51,7 @@ define dso_local i32 @main() local_unnamed_addr #0 {
 
 30:                                               ; preds = %3, %51
   %31 = phi i32 [ 0, %3 ], [ %52, %51 ]
-  %32 = tail call i32 @sim_rand() #4
+  %32 = tail call i32 @sim_rand() #3
   %33 = and i32 %32, 1
   %34 = or i32 %31, %5
   %35 = icmp eq i32 %33, 0
@@ -88,7 +86,7 @@ define dso_local i32 @main() local_unnamed_addr #0 {
 54:                                               ; preds = %9, %200
   %55 = phi ptr [ %56, %200 ], [ %1, %9 ]
   %56 = phi ptr [ %55, %200 ], [ %2, %9 ]
-  tail call void @sim_flush() #4
+  tail call void @sim_flush() #3
   br label %57
 
 57:                                               ; preds = %67, %54
@@ -252,7 +250,7 @@ define dso_local i32 @main() local_unnamed_addr #0 {
   %195 = and i32 %194, %192
   %196 = icmp eq i32 %195, 0
   %197 = select i1 %196, i32 -16777216, i32 -16711936
-  tail call void @sim_set_pixel(i32 noundef %186, i32 noundef %180, i32 noundef %197) #4
+  tail call void @sim_set_pixel(i32 noundef %186, i32 noundef %180, i32 noundef %197) #3
   %198 = add nuw nsw i32 %186, 1
   %199 = icmp eq i32 %198, 256
   br i1 %199, label %182, label %185, !llvm.loop !11
@@ -261,31 +259,27 @@ define dso_local i32 @main() local_unnamed_addr #0 {
   br label %54, !llvm.loop !16
 
 201:                                              ; preds = %175
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %2) #4
-  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %1) #4
+  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %2) #3
+  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %1) #3
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
-
-declare i32 @sim_rand() local_unnamed_addr #3
+declare i32 @sim_rand() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
-declare void @sim_set_pixel(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
+declare void @sim_set_pixel(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-declare void @sim_flush() local_unnamed_addr #3
+declare void @sim_flush() local_unnamed_addr #2
 
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 !llvm.ident = !{!4}
