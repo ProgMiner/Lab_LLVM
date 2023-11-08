@@ -52,16 +52,6 @@ static Function * generate_main(Module * const module) {
     // ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
     llvm_lifetime_start_p0->setMustProgress();
 
-    // ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-    // declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
-    Function * const llvm_memset_p0_i64 = Intrinsic::getDeclaration(module, Intrinsic::memset,{
-            builder.getPtrTy(),
-            builder.getInt64Ty(),
-    });
-
-    // attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-    llvm_memset_p0_i64->setMustProgress();
-
     // declare i32 @sim_rand() local_unnamed_addr #3
     FunctionCallee sim_rand = module->getOrInsertFunction("sim_rand", builder.getInt32Ty());
 
@@ -134,35 +124,9 @@ static Function * generate_main(Module * const module) {
     auto * lts_v1 = builder.CreateCall(llvm_lifetime_start_p0, { builder.getInt64(4096), v1 });
     lts_v1->addParamAttr(1, Attribute::AttrKind::NonNull);
 
-    //   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %1, i8 0, i64 4096, i1 false)
-    auto * memset_v1 = builder.CreateCall(llvm_memset_p0_i64, {
-            v1,
-            builder.getInt8(0),
-            builder.getInt64(4096),
-            builder.getInt1(false),
-    });
-
-    memset_v1->addParamAttr(0, Attribute::AttrKind::NoUndef);
-    memset_v1->addParamAttr(0, Attribute::AttrKind::NonNull);
-    memset_v1->addParamAttr(0, Attribute::getWithAlignment(context, Align::Constant<16>()));
-    memset_v1->addParamAttr(0, Attribute::getWithDereferenceableBytes(context, 4096));
-
     //   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %2) #4
     auto * lts_v2 = builder.CreateCall(llvm_lifetime_start_p0, { builder.getInt64(4096), v2 });
     lts_v2->addParamAttr(1, Attribute::AttrKind::NonNull);
-
-    //   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %2, i8 0, i64 4096, i1 false)
-    auto * memset_v2 = builder.CreateCall(llvm_memset_p0_i64, {
-            v2,
-            builder.getInt8(0),
-            builder.getInt64(4096),
-            builder.getInt1(false),
-    });
-
-    memset_v2->addParamAttr(0, Attribute::AttrKind::NoUndef);
-    memset_v2->addParamAttr(0, Attribute::AttrKind::NonNull);
-    memset_v2->addParamAttr(0, Attribute::getWithAlignment(context, Align::Constant<16>()));
-    memset_v2->addParamAttr(0, Attribute::getWithDereferenceableBytes(context, 4096));
 
     //   br label %3
     builder.CreateBr(BB3);
@@ -1006,10 +970,6 @@ int main() {
 
         if (name == "sim_rand") {
             return reinterpret_cast<void *>(sim_rand);
-        }
-
-        if (name == "memset") {
-            return reinterpret_cast<void *>(memset);
         }
 
         if (name == "__stack_chk_fail") {
