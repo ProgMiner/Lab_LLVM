@@ -16,7 +16,7 @@ void sim_flush() {
 uint32_t sim_rand() {
     static std::random_device rd;
     static std::mt19937 gen(rd());
-    static std::uniform_int_distribution<uint32_t> distrib(0, 6);
+    static std::uniform_int_distribution<uint32_t> distrib(0);
 
     return distrib(gen);
 }

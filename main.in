@@ -1,0 +1,220 @@
+
+    buffer 4096 m1
+    buffer 4096 m2
+
+# fill with random values
+
+    movm m2 m3
+    movi 4096 i1
+
+first_fill:
+    rand i2
+    store i2 m3
+    addm 1 m3
+    addi -1 i1
+    if i1 first_fill
+
+# draw first time
+
+    movi 0 i1
+    movi 0 i3
+
+draw1_y:
+    movi 0 i2
+
+draw1_x:
+    get_bit m2 i3 i4
+    set_pixel i2 i1 i4
+
+    addi 1 i2
+    addi 1 i3
+
+    neq i2 256 i4
+    if i4 draw1_x
+
+    addi 1 i1
+
+    neq i1 128 i4
+    if i4 draw1_y
+
+    flush
+
+# calc next gen
+
+calc:
+# i1 - y
+# i2 - x
+# i3 - y * 256 + x
+# i4 - has_changes
+# i5 - has_living
+# i6 - neighbours
+
+    movi 0 i1
+    movi 0 i3
+    movi 0 i4
+    movi 0 i5
+
+calc_y:
+    movi 0 i2
+
+calc_x:
+    movi 0 i6
+
+# i7 = ((y - 1) mod 128) * 256
+    movi i1 i7
+    addi 127 i7
+    and 127 i7
+    mul 256 i7
+
+# i8 = ((x - 1) mod 256) + i7
+    movi i2 i8
+    addi 255 i8
+    and 255 i8
+    addi i7 i8
+    get_bit m2 i8 i8
+    addi i8 i6
+
+# i8 = x + i7
+    movi i2 i8
+    addi i7 i8
+    get_bit m2 i8 i8
+    addi i8 i6
+
+# i8 = ((x + 1) mod 256) + i7
+    movi i2 i8
+    addi 1 i8
+    and 255 i8
+    addi i7 i8
+    get_bit m2 i8 i8
+    addi i8 i6
+
+# i7 = y * 256
+    movi i1 i7
+    mul 256 i7
+
+# i8 = ((x - 1) mod 256) + i7
+    movi i2 i8
+    addi 255 i8
+    and 255 i8
+    addi i7 i8
+    get_bit m2 i8 i8
+    addi i8 i6
+
+# i8 = ((x + 1) mod 256) + i7
+    movi i2 i8
+    addi 1 i8
+    and 255 i8
+    addi i7 i8
+    get_bit m2 i8 i8
+    addi i8 i6
+
+# i7 = ((y + 1) mod 128) * 256
+    movi i1 i7
+    addi 1 i7
+    and 127 i7
+    mul 256 i7
+
+# i8 = ((x - 1) mod 256) + i7
+    movi i2 i8
+    addi 255 i8
+    and 255 i8
+    addi i7 i8
+    get_bit m2 i8 i8
+    addi i8 i6
+
+# i8 = x + i7
+    movi i2 i8
+    addi i7 i8
+    get_bit m2 i8 i8
+    addi i8 i6
+
+# i8 = ((x + 1) mod 256) + i7
+    movi i2 i8
+    addi 1 i8
+    and 255 i8
+    addi i7 i8
+    get_bit m2 i8 i8
+    addi i8 i6
+
+# i6 now is number of neighbours
+
+    # dumpi
+
+    get_bit m2 i3 i7
+    if i7 calc_1
+
+# if currently off
+    neq i6 3 i7
+    if i7 calc_0_0
+
+# 0 -> 1
+    movi 1 i4
+    movi 1 i5
+    set_bit m1 i3
+    goto calc_end
+
+# 0 -> 0
+calc_0_0:
+    clear_bit m1 i3
+    goto calc_end
+
+# if currently on
+calc_1:
+    neq i6 2 i7
+    neq i6 3 i8
+    addi i8 i7
+    neq i7 1 i7
+    if i7 calc_1_0
+
+# 1 -> 1
+    movi 1 i5
+    set_bit m1 i3
+    goto calc_end
+
+# 1 -> 0
+calc_1_0:
+    movi 1 i4
+    clear_bit m1 i3
+
+calc_end:
+    addi 1 i2
+    addi 1 i3
+    neq i2 256 i6
+    if i6 calc_x
+
+    addi 1 i1
+    neq i1 128 i6
+    if i6 calc_y
+
+    addi i4 i5
+
+# draw next gen
+
+    movi 0 i1
+    movi 0 i3
+
+draw2_y:
+    movi 0 i2
+
+draw2_x:
+    get_bit m1 i3 i4
+    set_pixel i2 i1 i4
+
+    addi 1 i2
+    addi 1 i3
+
+    neq i2 256 i4
+    if i4 draw2_x
+
+    addi 1 i1
+
+    neq i1 128 i4
+    if i4 draw2_y
+
+    flush
+
+    movm m1 m3
+    movm m2 m1
+    movm m3 m2
+
+    if i5 calc
