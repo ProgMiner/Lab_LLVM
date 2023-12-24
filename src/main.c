@@ -74,7 +74,7 @@ static uint32_t calc_gen(uint32_t * next_gen, const uint32_t * prev_gen) {
     return has_changes || has_living;
 }
 
-int main() {
+int main(void) {
     uint32_t gen1[GEN_SIZE(SIM_Y_SIZE * SIM_X_SIZE)];
     uint32_t gen2[GEN_SIZE(SIM_Y_SIZE * SIM_X_SIZE)];
     uint32_t * next_gen = gen1;

@@ -12,7 +12,14 @@ FetchContent_Declare(SFML
 FetchContent_MakeAvailable(SFML)
 
 find_package(LLVM REQUIRED CONFIG)
+find_package(BISON)
+find_package(FLEX)
+
 # add_definitions(${LLVM_DEFINITIONS})
+
+add_compile_options(-Wall -Werror -pedantic-errors)
+add_compile_options(-fsanitize=address)
+add_link_options(-fsanitize=address)
 
 # pure implementation
 
@@ -23,12 +30,20 @@ target_link_libraries(orig PRIVATE sfml-graphics)
 target_compile_features(orig PRIVATE c_std_11)
 target_compile_features(orig PRIVATE cxx_std_17)
 
-target_compile_options(orig PRIVATE -fsanitize=address)
-target_link_options(orig PRIVATE -fsanitize=address)
-
 # through LLVM
 
-add_executable(llvm src/main.cpp src/sim.cpp src/sim.h src/sim.hpp)
+FLEX_TARGET(llvm-lexer src/lexer.l ${CMAKE_CURRENT_BINARY_DIR}/lexer.c
+        DEFINES_FILE ${CMAKE_CURRENT_BINARY_DIR}/lexer.h)
+
+BISON_TARGET(llvm-parser src/parser.y ${CMAKE_CURRENT_BINARY_DIR}/parser.c
+        COMPILE_FLAGS -Wcounterexamples
+        DEFINES_FILE ${CMAKE_CURRENT_BINARY_DIR}/parser.h
+        VERBOSE REPORT_FILE ${CMAKE_CURRENT_BINARY_DIR}/parser.txt)
+
+ADD_FLEX_BISON_DEPENDENCY(llvm-lexer llvm-parser)
+
+add_executable(llvm src/main.cpp src/sim.cpp src/sim.h src/sim.hpp src/ast.h src/ast.hpp src/ast.cpp
+        ${BISON_llvm-parser_OUTPUTS} ${FLEX_llvm-lexer_OUTPUTS})
 
 target_include_directories(llvm PRIVATE ${LLVM_INCLUDE_DIRS})
 
@@ -37,5 +52,5 @@ target_link_libraries(llvm PRIVATE LLVM)
 
 target_compile_features(llvm PRIVATE cxx_std_17)
 
-target_compile_options(llvm PRIVATE -fsanitize=address)
-target_link_options(llvm PRIVATE -fsanitize=address)
+target_include_directories(llvm PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
+target_include_directories(llvm PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src)

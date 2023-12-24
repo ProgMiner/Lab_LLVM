@@ -1,220 +1,99 @@
 
-    buffer 4096 m1
-    buffer 4096 m2
+function sim_set_pixel(x: int, y: int, argb: int);
+function sim_flush();
 
-# fill with random values
+function sim_rand(): int;
 
-    movm m2 m3
-    movi 4096 i1
+function get_gen_value(gen: [int], x: int, y: int): int {
+    x = (x % 256 + 256) % 256;
+    y = (y % 128 + 128) % 128;
 
-first_fill:
-    rand i2
-    store i2 m3
-    addm 1 m3
-    addi -1 i1
-    if i1 first_fill
+    var idx = y * 256 + x;
+    return (gen[idx / 32] >> (idx % 32)) & 1;
+}
 
-# draw first time
+function set_gen_value(gen: [int], x: int, y: int, v: int) {
+    x = (x % 256 + 256) % 256;
+    y = (y % 128 + 128) % 128;
 
-    movi 0 i1
-    movi 0 i3
+    var idx = y * 256 + x;
 
-draw1_y:
-    movi 0 i2
+    if (v) {
+        gen[idx / 32] |= 1 << idx % 32;
+    } else {
+        gen[idx / 32] &= ~(1 << idx % 32);
+    }
+}
 
-draw1_x:
-    get_bit m2 i3 i4
-    set_pixel i2 i1 i4
+function draw_gen(gen: [int]) {
+    for (var y = 0; y < 128; ++y) {
+        for (var x = 0; x < 256; ++x) {
+            // 0xFF000000 + 0xFF00 * get_gen_value(gen, x, y)
+            sim_set_pixel(x, y, 4278190080 + 65280 * get_gen_value(gen, x, y));
+        }
+    }
 
-    addi 1 i2
-    addi 1 i3
+    sim_flush();
+}
 
-    neq i2 256 i4
-    if i4 draw1_x
+function calc_gen(next_gen: [int], prev_gen: [int]): int {
+    var has_changes = false;
+    var has_living = false;
 
-    addi 1 i1
+    for (var y = 0; y < 128; ++y) {
+        for (var x = 0; x < 256; ++x) {
+            var neighbours = 0;
 
-    neq i1 128 i4
-    if i4 draw1_y
+            for (var dy = -1; dy <= 1; ++dy) {
+                for (var dx = -1; dx <= 1; ++dx) {
+                    if (dx == 0 && dy == 0) {
+                        continue;
+                    }
 
-    flush
+                    neighbours += get_gen_value(prev_gen, x + dx, y + dy);
+                }
+            }
 
-# calc next gen
+            var old_value = get_gen_value(prev_gen, x, y);
+            var next_value =
+                if (old_value) neighbours == 2 || neighbours == 3
+                else neighbours == 3;
 
-calc:
-# i1 - y
-# i2 - x
-# i3 - y * 256 + x
-# i4 - has_changes
-# i5 - has_living
-# i6 - neighbours
+            if (old_value != next_value) {
+                has_changes = true;
+            }
 
-    movi 0 i1
-    movi 0 i3
-    movi 0 i4
-    movi 0 i5
+            if (next_value) {
+                has_living = true;
+            }
 
-calc_y:
-    movi 0 i2
+            set_gen_value(next_gen, x, y, next_value);
+        }
+    }
 
-calc_x:
-    movi 0 i6
+    return has_changes || has_living;
+}
 
-# i7 = ((y - 1) mod 128) * 256
-    movi i1 i7
-    addi 127 i7
-    and 127 i7
-    mul 256 i7
+function main() {
+    var gen1: int[1024];
+    var gen2: int[1024];
 
-# i8 = ((x - 1) mod 256) + i7
-    movi i2 i8
-    addi 255 i8
-    and 255 i8
-    addi i7 i8
-    get_bit m2 i8 i8
-    addi i8 i6
+    var next_gen: [int] = gen1;
+    var prev_gen: [int] = gen2;
 
-# i8 = x + i7
-    movi i2 i8
-    addi i7 i8
-    get_bit m2 i8 i8
-    addi i8 i6
+    for (var y = 0; y < 128; ++y) {
+        for (var x = 0; x < 256; ++x) {
+            set_gen_value(prev_gen, x, y, sim_rand() % 2);
+        }
+    }
 
-# i8 = ((x + 1) mod 256) + i7
-    movi i2 i8
-    addi 1 i8
-    and 255 i8
-    addi i7 i8
-    get_bit m2 i8 i8
-    addi i8 i6
+    draw_gen(prev_gen);
 
-# i7 = y * 256
-    movi i1 i7
-    mul 256 i7
+    while (calc_gen(next_gen, prev_gen)) {
+        draw_gen(next_gen);
 
-# i8 = ((x - 1) mod 256) + i7
-    movi i2 i8
-    addi 255 i8
-    and 255 i8
-    addi i7 i8
-    get_bit m2 i8 i8
-    addi i8 i6
-
-# i8 = ((x + 1) mod 256) + i7
-    movi i2 i8
-    addi 1 i8
-    and 255 i8
-    addi i7 i8
-    get_bit m2 i8 i8
-    addi i8 i6
-
-# i7 = ((y + 1) mod 128) * 256
-    movi i1 i7
-    addi 1 i7
-    and 127 i7
-    mul 256 i7
-
-# i8 = ((x - 1) mod 256) + i7
-    movi i2 i8
-    addi 255 i8
-    and 255 i8
-    addi i7 i8
-    get_bit m2 i8 i8
-    addi i8 i6
-
-# i8 = x + i7
-    movi i2 i8
-    addi i7 i8
-    get_bit m2 i8 i8
-    addi i8 i6
-
-# i8 = ((x + 1) mod 256) + i7
-    movi i2 i8
-    addi 1 i8
-    and 255 i8
-    addi i7 i8
-    get_bit m2 i8 i8
-    addi i8 i6
-
-# i6 now is number of neighbours
-
-    # dumpi
-
-    get_bit m2 i3 i7
-    if i7 calc_1
-
-# if currently off
-    neq i6 3 i7
-    if i7 calc_0_0
-
-# 0 -> 1
-    movi 1 i4
-    movi 1 i5
-    set_bit m1 i3
-    goto calc_end
-
-# 0 -> 0
-calc_0_0:
-    clear_bit m1 i3
-    goto calc_end
-
-# if currently on
-calc_1:
-    neq i6 2 i7
-    neq i6 3 i8
-    addi i8 i7
-    neq i7 1 i7
-    if i7 calc_1_0
-
-# 1 -> 1
-    movi 1 i5
-    set_bit m1 i3
-    goto calc_end
-
-# 1 -> 0
-calc_1_0:
-    movi 1 i4
-    clear_bit m1 i3
-
-calc_end:
-    addi 1 i2
-    addi 1 i3
-    neq i2 256 i6
-    if i6 calc_x
-
-    addi 1 i1
-    neq i1 128 i6
-    if i6 calc_y
-
-    addi i4 i5
-
-# draw next gen
-
-    movi 0 i1
-    movi 0 i3
-
-draw2_y:
-    movi 0 i2
-
-draw2_x:
-    get_bit m1 i3 i4
-    set_pixel i2 i1 i4
-
-    addi 1 i2
-    addi 1 i3
-
-    neq i2 256 i4
-    if i4 draw2_x
-
-    addi 1 i1
-
-    neq i1 128 i4
-    if i4 draw2_y
-
-    flush
-
-    movm m1 m3
-    movm m2 m1
-    movm m3 m2
-
-    if i5 calc
+        var tmp = prev_gen;
+        prev_gen = next_gen;
+        next_gen = tmp;
+    }
+}
