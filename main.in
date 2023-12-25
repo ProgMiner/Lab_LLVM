@@ -9,7 +9,7 @@ function get_gen_value(gen: [int], x: int, y: int): int {
     y = (y % 128 + 128) % 128;
 
     var idx = y * 256 + x;
-    return (gen[idx / 32] >> (idx % 32)) & 1;
+    (gen[idx / 32] >> (idx % 32)) & 1;
 }
 
 function set_gen_value(gen: [int], x: int, y: int, v: int) {
@@ -71,7 +71,7 @@ function calc_gen(next_gen: [int], prev_gen: [int]): int {
         }
     }
 
-    return has_changes || has_living;
+    has_changes || has_living;
 }
 
 function main() {

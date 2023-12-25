@@ -1,5 +1,7 @@
 #include "ast.hpp"
 
+#include <stdexcept>
+
 
 struct ast_program * ast_program_new(void) {
     return new ast_program;
@@ -131,10 +133,14 @@ struct ast_expr * ast_expr_new_subscript(struct ast_expr * value, struct ast_exp
 }
 
 struct ast_expr * ast_expr_new_assign(struct ast_expr * target, struct ast_expr * value) {
-    return new ast_expr_assign {
-        std::shared_ptr<ast_expr> { target },
-        std::shared_ptr<ast_expr> { value },
-    };
+    if (auto * const ptr = dynamic_cast<ast_lvalue_expr *>(target)) {
+        return new ast_expr_assign {
+            std::shared_ptr<ast_lvalue_expr> { ptr },
+            std::shared_ptr<ast_expr> { value },
+        };
+    }
+
+    throw std::invalid_argument { "assignment target must be lvalue" };
 }
 
 struct ast_expr * ast_expr_new_binop(struct ast_expr * lhs, enum ast_expr_binop op, struct ast_expr * rhs) {

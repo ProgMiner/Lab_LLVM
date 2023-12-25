@@ -65,7 +65,7 @@ void yyerror(struct ast_program ** result, char ** error, const char * str);
 %left '+' '-'
 %left '*' '/' '%'
 %precedence P_UNARY
-%precedence '[' '('
+%precedence '['
 
 %union {
     struct ast_program * program;
@@ -84,7 +84,7 @@ void yyerror(struct ast_program ** result, char ** error, const char * str);
 %type<arg_list> arg_list arg_list1
 %type<arg> arg
 %type<type> type_colon_opt type_colon type
-%type<expr> stmts stmt stmt_block stmt_var stmt_for_init expr lvalue_expr expr_binary expr_unary
+%type<expr> stmts stmt stmt_block stmt_var stmt_for_init expr expr_binary expr_unary
 %type<expr_list> expr_list expr_list1
 %type<int_> T_INT
 %type<id> T_ID
@@ -185,51 +185,50 @@ expr
     | "continue"    { $$ = ast_expr_new_continue(); }
     ;
 
-lvalue_expr
-    : T_ID              { $$ = ast_expr_new_name($1); }
-    | expr '[' expr ']' { $$ = ast_expr_new_subscript($1, $3); }
-    ;
-
 expr_binary
-    : lvalue_expr '=' expr  { $$ = ast_expr_new_assign($1, $3); }
-    | lvalue_expr "+=" expr { $$ = ast_expr_new_assign($1, ast_expr_new_binop(ast_expr_clone($1), AST_EXPR_BINOP_PLUS, $3)); }
-    | lvalue_expr "-=" expr { $$ = ast_expr_new_assign($1, ast_expr_new_binop(ast_expr_clone($1), AST_EXPR_BINOP_MINUS, $3)); }
-    | lvalue_expr "*=" expr { $$ = ast_expr_new_assign($1, ast_expr_new_binop(ast_expr_clone($1), AST_EXPR_BINOP_MUL, $3)); }
-    | lvalue_expr "/=" expr { $$ = ast_expr_new_assign($1, ast_expr_new_binop(ast_expr_clone($1), AST_EXPR_BINOP_DIV, $3)); }
-    | lvalue_expr "%=" expr { $$ = ast_expr_new_assign($1, ast_expr_new_binop(ast_expr_clone($1), AST_EXPR_BINOP_REM, $3)); }
-    | lvalue_expr "&=" expr { $$ = ast_expr_new_assign($1, ast_expr_new_binop(ast_expr_clone($1), AST_EXPR_BINOP_BAND, $3)); }
-    | lvalue_expr "^=" expr { $$ = ast_expr_new_assign($1, ast_expr_new_binop(ast_expr_clone($1), AST_EXPR_BINOP_BXOR, $3)); }
-    | lvalue_expr "|=" expr { $$ = ast_expr_new_assign($1, ast_expr_new_binop(ast_expr_clone($1), AST_EXPR_BINOP_BOR, $3)); }
-    | lvalue_expr "<<=" expr { $$ = ast_expr_new_assign($1, ast_expr_new_binop(ast_expr_clone($1), AST_EXPR_BINOP_SHL, $3)); }
-    | lvalue_expr ">>=" expr { $$ = ast_expr_new_assign($1, ast_expr_new_binop(ast_expr_clone($1), AST_EXPR_BINOP_SHR, $3)); }
-    | lvalue_expr "&&=" expr { $$ = ast_expr_new_assign($1, ast_expr_new_binop(ast_expr_clone($1), AST_EXPR_BINOP_AND, $3)); }
-    | lvalue_expr "||=" expr { $$ = ast_expr_new_assign($1, ast_expr_new_binop(ast_expr_clone($1), AST_EXPR_BINOP_OR, $3)); }
-    | expr '+' expr { $$ = ast_expr_new_binop($1, AST_EXPR_BINOP_PLUS, $3); }
-    | expr '-' expr { $$ = ast_expr_new_binop($1, AST_EXPR_BINOP_MINUS, $3); }
-    | expr '*' expr { $$ = ast_expr_new_binop($1, AST_EXPR_BINOP_MUL, $3); }
-    | expr '/' expr { $$ = ast_expr_new_binop($1, AST_EXPR_BINOP_DIV, $3); }
-    | expr '%' expr { $$ = ast_expr_new_binop($1, AST_EXPR_BINOP_REM, $3); }
-    | expr '&' expr { $$ = ast_expr_new_binop($1, AST_EXPR_BINOP_BAND, $3); }
-    | expr '^' expr { $$ = ast_expr_new_binop($1, AST_EXPR_BINOP_BXOR, $3); }
-    | expr '|' expr { $$ = ast_expr_new_binop($1, AST_EXPR_BINOP_BOR, $3); }
-    | expr "<<" expr { $$ = ast_expr_new_binop($1, AST_EXPR_BINOP_SHL, $3); }
-    | expr ">>" expr { $$ = ast_expr_new_binop($1, AST_EXPR_BINOP_SHR, $3); }
-    | expr "&&" expr { $$ = ast_expr_new_binop($1, AST_EXPR_BINOP_AND, $3); }
-    | expr "||" expr { $$ = ast_expr_new_binop($1, AST_EXPR_BINOP_OR, $3); }
-    | expr "==" expr { $$ = ast_expr_new_binop($1, AST_EXPR_BINOP_EQ, $3); }
-    | expr "!=" expr { $$ = ast_expr_new_binop($1, AST_EXPR_BINOP_NE, $3); }
-    | expr '<' expr { $$ = ast_expr_new_binop($1, AST_EXPR_BINOP_LT, $3); }
-    | expr "<=" expr { $$ = ast_expr_new_binop($1, AST_EXPR_BINOP_LE, $3); }
-    | expr '>' expr { $$ = ast_expr_new_binop($1, AST_EXPR_BINOP_GT, $3); }
-    | expr ">=" expr { $$ = ast_expr_new_binop($1, AST_EXPR_BINOP_GE, $3); }
+    : expr '=' expr     { $$ = ast_expr_new_assign($1, $3); }
+    | expr "+=" expr    { $$ = ast_expr_new_assign($1, ast_expr_new_binop(ast_expr_clone($1), AST_EXPR_BINOP_ADD, $3)); }
+    | expr "-=" expr    { $$ = ast_expr_new_assign($1, ast_expr_new_binop(ast_expr_clone($1), AST_EXPR_BINOP_SUB, $3)); }
+    | expr "*=" expr    { $$ = ast_expr_new_assign($1, ast_expr_new_binop(ast_expr_clone($1), AST_EXPR_BINOP_MUL, $3)); }
+    | expr "/=" expr    { $$ = ast_expr_new_assign($1, ast_expr_new_binop(ast_expr_clone($1), AST_EXPR_BINOP_DIV, $3)); }
+    | expr "%=" expr    { $$ = ast_expr_new_assign($1, ast_expr_new_binop(ast_expr_clone($1), AST_EXPR_BINOP_REM, $3)); }
+    | expr "&=" expr    { $$ = ast_expr_new_assign($1, ast_expr_new_binop(ast_expr_clone($1), AST_EXPR_BINOP_BAND, $3)); }
+    | expr "^=" expr    { $$ = ast_expr_new_assign($1, ast_expr_new_binop(ast_expr_clone($1), AST_EXPR_BINOP_BXOR, $3)); }
+    | expr "|=" expr    { $$ = ast_expr_new_assign($1, ast_expr_new_binop(ast_expr_clone($1), AST_EXPR_BINOP_BOR, $3)); }
+    | expr "<<=" expr   { $$ = ast_expr_new_assign($1, ast_expr_new_binop(ast_expr_clone($1), AST_EXPR_BINOP_SHL, $3)); }
+    | expr ">>=" expr   { $$ = ast_expr_new_assign($1, ast_expr_new_binop(ast_expr_clone($1), AST_EXPR_BINOP_SHR, $3)); }
+    | expr "&&=" expr   { $$ = ast_expr_new_assign($1, ast_expr_new_binop(ast_expr_clone($1), AST_EXPR_BINOP_AND, $3)); }
+    | expr "||=" expr   { $$ = ast_expr_new_assign($1, ast_expr_new_binop(ast_expr_clone($1), AST_EXPR_BINOP_OR, $3)); }
+    | expr '+' expr     { $$ = ast_expr_new_binop($1, AST_EXPR_BINOP_ADD, $3); }
+    | expr '-' expr     { $$ = ast_expr_new_binop($1, AST_EXPR_BINOP_SUB, $3); }
+    | expr '*' expr     { $$ = ast_expr_new_binop($1, AST_EXPR_BINOP_MUL, $3); }
+    | expr '/' expr     { $$ = ast_expr_new_binop($1, AST_EXPR_BINOP_DIV, $3); }
+    | expr '%' expr     { $$ = ast_expr_new_binop($1, AST_EXPR_BINOP_REM, $3); }
+    | expr '&' expr     { $$ = ast_expr_new_binop($1, AST_EXPR_BINOP_BAND, $3); }
+    | expr '^' expr     { $$ = ast_expr_new_binop($1, AST_EXPR_BINOP_BXOR, $3); }
+    | expr '|' expr     { $$ = ast_expr_new_binop($1, AST_EXPR_BINOP_BOR, $3); }
+    | expr "<<" expr    { $$ = ast_expr_new_binop($1, AST_EXPR_BINOP_SHL, $3); }
+    | expr ">>" expr    { $$ = ast_expr_new_binop($1, AST_EXPR_BINOP_SHR, $3); }
+    | expr "&&" expr    { $$ = ast_expr_new_binop($1, AST_EXPR_BINOP_AND, $3); }
+    | expr "||" expr    { $$ = ast_expr_new_binop($1, AST_EXPR_BINOP_OR, $3); }
+    | expr "==" expr    { $$ = ast_expr_new_binop($1, AST_EXPR_BINOP_EQ, $3); }
+    | expr "!=" expr    { $$ = ast_expr_new_binop($1, AST_EXPR_BINOP_NE, $3); }
+    | expr '<' expr     { $$ = ast_expr_new_binop($1, AST_EXPR_BINOP_LT, $3); }
+    | expr "<=" expr    { $$ = ast_expr_new_binop($1, AST_EXPR_BINOP_LE, $3); }
+    | expr '>' expr     { $$ = ast_expr_new_binop($1, AST_EXPR_BINOP_GT, $3); }
+    | expr ">=" expr    { $$ = ast_expr_new_binop($1, AST_EXPR_BINOP_GE, $3); }
     ;
 
 expr_unary
     : '-' expr %prec P_UNARY    { $$ = ast_expr_new_unop(AST_EXPR_UNOP_NEG, $2); }
     | '~' expr %prec P_UNARY    { $$ = ast_expr_new_unop(AST_EXPR_UNOP_BINV, $2); }
     | '!' expr %prec P_UNARY    { $$ = ast_expr_new_unop(AST_EXPR_UNOP_INV, $2); }
-    | "++" expr %prec P_UNARY   { $$ = ast_expr_new_unop(AST_EXPR_UNOP_INC, $2); }
-    | "--" expr %prec P_UNARY   { $$ = ast_expr_new_unop(AST_EXPR_UNOP_DEC, $2); }
+    | "++" expr %prec P_UNARY   {
+        $$ = ast_expr_new_assign($2, ast_expr_new_binop(ast_expr_clone($2), AST_EXPR_BINOP_ADD, ast_expr_new_literal(1)));
+    }
+    | "--" expr %prec P_UNARY   {
+        $$ = ast_expr_new_assign($2, ast_expr_new_binop(ast_expr_clone($2), AST_EXPR_BINOP_SUB, ast_expr_new_literal(1)));
+    }
     ;
 
 expr_list

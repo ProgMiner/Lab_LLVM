@@ -18,7 +18,7 @@ struct ast_decl {
 
     std::string id;
     std::vector<ast_arg> args;
-    std::shared_ptr<ast_type> type;
+    std::shared_ptr<ast_type> return_type;
     std::shared_ptr<ast_expr> body;
 };
 
@@ -192,11 +192,13 @@ struct ast_expr_for : ast_expr {
     }
 };
 
-struct ast_expr_name : ast_expr {
+struct ast_lvalue_expr : ast_expr {};
+
+struct ast_expr_name : ast_lvalue_expr {
 
     std::string id;
 
-    ast_expr_name(std::string id): id(std::move(id)) {}
+    explicit ast_expr_name(std::string id): id(std::move(id)) {}
 
     ast_expr_name * clone() override {
         return new ast_expr_name { id };
@@ -207,14 +209,14 @@ struct ast_expr_literal : ast_expr {
 
     int32_t value;
 
-    ast_expr_literal(int32_t value): value(value) {}
+    explicit ast_expr_literal(int32_t value): value(value) {}
 
     ast_expr_literal * clone() override {
         return new ast_expr_literal { value };
     }
 };
 
-struct ast_expr_subscript : ast_expr {
+struct ast_expr_subscript : ast_lvalue_expr {
 
     std::shared_ptr<ast_expr> value;
     std::shared_ptr<ast_expr> index;
@@ -231,10 +233,10 @@ struct ast_expr_subscript : ast_expr {
 
 struct ast_expr_assign : ast_expr {
 
-    std::shared_ptr<ast_expr> target;
+    std::shared_ptr<ast_lvalue_expr> target;
     std::shared_ptr<ast_expr> value;
 
-    ast_expr_assign(std::shared_ptr<ast_expr> target, std::shared_ptr<ast_expr> value)
+    ast_expr_assign(std::shared_ptr<ast_lvalue_expr> target, std::shared_ptr<ast_expr> value)
         : target(std::move(target))
         , value(std::move(value))
     {}
@@ -268,7 +270,7 @@ struct ast_expr_unary : ast_expr {
 
     ast_expr_unary(ast_expr_unop op, std::shared_ptr<ast_expr> value)
         : op(op)
-        , value(value)
+        , value(std::move(value))
     {}
 
     ast_expr_unary * clone() override {
@@ -295,7 +297,7 @@ struct ast_expr_return : ast_expr {
 
     std::shared_ptr<ast_expr> value;
 
-    ast_expr_return(std::shared_ptr<ast_expr> value): value(std::move(value)) {}
+    explicit ast_expr_return(std::shared_ptr<ast_expr> value): value(std::move(value)) {}
 
     ast_expr_return * clone() override {
         return new ast_expr_return { value };

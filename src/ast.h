@@ -15,8 +15,8 @@ extern "C" {
 
 enum ast_expr_binop {
 
-    AST_EXPR_BINOP_PLUS = 0,
-    AST_EXPR_BINOP_MINUS,
+    AST_EXPR_BINOP_ADD = 0,
+    AST_EXPR_BINOP_SUB,
     AST_EXPR_BINOP_MUL,
     AST_EXPR_BINOP_DIV,
     AST_EXPR_BINOP_REM,
@@ -40,8 +40,6 @@ enum ast_expr_unop {
     AST_EXPR_UNOP_NEG = 0,
     AST_EXPR_UNOP_BINV,
     AST_EXPR_UNOP_INV,
-    AST_EXPR_UNOP_INC,
-    AST_EXPR_UNOP_DEC,
 };
 
 struct ast_program;
