@@ -36,11 +36,21 @@ struct ast_arg_list {
 struct ast_type {
 
     virtual ~ast_type() noexcept = default;
+
+    virtual bool equals(const ast_type * that) = 0;
 };
 
 struct ast_type_int : ast_type {
 
     static inline const std::shared_ptr<ast_type_int> instance = std::make_shared<ast_type_int>();
+
+    bool equals(const ast_type * that) override {
+        if (dynamic_cast<const ast_type_int *>(that)) {
+            return true;
+        }
+
+        return false;
+    }
 };
 
 struct ast_type_array : ast_type {
@@ -50,6 +60,14 @@ struct ast_type_array : ast_type {
     explicit ast_type_array(std::shared_ptr<ast_type> type)
         : type(std::move(type))
     {}
+
+    bool equals(const ast_type * that) override {
+        if (auto ptr = dynamic_cast<const ast_type_array *>(that)) {
+            return type->equals(ptr->type.get());
+        }
+
+        return false;
+    }
 };
 
 struct ast_expr {
@@ -209,7 +227,9 @@ struct ast_expr_literal : ast_expr {
 
     int32_t value;
 
-    explicit ast_expr_literal(int32_t value): value(value) {}
+    explicit ast_expr_literal(int32_t value): value(value) {
+        type = ast_type_int::instance;
+    }
 
     ast_expr_literal * clone() override {
         return new ast_expr_literal { value };
@@ -319,6 +339,19 @@ struct ast_expr_continue : ast_expr {
 
     ast_expr * clone() override {
         return new ast_expr_continue;
+    }
+};
+
+struct ast_expr_coerce_ptr_to_int : ast_expr {
+
+    std::shared_ptr<ast_expr> value;
+
+    explicit ast_expr_coerce_ptr_to_int(std::shared_ptr<ast_expr> value)
+        : value(std::move(value))
+    {}
+
+    ast_expr * clone() override {
+        return new ast_expr_coerce_ptr_to_int {value };
     }
 };
 

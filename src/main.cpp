@@ -50,19 +50,20 @@ struct compiler_context {
     }
 };
 
-struct variable {
+struct type_resolver_context {
 
-    std::shared_ptr<ast_type> type;
-    Value * llvm_value = nullptr;
+    std::unordered_map<std::string, std::shared_ptr<ast_decl>> functions;
+    std::shared_ptr<ast_decl> current_function;
 };
 
+template<typename V>
 struct scope {
 
-    const scope * parent;
-    std::unordered_map<std::string, variable> variables;
+    const scope<V> * parent;
+    std::unordered_map<std::string, V> variables;
 
-    const variable & lookup(const std::string & id) const {
-        const struct scope * scope = this;
+    const V & lookup(const std::string & id) const {
+        const struct scope<V> * scope = this;
 
         while (scope) {
             if (auto it = scope->variables.find(id); it != scope->variables.end()) {
@@ -75,6 +76,20 @@ struct scope {
         throw std::invalid_argument { "no variable named " + id + " in current scope" };
     }
 };
+
+struct compiler_variable {
+
+    std::shared_ptr<ast_type> type;
+    Value * llvm_value = nullptr;
+};
+
+struct type_resolver_variable {
+
+    std::shared_ptr<ast_type> type;
+};
+
+using compiler_scope = scope<compiler_variable>;
+using type_resolver_scope = scope<type_resolver_variable>;
 
 
 [[noreturn]]
@@ -112,13 +127,326 @@ static std::shared_ptr<ast_program> parse_program(char * filename) {
     }
 }
 
-static void resolve_types(const std::shared_ptr<ast_decl> & decl) {
-    //
+static std::shared_ptr<ast_expr> fill_null_expr(const std::shared_ptr<ast_expr> & expr) {
+    if (!expr) {
+        return std::make_shared<ast_expr_literal>(0);
+    }
+
+    if (auto ptr = std::dynamic_pointer_cast<ast_expr_seq>(expr)) {
+        if (!ptr->lhs) {
+            return fill_null_expr(ptr->rhs);
+        }
+
+        if (!ptr->rhs) {
+            return fill_null_expr(ptr->lhs);
+        }
+
+        ptr->lhs = fill_null_expr(ptr->lhs);
+        ptr->rhs = fill_null_expr(ptr->rhs);
+        return ptr;
+    }
+
+    if (auto ptr = std::dynamic_pointer_cast<ast_expr_var>(expr)) {
+        // cannot fill NULL value of array type
+
+        if (ptr->value) {
+            ptr->value = fill_null_expr(ptr->value);
+        }
+
+        return ptr;
+    }
+
+    if (auto ptr = std::dynamic_pointer_cast<ast_expr_if>(expr)) {
+        ptr->cond = fill_null_expr(ptr->cond);
+        ptr->then_branch = fill_null_expr(ptr->then_branch);
+        ptr->else_branch = fill_null_expr(ptr->else_branch);
+        return ptr;
+    }
+
+    if (auto ptr = std::dynamic_pointer_cast<ast_expr_while>(expr)) {
+        ptr->cond = fill_null_expr(ptr->cond);
+        ptr->body = fill_null_expr(ptr->body);
+        return ptr;
+    }
+
+    if (auto ptr = std::dynamic_pointer_cast<ast_expr_do>(expr)) {
+        ptr->body = fill_null_expr(ptr->body);
+        ptr->cond = fill_null_expr(ptr->cond);
+        return ptr;
+    }
+
+    if (auto ptr = std::dynamic_pointer_cast<ast_expr_for>(expr)) {
+        ptr->cond = fill_null_expr(ptr->cond);
+        ptr->body = fill_null_expr(ptr->body);
+        ptr->post = fill_null_expr(ptr->post);
+        return ptr;
+    }
+
+    if (auto ptr = std::dynamic_pointer_cast<ast_expr_name>(expr)) {
+        return ptr;
+    }
+
+    if (auto ptr = std::dynamic_pointer_cast<ast_expr_literal>(expr)) {
+        return ptr;
+    }
+
+    if (auto ptr = std::dynamic_pointer_cast<ast_expr_subscript>(expr)) {
+        ptr->value = fill_null_expr(ptr->value);
+        ptr->index = fill_null_expr(ptr->index);
+        return ptr;
+    }
+
+    if (auto ptr = std::dynamic_pointer_cast<ast_expr_assign>(expr)) {
+        ptr->target = std::dynamic_pointer_cast<ast_lvalue_expr>(fill_null_expr(ptr->target));
+        ptr->value = fill_null_expr(ptr->value);
+        return ptr;
+    }
+
+    if (auto ptr = std::dynamic_pointer_cast<ast_expr_binary>(expr)) {
+        ptr->lhs = fill_null_expr(ptr->lhs);
+        ptr->rhs = fill_null_expr(ptr->rhs);
+        return ptr;
+    }
+
+    if (auto ptr = std::dynamic_pointer_cast<ast_expr_unary>(expr)) {
+        ptr->value = fill_null_expr(ptr->value);
+        return ptr;
+    }
+
+    if (auto ptr = std::dynamic_pointer_cast<ast_expr_call>(expr)) {
+        for (auto & arg : ptr->args) {
+            arg = fill_null_expr(arg);
+        }
+
+        return ptr;
+    }
+
+    if (auto ptr = std::dynamic_pointer_cast<ast_expr_return>(expr)) {
+        ptr->value = fill_null_expr(ptr->value);
+        return ptr;
+    }
+
+    if (auto ptr = std::dynamic_pointer_cast<ast_expr_break>(expr)) {
+        return ptr;
+    }
+
+    if (auto ptr = std::dynamic_pointer_cast<ast_expr_continue>(expr)) {
+        return ptr;
+    }
+
+    throw std::invalid_argument { "unsupported expr" };
+}
+
+static std::shared_ptr<ast_type> unify_types(
+    const std::shared_ptr<ast_type> & lhs,
+    const std::shared_ptr<ast_type> & rhs
+) {
+    if (lhs->equals(rhs.get())) {
+        return lhs;
+    }
+
+    return ast_type_int::instance;
+}
+
+static std::shared_ptr<ast_expr> coerce_type(
+    const std::shared_ptr<ast_expr> & expr,
+    const std::shared_ptr<ast_type> & type
+) {
+    if (type->equals(expr->type.get())) {
+        return expr;
+    }
+
+    if (!ast_type_int::instance->equals(type.get())) {
+        throw std::invalid_argument { "coercion is only supported for int type" };
+    }
+
+    return std::make_shared<ast_expr_coerce_ptr_to_int>(expr);
+}
+
+static void resolve_types(
+    type_resolver_context & ctx,
+    type_resolver_scope & parent_scope,
+    const std::shared_ptr<ast_expr> & expr
+) {
+    if (!expr) {
+        return;
+    }
+
+    type_resolver_scope scope { &parent_scope };
+
+    if (auto ptr = std::dynamic_pointer_cast<ast_expr_seq>(expr)) {
+        resolve_types(ctx, scope, ptr->lhs);
+        resolve_types(ctx, scope, ptr->rhs);
+        expr->type = ptr->rhs->type;
+        return;
+    }
+
+    if (auto ptr = std::dynamic_pointer_cast<ast_expr_var>(expr)) {
+        resolve_types(ctx, scope, ptr->value);
+
+        if (!ptr->var_type) {
+            ptr->var_type = ptr->value->type;
+        }
+
+        parent_scope.variables[ptr->id] = { ptr->var_type };
+        expr->type = ast_type_int::instance;
+        return;
+    }
+
+    if (auto ptr = std::dynamic_pointer_cast<ast_expr_if>(expr)) {
+        resolve_types(ctx, scope, ptr->cond);
+        resolve_types(ctx, scope, ptr->then_branch);
+        resolve_types(ctx, scope, ptr->else_branch);
+
+        std::shared_ptr<ast_type> type = unify_types(ptr->then_branch->type, ptr->else_branch->type);
+        ptr->then_branch = coerce_type(ptr->then_branch, type);
+        ptr->else_branch = coerce_type(ptr->else_branch, type);
+        ptr->type = type;
+        return;
+    }
+
+    if (auto ptr = std::dynamic_pointer_cast<ast_expr_while>(expr)) {
+        resolve_types(ctx, scope, ptr->cond);
+        resolve_types(ctx, scope, ptr->body);
+        ptr->type = ast_type_int::instance;
+        return;
+    }
+
+    if (auto ptr = std::dynamic_pointer_cast<ast_expr_do>(expr)) {
+        resolve_types(ctx, scope, ptr->body);
+        resolve_types(ctx, scope, ptr->cond);
+        ptr->type = ast_type_int::instance;
+        return;
+    }
+
+    if (auto ptr = std::dynamic_pointer_cast<ast_expr_for>(expr)) {
+        resolve_types(ctx, scope, ptr->cond);
+        resolve_types(ctx, scope, ptr->body);
+        resolve_types(ctx, scope, ptr->post);
+        ptr->type = ast_type_int::instance;
+        return;
+    }
+
+    if (auto ptr = std::dynamic_pointer_cast<ast_expr_name>(expr)) {
+        ptr->type = scope.lookup(ptr->id).type;
+        return;
+    }
+
+    if (auto ptr = std::dynamic_pointer_cast<ast_expr_literal>(expr)) {
+        ptr->type = ast_type_int::instance;
+        return;
+    }
+
+    if (auto ptr = std::dynamic_pointer_cast<ast_expr_subscript>(expr)) {
+        resolve_types(ctx, scope, ptr->value);
+        resolve_types(ctx, scope, ptr->index);
+
+        ptr->index = coerce_type(ptr->index, ast_type_int::instance);
+
+        if (auto ptr1 = std::dynamic_pointer_cast<ast_type_array>(ptr->value->type)) {
+            ptr->type = ptr1->type;
+        } else {
+            throw std::invalid_argument { "subscript is allowed only on array types" };
+        }
+
+        return;
+    }
+
+    if (auto ptr = std::dynamic_pointer_cast<ast_expr_assign>(expr)) {
+        resolve_types(ctx, scope, ptr->target);
+        resolve_types(ctx, scope, ptr->value);
+
+        ptr->value = coerce_type(ptr->value, ptr->target->type);
+        ptr->type = ptr->value->type;
+        return;
+    }
+
+    if (auto ptr = std::dynamic_pointer_cast<ast_expr_binary>(expr)) {
+        resolve_types(ctx, scope, ptr->lhs);
+        resolve_types(ctx, scope, ptr->rhs);
+
+        ptr->lhs = coerce_type(ptr->lhs, ast_type_int::instance);
+        ptr->rhs = coerce_type(ptr->rhs, ast_type_int::instance);
+        ptr->type = ast_type_int::instance;
+        return;
+    }
+
+    if (auto ptr = std::dynamic_pointer_cast<ast_expr_unary>(expr)) {
+        resolve_types(ctx, scope, ptr->value);
+
+        ptr->value = coerce_type(ptr->value, ast_type_int::instance);
+        ptr->type = ast_type_int::instance;
+        return;
+    }
+
+    if (auto ptr = std::dynamic_pointer_cast<ast_expr_call>(expr)) {
+        const auto & decl = ctx.functions[ptr->id];
+
+        if (ptr->args.size() != decl->args.size()) {
+            throw std::invalid_argument { "number of arguments doesn't correspond to number of function parameters" };
+        }
+
+        for (std::size_t i = 0; i < ptr->args.size(); ++i) {
+            resolve_types(ctx, scope, ptr->args[i]);
+            ptr->args[i] = coerce_type(ptr->args[i], decl->args[i].type);
+        }
+
+        ptr->type = decl->return_type;
+        return;
+    }
+
+    if (auto ptr = std::dynamic_pointer_cast<ast_expr_return>(expr)) {
+        resolve_types(ctx, scope, ptr->value);
+
+        ptr->value = coerce_type(ptr->value, ctx.current_function->return_type);
+        ptr->type = ast_type_int::instance;
+        return;
+    }
+
+    if (auto ptr = std::dynamic_pointer_cast<ast_expr_break>(expr)) {
+        ptr->type = ast_type_int::instance;
+        return;
+    }
+
+    if (auto ptr = std::dynamic_pointer_cast<ast_expr_continue>(expr)) {
+        ptr->type = ast_type_int::instance;
+        return;
+    }
+
+    throw std::invalid_argument { "unsupported expr" };
+}
+
+static void resolve_types(type_resolver_context & ctx, const std::shared_ptr<ast_decl> & decl) {
+    if (!decl->body) {
+        return;
+    }
+
+    type_resolver_scope initial_scope { nullptr };
+    for (const auto & arg : decl->args) {
+        initial_scope.variables[arg.id] = { arg.type };
+    }
+
+    ctx.current_function = decl;
+
+    decl->body = fill_null_expr(decl->body);
+    resolve_types(ctx, initial_scope, decl->body);
+
+    decl->body = coerce_type(decl->body, decl->return_type);
 }
 
 static void resolve_types(const std::shared_ptr<ast_program> & program) {
+    type_resolver_context ctx;
+
     for (const auto & decl : program->decls) {
-        resolve_types(decl);
+        if (!decl->return_type) {
+            decl->return_type = ast_type_int::instance;
+        }
+
+        ctx.functions[decl->id] = decl;
+    }
+
+    for (const auto & decl : program->decls) {
+        resolve_types(ctx, decl);
     }
 }
 
@@ -135,26 +463,26 @@ static Type * compile(compiler_context & ctx, const std::shared_ptr<ast_type> & 
 }
 
 static Value * compile_lvalue(
-    compiler_context & ctx,
-    const std::shared_ptr<ast_lvalue_expr> & expr,
-    scope & parent_scope,
-    BasicBlock * next_basic_block
+        compiler_context & ctx,
+        const std::shared_ptr<ast_lvalue_expr> & expr,
+        compiler_scope & parent_scope,
+        BasicBlock * next_basic_block
 );
 
 static Value * compile_lvalue0(
-    compiler_context & ctx,
-    const std::shared_ptr<ast_lvalue_expr> & expr,
-    scope & scope,
-    BasicBlock * next_basic_block
+        compiler_context & ctx,
+        const std::shared_ptr<ast_lvalue_expr> & expr,
+        compiler_scope & scope,
+        BasicBlock * next_basic_block
 );
 
 static Value * compile(
-    compiler_context & ctx,
-    std::shared_ptr<ast_expr> expr,
-    scope & parent_scope,
-    BasicBlock * next_basic_block
+        compiler_context & ctx,
+        std::shared_ptr<ast_expr> expr,
+        compiler_scope & parent_scope,
+        BasicBlock * next_basic_block
 ) {
-    scope scope { &parent_scope };
+    compiler_scope scope {&parent_scope };
 
     while (true) {
         if (!expr) {
@@ -172,16 +500,26 @@ static Value * compile(
             continue;
         }
 
-        if (auto ptr = std::dynamic_pointer_cast<ast_expr_var_array>(expr)) {
-            auto * const var = ctx.ir_builder.CreateAlloca(compile(ctx, ptr->element_type), ptr->size);
-            ctx.ir_builder.CreateBr(next_basic_block);
-
-            parent_scope.variables[ptr->id] = { ptr->var_type, var };
-            return ctx.get_trivial_value();
-        }
-
         if (auto ptr = std::dynamic_pointer_cast<ast_expr_var>(expr)) {
             auto * const var = ctx.ir_builder.CreateAlloca(compile(ctx, ptr->var_type));
+
+            auto * const store_basic_block = ctx.create_basic_block();
+
+            Value * value = nullptr;
+            if (auto ptr1 = std::dynamic_pointer_cast<ast_expr_var_array>(expr)) {
+                value = ctx.ir_builder.CreateAlloca(compile(ctx, ptr1->element_type), ptr1->size);
+                ctx.ir_builder.CreateBr(store_basic_block);
+            } else if (ptr->value) {
+                ctx.ir_builder.CreateBr(ctx.get_basic_block(ptr->value));
+
+                value = compile(ctx, ptr->value, scope, store_basic_block);
+            }
+
+            if (value) {
+                ctx.ir_builder.SetInsertPoint(store_basic_block);
+                ctx.ir_builder.CreateStore(value, var);
+            }
+
             ctx.ir_builder.CreateBr(next_basic_block);
 
             parent_scope.variables[ptr->id] = { ptr->var_type, var };
@@ -197,8 +535,9 @@ static Value * compile(
             auto * const cond = compile(ctx, ptr->cond, scope, br_basic_block);
 
             ctx.ir_builder.SetInsertPoint(br_basic_block);
+            auto * const cond_bool = ctx.ir_builder.CreateIsNotNull(cond);
             ctx.ir_builder.CreateCondBr(
-                cond,
+                cond_bool,
                 ctx.get_basic_block(ptr->then_branch),
                 ctx.get_basic_block(ptr->else_branch)
             );
@@ -222,7 +561,8 @@ static Value * compile(
             auto * const cond = compile(ctx, ptr->cond, scope, br_basic_block);
 
             ctx.ir_builder.SetInsertPoint(br_basic_block);
-            ctx.ir_builder.CreateCondBr(cond, ctx.get_basic_block(ptr->body), next_basic_block);
+            auto * const cond_bool = ctx.ir_builder.CreateIsNotNull(cond);
+            ctx.ir_builder.CreateCondBr(cond_bool, ctx.get_basic_block(ptr->body), next_basic_block);
 
             ctx.loops.emplace_back(ctx.get_basic_block(ptr->cond), next_basic_block);
             compile(ctx, ptr->body, scope, ctx.get_basic_block(ptr->cond));
@@ -242,7 +582,8 @@ static Value * compile(
             auto * const cond = compile(ctx, ptr->cond, scope, br_basic_block);
 
             ctx.ir_builder.SetInsertPoint(br_basic_block);
-            ctx.ir_builder.CreateCondBr(cond, ctx.get_basic_block(ptr->body), next_basic_block);
+            auto * const cond_bool = ctx.ir_builder.CreateIsNotNull(cond);
+            ctx.ir_builder.CreateCondBr(cond_bool, ctx.get_basic_block(ptr->body), next_basic_block);
             return ctx.get_trivial_value();
         }
 
@@ -254,7 +595,8 @@ static Value * compile(
             auto * const cond = compile(ctx, ptr->cond, scope, br_basic_block);
 
             ctx.ir_builder.SetInsertPoint(br_basic_block);
-            ctx.ir_builder.CreateCondBr(cond, ctx.get_basic_block(ptr->body), next_basic_block);
+            auto * const cond_bool = ctx.ir_builder.CreateIsNotNull(cond);
+            ctx.ir_builder.CreateCondBr(cond_bool, ctx.get_basic_block(ptr->body), next_basic_block);
 
             ctx.loops.emplace_back(ctx.get_basic_block(ptr->post), next_basic_block);
             compile(ctx, ptr->body, scope, ctx.get_basic_block(ptr->post));
@@ -365,29 +707,41 @@ static Value * compile(
                     break;
                 }
 
-                case AST_EXPR_BINOP_EQ:
-                    result = ctx.ir_builder.CreateICmpEQ(lhs, rhs);
+                case AST_EXPR_BINOP_EQ: {
+                    auto * const result_bool = ctx.ir_builder.CreateICmpEQ(lhs, rhs);
+                    result = ctx.ir_builder.CreateZExt(result_bool, ctx.ir_builder.getInt32Ty());
                     break;
+                }
 
-                case AST_EXPR_BINOP_NE:
-                    result = ctx.ir_builder.CreateICmpNE(lhs, rhs);
+                case AST_EXPR_BINOP_NE: {
+                    auto * const result_bool = ctx.ir_builder.CreateICmpNE(lhs, rhs);
+                    result = ctx.ir_builder.CreateZExt(result_bool, ctx.ir_builder.getInt32Ty());
                     break;
+                }
 
-                case AST_EXPR_BINOP_LT:
-                    result = ctx.ir_builder.CreateICmpSLT(lhs, rhs);
+                case AST_EXPR_BINOP_LT: {
+                    auto * const result_bool = ctx.ir_builder.CreateICmpSLT(lhs, rhs);
+                    result = ctx.ir_builder.CreateZExt(result_bool, ctx.ir_builder.getInt32Ty());
                     break;
+                }
 
-                case AST_EXPR_BINOP_LE:
-                    result = ctx.ir_builder.CreateICmpSLE(lhs, rhs);
+                case AST_EXPR_BINOP_LE: {
+                    auto * const result_bool = ctx.ir_builder.CreateICmpSLE(lhs, rhs);
+                    result = ctx.ir_builder.CreateZExt(result_bool, ctx.ir_builder.getInt32Ty());
                     break;
+                }
 
-                case AST_EXPR_BINOP_GT:
-                    result = ctx.ir_builder.CreateICmpSGT(lhs, rhs);
+                case AST_EXPR_BINOP_GT: {
+                    auto * const result_bool = ctx.ir_builder.CreateICmpSGT(lhs, rhs);
+                    result = ctx.ir_builder.CreateZExt(result_bool, ctx.ir_builder.getInt32Ty());
                     break;
+                }
 
-                case AST_EXPR_BINOP_GE:
-                    result = ctx.ir_builder.CreateICmpSGE(lhs, rhs);
+                case AST_EXPR_BINOP_GE: {
+                    auto * const result_bool = ctx.ir_builder.CreateICmpSGE(lhs, rhs);
+                    result = ctx.ir_builder.CreateZExt(result_bool, ctx.ir_builder.getInt32Ty());
                     break;
+                }
             }
 
             ctx.ir_builder.CreateBr(next_basic_block);
@@ -451,18 +805,14 @@ static Value * compile(
         }
 
         if (auto ptr = std::dynamic_pointer_cast<ast_expr_return>(expr)) {
-            if (ptr->value) {
-                ctx.ir_builder.CreateBr(ctx.get_basic_block(ptr->value));
+            ctx.ir_builder.CreateBr(ctx.get_basic_block(ptr->value));
 
-                auto * const ret_basic_block = ctx.create_basic_block();
+            auto * const ret_basic_block = ctx.create_basic_block();
 
-                auto * const result = compile(ctx, ptr->value, scope, ret_basic_block);
+            auto * const result = compile(ctx, ptr->value, scope, ret_basic_block);
 
-                ctx.ir_builder.SetInsertPoint(ret_basic_block);
-                ctx.ir_builder.CreateRet(result);
-            } else {
-                ctx.ir_builder.CreateRet(Constant::getNullValue(ctx.current_function->getReturnType()));
-            }
+            ctx.ir_builder.SetInsertPoint(ret_basic_block);
+            ctx.ir_builder.CreateRet(result);
 
             // dummy value
             return ctx.ir_builder.getInt32(0);
@@ -495,21 +845,21 @@ static Value * compile(
 }
 
 static Value * compile_lvalue(
-    compiler_context & ctx,
-    const std::shared_ptr<ast_lvalue_expr> & expr,
-    scope & parent_scope,
-    BasicBlock * next_basic_block
+        compiler_context & ctx,
+        const std::shared_ptr<ast_lvalue_expr> & expr,
+        compiler_scope & parent_scope,
+        BasicBlock * next_basic_block
 ) {
-    scope scope { &parent_scope };
+    compiler_scope scope {&parent_scope };
 
     return compile_lvalue0(ctx, expr, scope, next_basic_block);
 }
 
 static Value * compile_lvalue0(
-    compiler_context & ctx,
-    const std::shared_ptr<ast_lvalue_expr> & expr,
-    scope & scope,
-    BasicBlock * next_basic_block
+        compiler_context & ctx,
+        const std::shared_ptr<ast_lvalue_expr> & expr,
+        compiler_scope & scope,
+        BasicBlock * next_basic_block
 ) {
     auto * const basic_block = ctx.get_basic_block(expr);
     ctx.ir_builder.SetInsertPoint(basic_block);
@@ -556,7 +906,7 @@ static void compile(compiler_context & ctx, const std::shared_ptr<ast_decl> & de
     auto * const first_basic_block = ctx.create_basic_block();
     ctx.ir_builder.SetInsertPoint(first_basic_block);
 
-    scope initial_scope { nullptr };
+    compiler_scope initial_scope {nullptr };
 
     {
         auto it = function->args().begin();

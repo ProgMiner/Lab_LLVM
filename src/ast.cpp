@@ -104,14 +104,14 @@ struct ast_expr * ast_expr_new_for(
         struct ast_expr * post,
         struct ast_expr * body
 ) {
-    return new ast_expr_seq {
-        std::shared_ptr<ast_expr> { init },
-        std::make_shared<ast_expr_for>(
+    return ast_expr_new_seq(
+        init,
+        new ast_expr_for {
             std::shared_ptr<ast_expr> { cond },
             std::shared_ptr<ast_expr> { body },
-            std::shared_ptr<ast_expr> { post }
-        ),
-    };
+            std::shared_ptr<ast_expr> { post },
+        }
+    );
 }
 
 struct ast_expr * ast_expr_new_name(char * id) {
