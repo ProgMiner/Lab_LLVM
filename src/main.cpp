@@ -842,6 +842,20 @@ static Value * compile(
             return ctx.ir_builder.getInt32(0);
         }
 
+        if (auto ptr = std::dynamic_pointer_cast<ast_expr_coerce_ptr_to_int>(expr)) {
+            ctx.ir_builder.CreateBr(ctx.get_basic_block(ptr->value));
+
+            auto * const coerce_basic_block = ctx.create_basic_block();
+
+            auto * const result_ptr = compile(ctx, ptr->value, scope, coerce_basic_block);
+
+            ctx.ir_builder.SetInsertPoint(coerce_basic_block);
+            auto * const result = ctx.ir_builder.CreatePtrToInt(result_ptr, compile(ctx, ptr->type));
+            ctx.ir_builder.CreateBr(next_basic_block);
+
+            return result;
+        }
+
         throw std::invalid_argument { "unsupported expr" };
     }
 }

@@ -376,9 +376,9 @@ struct ast_expr_coerce_ptr_to_int : ast_expr {
 
     std::shared_ptr<ast_expr> value;
 
-    explicit ast_expr_coerce_ptr_to_int(std::shared_ptr<ast_expr> value)
-        : value(std::move(value))
-    {}
+    explicit ast_expr_coerce_ptr_to_int(std::shared_ptr<ast_expr> value): value(std::move(value)) {
+        type = ast_type_int::instance;
+    }
 
     ast_expr * clone() override {
         return new ast_expr_coerce_ptr_to_int { ast_expr::clone(value) };
