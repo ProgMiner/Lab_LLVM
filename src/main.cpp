@@ -380,7 +380,7 @@ static void resolve_types(
     }
 
     if (auto ptr = std::dynamic_pointer_cast<ast_expr_call>(expr)) {
-        const auto & decl = ctx.functions[ptr->id];
+        const auto & decl = ctx.functions.at(ptr->id);
 
         if (ptr->args.size() != decl->args.size()) {
             throw std::invalid_argument { "number of arguments doesn't correspond to number of function parameters" };
@@ -507,7 +507,9 @@ static Value * compile(
 
             Value * value = nullptr;
             if (auto ptr1 = std::dynamic_pointer_cast<ast_expr_var_array>(expr)) {
-                value = ctx.ir_builder.CreateAlloca(compile(ctx, ptr1->element_type), ptr1->size);
+                auto * const size = ctx.ir_builder.getInt32(ptr1->size);
+
+                value = ctx.ir_builder.CreateAlloca(compile(ctx, ptr1->element_type), size);
                 ctx.ir_builder.CreateBr(store_basic_block);
             } else if (ptr->value) {
                 ctx.ir_builder.CreateBr(ctx.get_basic_block(ptr->value));
@@ -764,7 +766,7 @@ static Value * compile(
                     break;
 
                 case AST_EXPR_UNOP_BINV:
-                    result = ctx.ir_builder.CreateXor(value, Constant::getNullValue(value->getType()));
+                    result = ctx.ir_builder.CreateXor(value, ctx.ir_builder.getInt32(-1));
                     break;
 
                 case AST_EXPR_UNOP_INV: {
@@ -894,8 +896,11 @@ static void compile(compiler_context & ctx, const std::shared_ptr<ast_decl> & de
         return;
     }
 
+    ctx.llvm_basic_blocks.clear();
+    ctx.loops.clear();
+
     auto * const function = Function::Create(
-        ctx.llvm_function_types[decl->id],
+        ctx.llvm_function_types.at(decl->id),
         Function::ExternalLinkage,
         decl->id,
         ctx.llvm_module
@@ -979,8 +984,6 @@ int main(int argc, char * argv[]) {
     raw_fd_stream fos { "main.gen.ll", err };
     module->print(fos, nullptr);
 
-    return 0;
-
     LLVMInitializeNativeTarget();
     LLVMInitializeNativeAsmPrinter();
 
@@ -1009,7 +1012,12 @@ int main(int argc, char * argv[]) {
 
     ee->finalizeObject();
 
-    // const GenericValue result = ee->runFunction(main_function, {});
+    auto * const main_function = module->getFunction("main");
+    if (!main_function) {
+        throw std::invalid_argument { "main function is not defined" };
+    }
 
-    // return static_cast<int>(*result.IntVal.getRawData());
+    const GenericValue result = ee->runFunction(main_function, {});
+
+    return static_cast<int>(*result.IntVal.getRawData());
 }

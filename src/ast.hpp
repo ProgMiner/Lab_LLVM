@@ -79,6 +79,14 @@ struct ast_expr {
     virtual ast_expr * clone() = 0;
 
     virtual ~ast_expr() noexcept = default;
+
+    static std::shared_ptr<ast_expr> clone(const std::shared_ptr<ast_expr> & expr) {
+        if (!expr) {
+            return nullptr;
+        }
+
+        return std::shared_ptr<ast_expr> { expr->clone() };
+    }
 };
 
 struct ast_expr_seq : ast_expr {
@@ -92,7 +100,7 @@ struct ast_expr_seq : ast_expr {
     {}
 
     ast_expr_seq * clone() override {
-        return new ast_expr_seq { lhs, rhs };
+        return new ast_expr_seq { ast_expr::clone(lhs), ast_expr::clone(rhs) };
     }
 };
 
@@ -109,7 +117,7 @@ struct ast_expr_var : ast_expr {
     {}
 
     ast_expr_var * clone() override {
-        return new ast_expr_var { id, var_type, value };
+        return new ast_expr_var { id, var_type, ast_expr::clone(value) };
     }
 };
 
@@ -159,7 +167,11 @@ struct ast_expr_if : ast_expr {
     {}
 
     ast_expr_if * clone() override {
-        return new ast_expr_if { cond, then_branch, else_branch };
+        return new ast_expr_if {
+            ast_expr::clone(cond),
+            ast_expr::clone(then_branch),
+            ast_expr::clone(else_branch),
+        };
     }
 };
 
@@ -174,7 +186,7 @@ struct ast_expr_while : ast_expr {
     {}
 
     ast_expr_while * clone() override {
-        return new ast_expr_while { cond, body };
+        return new ast_expr_while { ast_expr::clone(cond), ast_expr::clone(body) };
     }
 };
 
@@ -189,7 +201,7 @@ struct ast_expr_do : ast_expr {
     {}
 
     ast_expr_do * clone() override {
-        return new ast_expr_do { body, cond };
+        return new ast_expr_do { ast_expr::clone(body), ast_expr::clone(cond) };
     }
 };
 
@@ -206,11 +218,22 @@ struct ast_expr_for : ast_expr {
     {}
 
     ast_expr_for * clone() override {
-        return new ast_expr_for { cond, body, post };
+        return new ast_expr_for { ast_expr::clone(cond), ast_expr::clone(body), ast_expr::clone(post) };
     }
 };
 
-struct ast_lvalue_expr : ast_expr {};
+struct ast_lvalue_expr : ast_expr {
+
+    ast_lvalue_expr * clone() override = 0;
+
+    static std::shared_ptr<ast_lvalue_expr> clone(const std::shared_ptr<ast_lvalue_expr> & expr) {
+        if (!expr) {
+            return nullptr;
+        }
+
+        return std::shared_ptr<ast_lvalue_expr> { expr->clone() };
+    }
+};
 
 struct ast_expr_name : ast_lvalue_expr {
 
@@ -247,7 +270,7 @@ struct ast_expr_subscript : ast_lvalue_expr {
     {}
 
     ast_expr_subscript * clone() override {
-        return new ast_expr_subscript { value, index };
+        return new ast_expr_subscript { ast_expr::clone(value), ast_expr::clone(index) };
     }
 };
 
@@ -262,7 +285,7 @@ struct ast_expr_assign : ast_expr {
     {}
 
     ast_expr_assign * clone() override {
-        return new ast_expr_assign { target, value };
+        return new ast_expr_assign { ast_lvalue_expr::clone(target), ast_expr::clone(value) };
     }
 };
 
@@ -279,7 +302,7 @@ struct ast_expr_binary : ast_expr {
     {}
 
     ast_expr_binary * clone() override {
-        return new ast_expr_binary { op, lhs, rhs };
+        return new ast_expr_binary { op, ast_expr::clone(lhs), ast_expr::clone(rhs) };
     }
 };
 
@@ -294,7 +317,7 @@ struct ast_expr_unary : ast_expr {
     {}
 
     ast_expr_unary * clone() override {
-        return new ast_expr_unary { op, value };
+        return new ast_expr_unary { op, ast_expr::clone(value) };
     }
 };
 
@@ -309,7 +332,14 @@ struct ast_expr_call : ast_expr {
     {}
 
     ast_expr_call * clone() override {
-        return new ast_expr_call { id, args };
+        std::vector<std::shared_ptr<ast_expr>> new_args;
+        new_args.reserve(args.size());
+
+        for (const auto & arg : args) {
+            new_args.emplace_back(ast_expr::clone(arg));
+        }
+
+        return new ast_expr_call { id, std::move(new_args) };
     }
 };
 
@@ -320,7 +350,7 @@ struct ast_expr_return : ast_expr {
     explicit ast_expr_return(std::shared_ptr<ast_expr> value): value(std::move(value)) {}
 
     ast_expr_return * clone() override {
-        return new ast_expr_return { value };
+        return new ast_expr_return { ast_expr::clone(value) };
     }
 };
 
@@ -351,7 +381,7 @@ struct ast_expr_coerce_ptr_to_int : ast_expr {
     {}
 
     ast_expr * clone() override {
-        return new ast_expr_coerce_ptr_to_int {value };
+        return new ast_expr_coerce_ptr_to_int { ast_expr::clone(value) };
     }
 };
 
